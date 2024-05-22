@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:alarm_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -9,7 +12,18 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const HomeScreen(
+                    title: 'hi',
+                  )));
+    });
+  }
+
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold();
   }
 }
