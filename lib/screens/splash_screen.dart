@@ -26,6 +26,24 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+        body: Center(
+            child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          "assets/icon.jpg",
+          width: 200,
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        const Text(
+          "My Alarm",
+          style: TextStyle(
+              fontSize: 30, color: Colors.blue, fontWeight: FontWeight.bold),
+        )
+      ],
+    )));
   }
 }
