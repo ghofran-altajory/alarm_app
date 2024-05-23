@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -22,9 +24,13 @@ class _LoginScreenState extends State<LoginScreen> {
             'assets/ss.png' , 
             height: 150,
           )
+          SizedBox(height: 20),
           
           //Title
-          
+          Text('تسجيل الدخول' , 
+          style: GoogleFonts.robotoCondensed(
+            fontSize: 40, fontWeight: FontWeight.bold),
+            )
           //sub title
           
           //user name
