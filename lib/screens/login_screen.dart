@@ -32,7 +32,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 40, fontWeight: FontWeight.bold),
               ),
               //sub title
-
+                Text('مرحبا بعودتك',
+                style: GoogleFonts.robotoCondensed(
+                    fontSize: 18, ),
+              ),
               //user name
 
               //password
