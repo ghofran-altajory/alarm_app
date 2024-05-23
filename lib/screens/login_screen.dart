@@ -32,17 +32,59 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 40, fontWeight: FontWeight.bold),
               ),
               //sub title
-                Text('مرحبا بعودتك',
+              Text(
+                '!مرحبا بعودتك',
                 style: GoogleFonts.robotoCondensed(
-                    fontSize: 18, ),
+                  fontSize: 18,
+                ),
               ),
-              //user name
-
+              const SizedBox(
+                height: 50,
+              ),
+              //user name or Email
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: ' اسم المستخدم او البريد إلكتروني ',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
               //password
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'كلمة المرور',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
 
-              //sign in
+              //sign in button
 
-              //sign up
+              //text: sign up
             ],
           ),
         ),
