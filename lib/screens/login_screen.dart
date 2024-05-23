@@ -13,35 +13,35 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white ,
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-          //Image
-          Image.asset(
-            'assets/ss.png' , 
-            height: 150,
-          )
-          SizedBox(height: 20),
-          
-          //Title
-          Text('تسجيل الدخول' , 
-          style: GoogleFonts.robotoCondensed(
-            fontSize: 40, fontWeight: FontWeight.bold),
-            )
-          //sub title
-          
-          //user name
-          
-          //password
-          
-          //sign in
-          
-          //sign up
-              
-            ],),
+              //Image
+              Image.asset(
+                'assets/ss.png',
+                height: 150,
+              ),
+              const SizedBox(height: 20),
+              //Title
+              Text(
+                'تسجيل الدخول',
+                style: GoogleFonts.robotoCondensed(
+                    fontSize: 40, fontWeight: FontWeight.bold),
+              ),
+              //sub title
+
+              //user name
+
+              //password
+
+              //sign in
+
+              //sign up
+            ],
+          ),
         ),
       ),
     );
