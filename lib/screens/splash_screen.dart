@@ -23,17 +23,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[50],
-      appBar: AppBar(
-        title: const Text('ALARM'),
-        //اسم التطبيق من فوق
-        backgroundColor: Colors.green[200],
-      ),
-      body: const Center(
-        child: Image(
-          image: AssetImage('assets/a3.png'),
-        ),
-      ),
-    );
+        backgroundColor: const Color.fromRGBO(229, 255, 224, 1),
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              "assets/a3.png",
+            ),
+          ],
+        )));
   }
 }
