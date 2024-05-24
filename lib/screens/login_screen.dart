@@ -10,7 +10,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   void openSignupScreen() {
-    Navigator.of(context).pushReplacementNamed('شاشة تسجيل دخول');
+    Navigator.of(context).pushReplacementNamed('SignupScreen');
   }
 
   @override
