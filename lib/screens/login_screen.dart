@@ -13,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 236, 234, 234),
+      backgroundColor: Color.fromARGB(223, 242, 255, 233),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -63,6 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 10),
               //password
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
@@ -83,40 +84,48 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-SizedBox(height: 12,),
+              const SizedBox(height: 12),
               //sign in button
-Padding(
-  padding: const EdgeInsets.symmetric(horizontal: 25),
-  child: Container(
-    padding: EdgeInsets.all(16),
-    decoration: BoxDecoration(color: Colors.green[300],
-    borderRadius: BorderRadius.circular(12)),
-    child: Center(child: Text('تسجيل الدخول' ,
-    style: GoogleFonts.robotoCondensed(color: Colors.white ,
-    fontWeight: FontWeight.bold,
-    fontSize:18,),)),
-  ),
-),
-SizedBox(height: 25,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                      color: Colors.green[300],
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Center(
+                      child: Text(
+                    'تسجيل الدخول',
+                    style: GoogleFonts.robotoCondensed(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  )),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
               //text: sign up
-Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-     Text('سجل الان', style: GoogleFonts.robotoCondensed(color: Colors.green[300],
-    fontWeight: FontWeight.bold),
-    ),
-      SizedBox(height: 25,),
-
-    Text('لا يوجد لديك حساب!!',
-    style: GoogleFonts.robotoCondensed(
-    fontWeight: FontWeight.bold),
-    ),
-   
-   
-    
-  ],
-)
-
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'سجل الان',
+                    style: GoogleFonts.robotoCondensed(
+                        color: Colors.green[300], fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    'لا يوجد لديك حساب؟',
+                    style: GoogleFonts.robotoCondensed(
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              )
             ],
           ),
         ),
