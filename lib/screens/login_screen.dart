@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -18,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(223, 242, 255, 233),
+      backgroundColor: const Color.fromARGB(223, 242, 255, 233),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -94,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                       color: Colors.green[300],
                       borderRadius: BorderRadius.circular(12)),
@@ -109,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   )),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               //text: sign up
