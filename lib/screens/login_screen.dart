@@ -6,15 +6,15 @@ import 'package:google_fonts/google_fonts.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
-void opensignupScreen(){
-Navigator.of(context).pushReplacementNamed('شاشة تسجيل دخول');
-
-}
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  void openSignupScreen() {
+    Navigator.of(context).pushReplacementNamed('شاشة تسجيل دخول');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,11 +117,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    //onTap: opensignupScreen(),
+                    onTap: openSignupScreen,
                     child: Text(
                       'سجل الان',
                       style: GoogleFonts.robotoCondensed(
-                          color: Colors.green[300], fontWeight: FontWeight.bold),
+                          color: Colors.green[300],
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                   const SizedBox(
