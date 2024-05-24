@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: opensignupScreen(),
+                    //onTap: opensignupScreen(),
                     child: Text(
                       'سجل الان',
                       style: GoogleFonts.robotoCondensed(
