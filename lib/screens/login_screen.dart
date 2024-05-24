@@ -102,13 +102,17 @@ SizedBox(height: 25,),
 Row(
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
+     Text('سجل الان', style: GoogleFonts.robotoCondensed(color: Colors.green[300],
+    fontWeight: FontWeight.bold),
+    ),
+      SizedBox(height: 25,),
+
     Text('لا يوجد لديك حساب!!',
     style: GoogleFonts.robotoCondensed(
     fontWeight: FontWeight.bold),
     ),
-    Text('سجل الان', style: GoogleFonts.robotoCondensed(color: Colors.green[300],
-    fontWeight: FontWeight.bold),
-    ),
+   
+   
     
   ],
 )
