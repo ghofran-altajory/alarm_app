@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,6 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
+void opensignupScreen(){
+Navigator.of(context).pushReplacementNamed('شاشة تسجيل دخول');
+
+}
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -111,10 +116,13 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'سجل الان',
-                    style: GoogleFonts.robotoCondensed(
-                        color: Colors.green[300], fontWeight: FontWeight.bold),
+                  GestureDetector(
+                    onTap: opensignupScreen(),
+                    child: Text(
+                      'سجل الان',
+                      style: GoogleFonts.robotoCondensed(
+                          color: Colors.green[300], fontWeight: FontWeight.bold),
+                    ),
                   ),
                   const SizedBox(
                     width: 8,
