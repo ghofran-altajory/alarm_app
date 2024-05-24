@@ -1,3 +1,5 @@
+import 'package:alarm_app/screens/login_screen.dart';
+import 'package:alarm_app/screens/signup_screen.dart';
 import 'package:alarm_app/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +18,12 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
       ),
       home: const SplashScreen(),
+      routes: {
+        'signupScreen': (context) => const SignupScreen(),
+        'loginScreen': (context) => const LoginScreen()
+//'homeScreen': 
+
+      },
     );
   }
 }
