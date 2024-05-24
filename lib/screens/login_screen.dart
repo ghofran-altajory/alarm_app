@@ -52,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
+                      textAlign: TextAlign.right,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: ' اسم المستخدم او البريد إلكتروني ',
@@ -72,6 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: TextField(
+                      textAlign: TextAlign.right,
                       obscureText: true,
                       decoration: InputDecoration(
                         border: InputBorder.none,
