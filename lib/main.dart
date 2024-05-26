@@ -1,7 +1,6 @@
 import 'package:alarm_app/auth.dart';
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:alarm_app/screens/signup_screen.dart';
-import 'package:alarm_app/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
       home: const Auth(),
       routes: {
         'signupScreen': (context) => const SignupScreen(),
-        'loginScreen': (context) => const LoginScreen()
+        'loginScreen': (context) => const LoginScreen(),
 //'homeScreen':
       },
     );
