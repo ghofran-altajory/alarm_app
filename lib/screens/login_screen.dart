@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,6 +17,11 @@ class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+  Future signIn() async{
+await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailcontroller.text.trim(), 
+password: passwordcontroller.text.trim(),);
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,6 +104,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 //sign in button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: GestureDetector(
+                    onTap: signIn,
                   child: Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
