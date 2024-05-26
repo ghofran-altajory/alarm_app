@@ -36,10 +36,10 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //Image
-                Image.asset(
-                  'assets/pic.png',
-                  height: 150,
-                ),
+                //Image.asset(
+                // 'assets/pic.png',
+                // height: 150,
+                //   ),
                 const SizedBox(height: 20),
                 //Title
                 Text(
@@ -58,50 +58,48 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50,
                 ),
                 //user name or Email
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextField(
-                        controller: emailcontroller,
-                        textAlign: TextAlign.right,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: ' اسم المستخدم او البريد إلكتروني ',
-                        ),
-                      ),
-                    ),
-                  ),
+                TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "الرجاء إدخال بريدك الإلكتروني ";
+                    }
+
+                    return null;
+                  },
+                  controller: emailcontroller,
+                  decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 25),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                      hintText: "البريد الإلكتروني"),
                 ),
                 const SizedBox(height: 10),
                 //password
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextField(
-                        controller: passwordcontroller,
-                        textAlign: TextAlign.right,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'كلمة المرور',
-                        ),
-                      ),
-                    ),
-                  ),
+                TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "الرجاء إدخال كلمة المرور";
+                    }
+
+                    return null;
+                  },
+                  controller: passwordcontroller,
+                  decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 25),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                      hintText: " كلمة المرور"),
                 ),
+
                 const SizedBox(height: 12),
                 //sign in button
                 Padding(
