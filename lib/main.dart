@@ -1,4 +1,5 @@
 import 'package:alarm_app/auth.dart';
+import 'package:alarm_app/screens/home_screen.dart';
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:alarm_app/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,11 +25,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home: const Auth(),
+      //home: const SplashScreen(),
+      // home: const Auth(),
       routes: {
+        '/': (context) => const Auth(),
         'signupScreen': (context) => const SignupScreen(),
-        'loginScreen': (context) => const LoginScreen()
-//'homeScreen':
+        'loginScreen': (context) => const LoginScreen(),
+        'homeScreen': (context) => const HomeScreen(),
       },
     );
   }
