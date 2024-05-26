@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "841801292801",
+    "project_id": "alarrm-app",
+    "storage_bucket": "alarrm-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841801292801:android:3457884e9557497c39b400",
+        "android_client_info": {
+          "package_name": "com.example.alarm_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd_cpGJOyjLEms2qcYtcMO7LsjWkZxBUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
