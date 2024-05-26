@@ -1,3 +1,4 @@
+import 'package:alarm_app/auth.dart';
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:alarm_app/screens/signup_screen.dart';
 import 'package:alarm_app/screens/splash_screen.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home: const SplashScreen(),
+      home: const Auth(),
       routes: {
         'signupScreen': (context) => const SignupScreen(),
         'loginScreen': (context) => const LoginScreen()
