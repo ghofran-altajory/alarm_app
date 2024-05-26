@@ -17,11 +17,13 @@ class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
-  Future signIn() async{
-await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailcontroller.text.trim(), 
-password: passwordcontroller.text.trim(),);
-
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailcontroller.text.trim(),
+      password: passwordcontroller.text.trim(),
+    );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,20 +108,21 @@ password: passwordcontroller.text.trim(),);
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: GestureDetector(
                     onTap: signIn,
-                  child: Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                        color: Colors.green[300],
-                        borderRadius: BorderRadius.circular(12)),
-                    child: Center(
-                        child: Text(
-                      'تسجيل الدخول',
-                      style: GoogleFonts.robotoCondensed(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    )),
+                    child: Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                          color: Colors.green[300],
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Center(
+                          child: Text(
+                        'تسجيل الدخول',
+                        style: GoogleFonts.robotoCondensed(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      )),
+                    ),
                   ),
                 ),
                 const SizedBox(
