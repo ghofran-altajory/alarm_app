@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:alarm_app/main.dart';
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()));
+          MaterialPageRoute(builder: (context) => const ScreenRouter()));
     });
     super.initState();
   }
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(229, 255, 224, 1),
+        backgroundColor: const Color(0xffffffff),
         body: Center(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

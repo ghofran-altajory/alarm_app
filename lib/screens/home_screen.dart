@@ -1,3 +1,6 @@
+import 'package:alarm_app/main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,11 +13,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Center(
-      child: Text('مرحبا بك ! لقد سجلت دخولك بنجاح',
-          style:
-              TextStyle(color: Color.fromARGB(0, 65, 224, 34), fontSize: 22)),
-    ));
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          FirebaseAuth.instance.signOut().then((value) {
+            Navigator.pushAndRemoveUntil(
+                context,
+                CupertinoPageRoute(builder: (context) => const ScreenRouter()),
+                (route) => false);
+          });
+        }),
+        body: const Center(
+          child: Text('مرحبا بك ! لقد سجلت دخولك بنجاح',
+              style: TextStyle(color: Colors.black, fontSize: 22)),
+        ));
   }
 }
