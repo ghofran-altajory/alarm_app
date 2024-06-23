@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:alarm_app/main.dart';
+// ignore: unused_import
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/a3.png",
+              "assets/splash3.png",
             ),
           ],
         )));
