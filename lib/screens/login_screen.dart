@@ -13,11 +13,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  void openSignupScreen() {
-    Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const SignupScreen()));
-  }
-
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
@@ -153,7 +148,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
-                        onTap: openSignupScreen,
+                        onTap: () {
+                          Navigator.of(context).push(CupertinoPageRoute(
+                              builder: (context) => const SignupScreen()));
+                        },
                         child: Text(
                           'سجل الان',
                           style: GoogleFonts.robotoCondensed(
