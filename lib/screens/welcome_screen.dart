@@ -16,7 +16,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/welcome2.png', width: 100, height: 100),
+            Image.asset('assets/welcome3.png', width: 100, height: 100),
             const SizedBox(height: 20),
             const Text(
               ' تطبيق “ Your Alarm “ هو منبه لكبار السن وذوي الاحتياجات الخاصة لمساعدتهم على تذكر مواعيد الادوية والمرجعات الطبية ',
