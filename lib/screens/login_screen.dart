@@ -20,25 +20,29 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 250, 252, 249),
+      
+      backgroundColor: Color.fromARGB(255, 252, 252, 252),
       appBar: AppBar(
-        title: Text('تسجيل الدخول',
-        style: GoogleFonts.robotoCondensed(
-                      color: const Color.fromARGB(255, 24, 131, 219),
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ), ),
+        backgroundColor: Color.fromARGB(255, 252, 252, 252),
+        title: Text(
+          'تسجيل الدخول',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.robotoCondensed(
+            color: const Color.fromARGB(255, 24, 131, 219),
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: SafeArea(
         child: Container(
+          
           padding: EdgeInsets.all(20),
           child: SingleChildScrollView(
             //scrolling
             child: Form(
               key: formKey,
               child: Column(
-                
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //Image
                   //Image.asset(
@@ -48,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 20),
                   //Title
                   Text(
-               '!مرحبا',
+                    '!مرحبا',
                     style: GoogleFonts.robotoCondensed(
                       color: const Color.fromARGB(255, 24, 131, 219),
                       fontSize: 20,
@@ -57,15 +61,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   //sub title
                   Text(
-                    'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ', 
+                    'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
                     style: GoogleFonts.robotoCondensed(
-                      fontSize:12,
+                      fontSize: 12,
                     ),
                   ),
                   const SizedBox(
                     height: 50,
                   ),
                   //user name or Email
+                  Text('اسم المستخدم او البريد الالكتروني',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.robotoCondensed(
+                        color: Color.fromARGB(255, 24, 1, 1),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      )),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -76,18 +87,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     controller: emailcontroller,
                     decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 25),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 221, 15, 15))),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 221, 15, 15))),
-                        hintText: "البريد الإلكتروني"),
+                      hintText: 'example@example.com',
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                    ),
                   ),
                   const SizedBox(height: 10),
                   //password
-
+                  Text('كلمة المرور',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.robotoCondensed(
+                        color: Color.fromARGB(255, 24, 1, 1),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      )),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -98,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     controller: passwordcontroller,
                     decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 25),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromARGB(255, 221, 15, 15))),
@@ -108,7 +126,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintText: " كلمة المرور"),
                   ),
 
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
+                  Text('هل نسيت كلمة المرور؟',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.robotoCondensed(
+                        color: Colors.blue,
+                        fontSize: 15,
+                      )),
+                  const SizedBox(height: 100),
                   //sign in button
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -140,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                            color: Colors.green[300],
+                            color: Colors.blue,
                             borderRadius: BorderRadius.circular(12)),
                         child: Center(
                             child: Text(
@@ -169,8 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           'سجل الان',
                           style: GoogleFonts.robotoCondensed(
-                              color: Colors.green[300],
-                              fontWeight: FontWeight.bold),
+                              color: Colors.blue, fontWeight: FontWeight.bold),
                         ),
                       ),
                       const SizedBox(
