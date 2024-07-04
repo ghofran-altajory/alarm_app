@@ -20,14 +20,24 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(223, 242, 255, 233),
+      backgroundColor: Color.fromARGB(255, 250, 252, 249),
+      appBar: AppBar(
+        title: Text('تسجيل الدخول',
+        style: GoogleFonts.robotoCondensed(
+                      color: const Color.fromARGB(255, 24, 131, 219),
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ), ),
+      ),
       body: SafeArea(
-        child: Center(
+        child: Container(
+          padding: EdgeInsets.all(20),
           child: SingleChildScrollView(
             //scrolling
             child: Form(
               key: formKey,
               child: Column(
+                
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //Image
@@ -38,15 +48,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 20),
                   //Title
                   Text(
-                    'تسجيل الدخول',
+               '!مرحبا',
                     style: GoogleFonts.robotoCondensed(
-                        fontSize: 40, fontWeight: FontWeight.bold),
+                      color: const Color.fromARGB(255, 24, 131, 219),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   //sub title
                   Text(
-                    '!مرحبا بعودتك',
+                    'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ', 
                     style: GoogleFonts.robotoCondensed(
-                      fontSize: 18,
+                      fontSize:12,
                     ),
                   ),
                   const SizedBox(
