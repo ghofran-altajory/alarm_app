@@ -88,6 +88,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: emailcontroller,
                     decoration: const InputDecoration(
                       hintText: 'example@example.com',
+                      filled: true,
+                      fillColor: Color.fromARGB(255, 137, 166, 194),
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
