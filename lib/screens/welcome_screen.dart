@@ -22,7 +22,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 Image.asset('assets/welcome2.png', width: 100, height: 100),
                 const SizedBox(height: 20),
                 const Text(
-                  ' تطبيق “ Your Alarm “ هو منبه لكبار السن وذوي الاحتياجات الخاصة لمساعدتهم على تذكر مواعيد الادوية والمرجعات الطبية ',
+                  ' تطبيق “ Your Alarm “ هو منبه لكبار السن وذوي الاحتياجات الخاصة لمساعدتهم على تذكر مواعيد الادوية والمراجعات الطبية ',
                   style: TextStyle(
                     fontSize: 16,
                     color: Color(0xFF1A73E8),

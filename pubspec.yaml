@@ -38,8 +38,12 @@ dependencies:
   google_fonts: 
   provider:   
   http:
-  firebase_core:
-  firebase_auth: ^4.19.6
+  firebase_core: 
+  firebase_auth: ^5.1.1
+  cloud_firestore: 
+  firebase_storage: 
+  firebase_messaging: 
+  google_sign_in: ^6.2.1 
 
 dev_dependencies:
   flutter_test:

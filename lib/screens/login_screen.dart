@@ -118,6 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               }
                             });
                           } on FirebaseAuthException catch (e) {
+                            // ignore: use_build_context_synchronously
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(e.message.toString())));
                           }
