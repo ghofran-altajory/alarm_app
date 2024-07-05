@@ -41,9 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
         title: Text(
           'تسجيل الدخول',
           textAlign: TextAlign.center,
-          style: GoogleFonts.robotoCondensed(
+          style: GoogleFonts.almarai(
             color: const Color.fromARGB(255, 24, 131, 219),
-            fontSize: 24,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -171,7 +171,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
