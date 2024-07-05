@@ -79,6 +79,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                            const SizedBox(
+                              height: 15,
+                            ),
                             Text(
                               'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
                               style: GoogleFonts.almarai(
@@ -86,9 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 color: Colors.black,
                               ),
                             ),
-                            const SizedBox(
-                              height: 30,
-                            ),
+                            const SizedBox(height: 30),
                           ]), //
                     ],
                   ),
