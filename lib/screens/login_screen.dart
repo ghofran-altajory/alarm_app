@@ -80,7 +80,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-
                             Text(
                               'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
                               style: GoogleFonts.robotoCondensed(
@@ -172,12 +171,24 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Text('هل نسيت كلمة المرور؟',
-                      textAlign: TextAlign.right,
-                      style: GoogleFonts.robotoCondensed(
-                        color: Colors.blue,
-                        fontSize: 15,
-                      )),
+
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text('هل نسيت كلمة المرور؟',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.robotoCondensed(
+                                color: Colors.blue,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 100),
                   //sign in button
                   Padding(
