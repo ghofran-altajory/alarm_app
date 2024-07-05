@@ -3,7 +3,6 @@ import 'package:alarm_app/screens/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -21,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFCFCFf),
+      backgroundColor: const Color(0xFFFCFCFf),
       appBar: AppBar(
         leading: IconTheme(
           data: const IconThemeData(
@@ -126,13 +125,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                     controller: emailcontroller,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: 'example@example.com',
                       filled: true,
                       fillColor: Color.fromARGB(255, 220, 229, 236),
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 2, horizontal: 10),
                       border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                           // BorderRadius borderRadius = BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(
                               color: Color.fromARGB(255, 204, 14, 14))),
@@ -143,13 +143,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 10),
                   //password
-                  Text('كلمة المرور',
-                      textAlign: TextAlign.right,
-                      style: GoogleFonts.robotoCondensed(
-                        color: const Color.fromARGB(255, 24, 1, 1),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      )),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text('كلمة المرور',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.robotoCondensed(
+                                color: const Color.fromARGB(255, 24, 1, 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -159,12 +169,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                     controller: passwordcontroller,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: '********',
                       filled: true,
                       fillColor: Color.fromARGB(255, 220, 229, 236),
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
                       border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                           borderSide: BorderSide(
                               color: Color.fromARGB(255, 221, 15, 15))),
                       focusedBorder: OutlineInputBorder(
