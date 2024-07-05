@@ -3,6 +3,7 @@ import 'package:alarm_app/screens/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,8 +21,22 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 252, 252, 252),
+      backgroundColor: const Color.fromRGBO(252, 252, 252, 1),
       appBar: AppBar(
+        leading: IconTheme(
+          data: const IconThemeData(
+            color: Colors.blue,
+          ),
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
+        toolbarHeight: kToolbarHeight,
+        centerTitle: true,
+        elevation: 0.0,
         backgroundColor: const Color.fromARGB(255, 252, 252, 252),
         title: Text(
           'تسجيل الدخول',
@@ -53,26 +68,33 @@ class _LoginScreenState extends State<LoginScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
-                        textAlign: TextAlign.end,
-                        '!مرحبا',
-                        style: GoogleFonts.robotoCondensed(
-                          color: const Color.fromARGB(255, 24, 131, 219),
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            textAlign: TextAlign.end,
+                            '!مرحبا',
+                            style: GoogleFonts.robotoCondensed(
+                              color: const Color.fromARGB(255, 24, 131, 219),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
+                            style: GoogleFonts.robotoCondensed(
+                              fontSize: 12,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          //
+                        ],
                       ),
-
-                      Text(
-                        'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
-                        style: GoogleFonts.robotoCondensed(
-                          fontSize: 12,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      //
                     ],
                   ),
                   //sub title
