@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
       backgroundColor: const Color(0xFFFFFFFF),
       appBar: AppBar(
         title: const Text(
@@ -32,34 +33,60 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
+=======
+      
+      backgroundColor: Color.fromARGB(255, 252, 252, 252),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 252, 252, 252),
+        title: Text(
+          'تسجيل الدخول',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.robotoCondensed(
+            color: const Color.fromARGB(255, 24, 131, 219),
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+>>>>>>> 13e91eee290ddd2de7011a71b469868809c9faa6
       ),
       body: SafeArea(
-        child: Center(
+        child: Container(
+          
+          padding: EdgeInsets.all(20),
           child: SingleChildScrollView(
             //scrolling
             child: Form(
               key: formKey,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 20),
                   //Title
                   Text(
-                    'تسجيل الدخول',
+                    '!مرحبا',
                     style: GoogleFonts.robotoCondensed(
-                        fontSize: 40, fontWeight: FontWeight.bold),
+                      color: const Color.fromARGB(255, 24, 131, 219),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   //sub title
                   Text(
-                    '!مرحبا بعودتك',
+                    'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
                     style: GoogleFonts.robotoCondensed(
-                      fontSize: 18,
+                      fontSize: 12,
                     ),
                   ),
                   const SizedBox(
                     height: 50,
                   ),
                   //user name or Email
+                  Text('اسم المستخدم او البريد الالكتروني',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.robotoCondensed(
+                        color: Color.fromARGB(255, 24, 1, 1),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      )),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -70,18 +97,27 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     controller: emailcontroller,
                     decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 25),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 221, 15, 15))),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 221, 15, 15))),
-                        hintText: "البريد الإلكتروني"),
+                      hintText: 'example@example.com',
+                      filled: true,
+                      fillColor: Color.fromARGB(255, 137, 166, 194),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                    ),
                   ),
                   const SizedBox(height: 10),
                   //password
-
+                  Text('كلمة المرور',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.robotoCondensed(
+                        color: Color.fromARGB(255, 24, 1, 1),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      )),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -92,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     controller: passwordcontroller,
                     decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 25),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromARGB(255, 221, 15, 15))),
@@ -102,7 +138,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintText: " كلمة المرور"),
                   ),
 
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
+                  Text('هل نسيت كلمة المرور؟',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.robotoCondensed(
+                        color: Colors.blue,
+                        fontSize: 15,
+                      )),
+                  const SizedBox(height: 100),
                   //sign in button
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -125,6 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               }
                             });
                           } on FirebaseAuthException catch (e) {
+                            // ignore: use_build_context_synchronously
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(e.message.toString())));
                           }
@@ -133,7 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                            color: Colors.green[300],
+                            color: Colors.blue,
                             borderRadius: BorderRadius.circular(12)),
                         child: Center(
                             child: Text(
@@ -162,8 +206,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           'سجل الان',
                           style: GoogleFonts.robotoCondensed(
-                              color: Colors.green[300],
-                              fontWeight: FontWeight.bold),
+                              color: Colors.blue, fontWeight: FontWeight.bold),
                         ),
                       ),
                       const SizedBox(
