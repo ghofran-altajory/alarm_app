@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               '!مرحبا',
                               style: GoogleFonts.robotoCondensed(
                                 color: const Color.fromARGB(255, 24, 131, 219),
-                                fontSize: 20,
+                                fontSize: 24,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   //sub title
 
                   const SizedBox(
-                    height: 50,
+                    height: 10,
                   ),
                   //user name or Email
                   Row(
@@ -124,13 +124,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                     controller: emailcontroller,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: 'example@example.com',
                       filled: true,
                       fillColor: Color.fromARGB(255, 220, 229, 236),
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 2, horizontal: 10),
                       border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                           // BorderRadius borderRadius = BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(
                               color: Color.fromARGB(255, 204, 14, 14))),
@@ -141,13 +142,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 10),
                   //password
-                  Text('كلمة المرور',
-                      textAlign: TextAlign.right,
-                      style: GoogleFonts.robotoCondensed(
-                        color: const Color.fromARGB(255, 24, 1, 1),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      )),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text('كلمة المرور',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.robotoCondensed(
+                                color: const Color.fromARGB(255, 24, 1, 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -157,12 +168,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                     controller: passwordcontroller,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: '********',
                       filled: true,
                       fillColor: Color.fromARGB(255, 220, 229, 236),
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
                       border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              20.0), // جعل حواف الصندوق دائرية
+
                           borderSide: BorderSide(
                               color: Color.fromARGB(255, 221, 15, 15))),
                       focusedBorder: OutlineInputBorder(
@@ -171,7 +185,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
