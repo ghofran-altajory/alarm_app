@@ -233,7 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                             color: Colors.blue,
-                            borderRadius: BorderRadius.circular(12)),
+                            borderRadius: BorderRadius.circular(30)),
                         child: Center(
                             child: Text(
                           'تسجيل الدخول',
