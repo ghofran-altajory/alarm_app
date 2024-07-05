@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     controller: passwordcontroller,
                     decoration: InputDecoration(
-                      hintText: '********',
+                      hintText: '**********',
                       filled: true,
                       fillColor: Color.fromARGB(255, 220, 229, 236),
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
