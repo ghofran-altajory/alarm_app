@@ -20,10 +20,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      backgroundColor: Color.fromARGB(255, 252, 252, 252),
+      backgroundColor: const Color.fromARGB(255, 252, 252, 252),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 252, 252, 252),
+        backgroundColor: const Color.fromARGB(255, 252, 252, 252),
         title: Text(
           'تسجيل الدخول',
           textAlign: TextAlign.center,
@@ -36,13 +35,13 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: SafeArea(
         child: Container(
-          
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             //scrolling
             child: Form(
               key: formKey,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //Image
                   //Image.asset(
@@ -51,21 +50,33 @@ class _LoginScreenState extends State<LoginScreen> {
                   //   ),
                   const SizedBox(height: 20),
                   //Title
-                  Text(
-                    '!مرحبا',
-                    style: GoogleFonts.robotoCondensed(
-                      color: const Color.fromARGB(255, 24, 131, 219),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        textAlign: TextAlign.end,
+                        '!مرحبا',
+                        style: GoogleFonts.robotoCondensed(
+                          color: const Color.fromARGB(255, 24, 131, 219),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      Text(
+                        'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
+                        style: GoogleFonts.robotoCondensed(
+                          fontSize: 12,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      //
+                    ],
                   ),
                   //sub title
-                  Text(
-                    'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
-                    style: GoogleFonts.robotoCondensed(
-                      fontSize: 12,
-                    ),
-                  ),
+
                   const SizedBox(
                     height: 50,
                   ),
@@ -73,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text('اسم المستخدم او البريد الالكتروني',
                       textAlign: TextAlign.right,
                       style: GoogleFonts.robotoCondensed(
-                        color: Color.fromARGB(255, 24, 1, 1),
+                        color: const Color.fromARGB(255, 24, 1, 1),
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
                       )),
@@ -89,12 +100,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: const InputDecoration(
                       hintText: 'example@example.com',
                       filled: true,
-                      fillColor: Color.fromARGB(255, 137, 166, 194),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      fillColor: Color.fromARGB(255, 220, 229, 236),
+                      contentPadding: EdgeInsets.symmetric(vertical: 2 , horizontal: 10),
                       border: OutlineInputBorder(
+                     // BorderRadius borderRadius = BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(
                               color: Color.fromARGB(255, 221, 15, 15))),
                       focusedBorder: OutlineInputBorder(
+                      
                           borderSide: BorderSide(
                               color: Color.fromARGB(255, 221, 15, 15))),
                     ),
@@ -104,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text('كلمة المرور',
                       textAlign: TextAlign.right,
                       style: GoogleFonts.robotoCondensed(
-                        color: Color.fromARGB(255, 24, 1, 1),
+                        color: const Color.fromARGB(255, 24, 1, 1),
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
                       )),
@@ -118,16 +131,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     controller: passwordcontroller,
                     decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 221, 15, 15))),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 221, 15, 15))),
-                        hintText: " كلمة المرور"),
+                      hintText: '********',
+                      filled: true,
+                      fillColor: Color.fromARGB(255, 220, 229, 236),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                    ),
                   ),
-
                   const SizedBox(height: 10),
                   Text('هل نسيت كلمة المرور؟',
                       textAlign: TextAlign.right,
