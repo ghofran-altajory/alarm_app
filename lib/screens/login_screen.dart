@@ -65,29 +65,32 @@ class _LoginScreenState extends State<LoginScreen> {
                   //   ),
                   const SizedBox(height: 20),
                   //Title
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        textAlign: TextAlign.end,
-                        '!مرحبا',
-                        style: GoogleFonts.robotoCondensed(
-                          color: const Color.fromARGB(255, 24, 131, 219),
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              textAlign: TextAlign.end,
+                              '!مرحبا',
+                              style: GoogleFonts.robotoCondensed(
+                                color: const Color.fromARGB(255, 24, 131, 219),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
 
-                      Text(
-                        'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
-                        style: GoogleFonts.robotoCondensed(
-                          fontSize: 12,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      //
+                            Text(
+                              'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
+                              style: GoogleFonts.robotoCondensed(
+                                fontSize: 12,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 30,
+                            ),
+                          ]), //
                     ],
                   ),
                   //sub title
@@ -96,13 +99,23 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 50,
                   ),
                   //user name or Email
-                  Text('اسم المستخدم او البريد الالكتروني',
-                      textAlign: TextAlign.right,
-                      style: GoogleFonts.robotoCondensed(
-                        color: const Color.fromARGB(255, 24, 1, 1),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      )),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text('اسم المستخدم او البريد الالكتروني',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.robotoCondensed(
+                                color: const Color.fromARGB(255, 24, 1, 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
