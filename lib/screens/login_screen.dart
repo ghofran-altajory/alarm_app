@@ -68,33 +68,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            textAlign: TextAlign.end,
-                            '!مرحبا',
-                            style: GoogleFonts.robotoCondensed(
-                              color: const Color.fromARGB(255, 24, 131, 219),
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
-                            style: GoogleFonts.robotoCondensed(
-                              fontSize: 12,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          //
-                        ],
+                      Text(
+                        textAlign: TextAlign.end,
+                        '!مرحبا',
+                        style: GoogleFonts.robotoCondensed(
+                          color: const Color.fromARGB(255, 24, 131, 219),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+
+                      Text(
+                        'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
+                        style: GoogleFonts.robotoCondensed(
+                          fontSize: 12,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      //
                     ],
                   ),
                   //sub title
