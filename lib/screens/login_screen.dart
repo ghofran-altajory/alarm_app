@@ -20,7 +20,19 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(223, 242, 255, 233),
+      backgroundColor: const Color(0xFFFFFFFF),
+      appBar: AppBar(
+        title: const Text(
+          'تسجيل الدخول',
+          style: TextStyle(
+            color: Color(0xFF2196F3),
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -30,11 +42,6 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //Image
-                  //Image.asset(
-                  // 'assets/pic.png',
-                  // height: 150,
-                  //   ),
                   const SizedBox(height: 20),
                   //Title
                   Text(
