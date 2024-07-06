@@ -59,7 +59,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 20),
-
+                  //user name
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -105,7 +105,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                   const SizedBox(height: 25),
-                  //user name or Email
+                  // Email
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -152,6 +152,24 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 10),
                   //password
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text('كلمة المرور',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.almarai(
+                                color: const Color.fromARGB(255, 24, 1, 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 13),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -161,14 +179,21 @@ class _SignupScreenState extends State<SignupScreen> {
                       return null;
                     },
                     controller: passwordcontroller,
-                    decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 25),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 221, 15, 15))),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                        hintText: " كلمة المرور"),
+                    decoration: InputDecoration(
+                      hintText: '**********',
+                      hintStyle: const TextStyle(fontSize: 16),
+                      filled: true,
+                      fillColor: const Color(0xFFECF1FF),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                    ),
                   ),
 
                   const SizedBox(height: 10),
