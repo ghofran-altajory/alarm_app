@@ -106,6 +106,24 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 25),
                   //user name or Email
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(' البريد الالكتروني',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.almarai(
+                                color: const Color(0xFF000000),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 13),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -115,14 +133,22 @@ class _SignupScreenState extends State<SignupScreen> {
                       return null;
                     },
                     controller: emailcontroller,
-                    decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 25),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 221, 15, 15))),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                        hintText: "البريد الإلكتروني"),
+                    decoration: InputDecoration(
+                      hintText: 'example@example.com',
+                      filled: true,
+                      fillColor: const Color(0xFFECF1FF),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 2, horizontal: 10),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        borderSide: const BorderSide(
+                          color: Color(0xFF9E9E9E),
+                        ),
+                      ),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                    ),
                   ),
                   const SizedBox(height: 10),
                   //password
@@ -201,12 +227,12 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                            color: Colors.green[300],
-                            borderRadius: BorderRadius.circular(12)),
+                            color: const Color(0xFF1883DB),
+                            borderRadius: BorderRadius.circular(30)),
                         child: Center(
                             child: Text(
                           'التسجيل ',
-                          style: GoogleFonts.robotoCondensed(
+                          style: GoogleFonts.almarai(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
@@ -231,8 +257,9 @@ class _SignupScreenState extends State<SignupScreen> {
                         },
                         child: Text(
                           'سجل دخولك ',
-                          style: GoogleFonts.robotoCondensed(
-                              color: Colors.green[300],
+                          style: GoogleFonts.almarai(
+                              fontSize: 12,
+                              color: const Color(0xFF1883DB),
                               fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -241,8 +268,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       Text(
                         'لديك حساب دخولك هنا؟',
-                        style: GoogleFonts.robotoCondensed(
-                            fontWeight: FontWeight.bold),
+                        style: GoogleFonts.almarai(fontWeight: FontWeight.bold),
                       ),
                     ],
                   )
