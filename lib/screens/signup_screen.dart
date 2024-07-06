@@ -150,7 +150,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               color: Color.fromARGB(255, 221, 15, 15))),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 25),
                   //password
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -196,8 +196,26 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
 
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 25),
                   //confim password
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text('تأكيد كلمة المرور',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.almarai(
+                                color: const Color.fromARGB(255, 24, 1, 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 13),
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -210,17 +228,25 @@ class _SignupScreenState extends State<SignupScreen> {
 
                       return null;
                     },
-                    controller: confirmpasswordcontroller,
-                    decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 25),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 221, 15, 15))),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                        hintText: "تأكيد كلمة المرور"),
+                    controller: passwordcontroller,
+                    decoration: InputDecoration(
+                      hintText: '**********',
+                      hintStyle: const TextStyle(fontSize: 16),
+                      filled: true,
+                      fillColor: const Color(0xFFECF1FF),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
+                    ),
                   ),
-                  const SizedBox(height: 12),
+
+                  const SizedBox(height: 80),
                   //sign in button
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -256,7 +282,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             borderRadius: BorderRadius.circular(30)),
                         child: Center(
                             child: Text(
-                          'التسجيل ',
+                          'إنشاء حساب',
                           style: GoogleFonts.almarai(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -281,7 +307,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   builder: (context) => const LoginScreen()));
                         },
                         child: Text(
-                          'سجل دخولك ',
+                          'تسجيل الدخول',
                           style: GoogleFonts.almarai(
                               fontSize: 12,
                               color: const Color(0xFF1883DB),
@@ -292,7 +318,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         width: 8,
                       ),
                       Text(
-                        'لديك حساب دخولك هنا؟',
+                        'هل لديك حساب؟',
                         style: GoogleFonts.almarai(fontWeight: FontWeight.bold),
                       ),
                     ],
