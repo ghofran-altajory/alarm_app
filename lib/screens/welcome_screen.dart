@@ -1,6 +1,8 @@
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:alarm_app/screens/signup_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -13,19 +15,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/welcome2.png', width: 100, height: 100),
+                Image.asset('assets/alarm logo.png', width: 100, height: 100),
                 const SizedBox(height: 20),
-                const Text(
-                  ' تطبيق “ Your Alarm “ هو منبه لكبار السن وذوي الاحتياجات الخاصة لمساعدتهم على تذكر مواعيد الادوية والمراجعات الطبية ',
-                  style: TextStyle(
+                 Text(
+                'منبه لذوي كبار السن والاحتياجات الخاصة' ,
+                  style: GoogleFonts.almarai(
                     fontSize: 16,
-                    color: Color(0xFF1A73E8),
+                    color: const Color(0xFF1A73E8),
                   ),
                 ),
                 const SizedBox(height: 40),
@@ -60,11 +63,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const SignupScreen()),
+                          builder: (context) => const SignupScreen()
+                          ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFFFFFF),
+                    backgroundColor: const Color(0xECF1FF),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 16),
                     shape: RoundedRectangleBorder(
@@ -72,7 +76,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   ),
                   child: const Text(
-                    'التسجيل ',
+                    'الاشتراك ',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -80,8 +84,30 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   ),
                 ),
+                 Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      //تشيلني لصفحه حول
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(CupertinoPageRoute(
+                              builder: (context) => const SignupScreen())
+                              );
+                        },
+                        child: Text(
+                          'حول',
+                          style: GoogleFonts.almarai(
+                              fontSize: 12,
+                              color: const Color(0xFF1883DB),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                     
+                    ],
+                  )
               ],
             ),
+            
           ),
         ));
   }

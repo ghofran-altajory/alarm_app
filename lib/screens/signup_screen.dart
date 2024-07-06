@@ -17,7 +17,7 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasswordcontroller = TextEditingController();
-
+  final _hasFocus = ValueNotifier<bool>(false);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +79,14 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 13),
                   TextFormField(
+                    onChanged: (text) {
+                      if (_hasFocus.value) {
+                        _hasFocus.value = false;
+                      }
+                    },
+                    onTap: () {
+                      _hasFocus.value = true;
+                    },
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "الرجاء إدخال اسم المستخدم ";
@@ -125,6 +133,14 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 13),
                   TextFormField(
+                    onChanged: (text) {
+                      if (_hasFocus.value) {
+                        _hasFocus.value = false;
+                      }
+                    },
+                    onTap: () {
+                      _hasFocus.value = true;
+                    },
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "الرجاء إدخال بريدك الإلكتروني ";
@@ -182,7 +198,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: passwordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
-                      suffixIcon: Icon(Icons.visibility_off),
+                      suffixIcon: const Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
                       fillColor: const Color(0xFFECF1FF),
@@ -234,7 +250,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: passwordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
-                      suffixIcon: Icon(Icons.visibility_off),
+                      suffixIcon: const Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
                       fillColor: const Color(0xFFECF1FF),

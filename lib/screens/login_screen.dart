@@ -175,7 +175,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: passwordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
-                      suffixIcon: Icon(Icons.visibility_off),
+                      suffixIcon: const Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
                       fillColor: const Color(0xFFECF1FF),
