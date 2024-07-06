@@ -171,6 +171,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 13),
                   TextFormField(
+                    obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "الرجاء إدخال كلمة المرور";
@@ -181,6 +182,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: passwordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
+                      suffixIcon: Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
                       fillColor: const Color(0xFFECF1FF),
@@ -217,6 +219,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 13),
                   TextFormField(
+                    obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "الرجاء تأكيد كلمة المرور";
@@ -231,6 +234,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: passwordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
+                      suffixIcon: Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
                       fillColor: const Color(0xFFECF1FF),

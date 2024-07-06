@@ -164,6 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 13),
                   TextFormField(
+                    obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "الرجاء إدخال كلمة المرور";
@@ -174,10 +175,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: passwordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
+                      suffixIcon: Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
                       fillColor: const Color(0xFFECF1FF),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(18.0),
                           borderSide: const BorderSide(
