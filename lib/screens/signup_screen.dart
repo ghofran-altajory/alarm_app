@@ -21,9 +21,36 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(223, 242, 255, 233),
+      backgroundColor: const Color(0xFFFCFCFf),
+      appBar: AppBar(
+        leading: IconTheme(
+          data: const IconThemeData(
+            color: Color(0xFF1883DB),
+          ),
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
+        toolbarHeight: kToolbarHeight,
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: const Color.fromARGB(255, 252, 252, 252),
+        title: Text(
+          'حساب جديد',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.almarai(
+            color: const Color(0xFF1883DB),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: SafeArea(
-        child: Center(
+        child: Container(
+          padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             //scrolling
             child: Form(
@@ -31,28 +58,53 @@ class _SignupScreenState extends State<SignupScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //Image
-                  //Image.asset(
-                  //'assets/pic.png',
-                  //height: 150,
-                  //),
                   const SizedBox(height: 20),
-                  //Title
-                  Text(
-                    'التسجيل ',
-                    style: GoogleFonts.robotoCondensed(
-                        fontSize: 40, fontWeight: FontWeight.bold),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text('اسم المستخدم',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.almarai(
+                                color: const Color(0xFF000000),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
                   ),
-                  //sub title
-                  Text(
-                    'مرحبا!هنا بإمكانك التسجيل',
-                    style: GoogleFonts.robotoCondensed(
-                      fontSize: 18,
+                  const SizedBox(height: 13),
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "الرجاء إدخال اسم المستخدم ";
+                      }
+
+                      return null;
+                    },
+                    controller: emailcontroller,
+                    decoration: InputDecoration(
+                      hintText: 'user name',
+                      filled: true,
+                      fillColor: const Color(0xFFECF1FF),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 2, horizontal: 10),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        borderSide: const BorderSide(
+                          color: Color(0xFF9E9E9E),
+                        ),
+                      ),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 221, 15, 15))),
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
-                  ),
+                  const SizedBox(height: 25),
                   //user name or Email
                   TextFormField(
                     validator: (value) {

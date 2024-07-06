@@ -176,13 +176,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: '**********',
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
-                      fillColor: Color(0xFFECF1FF),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      fillColor: const Color(0xFFECF1FF),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 10),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(18.0),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                               color: Color.fromARGB(255, 221, 15, 15))),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(
                               color: Color.fromARGB(255, 221, 15, 15))),
                     ),
@@ -237,7 +237,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(
                         padding: const EdgeInsets.all(18),
                         decoration: BoxDecoration(
-                            color: Color(0xFF1883DB),
+                            color: const Color(0xFF1883DB),
                             borderRadius: BorderRadius.circular(30)),
                         child: Center(
                             child: Text(
