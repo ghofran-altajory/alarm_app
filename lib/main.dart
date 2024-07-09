@@ -1,5 +1,6 @@
 import 'package:alarm_app/screens/home_screen.dart';
 import 'package:alarm_app/screens/login_screen.dart';
+import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,11 +26,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          useMaterial3: false,
-        ),
-        home: const ScreenRouter());
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: false,
+      ),
+      home: const TabsScreen(),
+      // const ScreenRouter()
+    );
   }
 }
 
