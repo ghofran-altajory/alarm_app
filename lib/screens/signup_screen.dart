@@ -90,7 +90,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     },
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "الرجاء إدخال اسم المستخدم ";
+                        return
+                         "الرجاء إدخال اسم المستخدم ";
                       }
 
                       return null;
