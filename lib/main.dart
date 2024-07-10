@@ -1,11 +1,9 @@
 import 'package:alarm_app/screens/home_screen.dart';
-import 'package:alarm_app/screens/login_screen.dart';
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'screens/splash_screen.dart';
 import 'screens/welcome_screen.dart';
 
 Future<void> main() async {
@@ -32,7 +30,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: false,
         ),
-        home:  const SplashScreen());
+        home: const TabsScreen());
+    //const ScreenRouter(),
   }
 }
 
