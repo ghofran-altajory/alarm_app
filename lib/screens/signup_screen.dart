@@ -14,7 +14,8 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController usernamecontroller = TextEditingController();
+   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasswordcontroller = TextEditingController();
   final _hasFocus = ValueNotifier<bool>(false);
@@ -94,7 +95,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                       return null;
                     },
-                    controller: emailcontroller,
+                    controller: usernamecontroller,
                     decoration: InputDecoration(
                       hintText: 'user name',
                       filled: true,
@@ -247,7 +248,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                       return null;
                     },
-                    controller: passwordcontroller,
+                    controller: confirmpasswordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
                       suffixIcon: const Icon(Icons.visibility_off),

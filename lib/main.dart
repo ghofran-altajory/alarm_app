@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'screens/splash_screen.dart';
+import 'screens/welcome_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: false,
         ),
-        home: const ScreenRouter());
+        home:  const SplashScreen());
   }
 }
 
@@ -45,6 +47,6 @@ class _ScreenRouterState extends State<ScreenRouter> {
   Widget build(BuildContext context) {
     return FirebaseAuth.instance.currentUser != null
         ? const HomeScreen()
-        : const LoginScreen();
+        : const WelcomeScreen();
   }
 }
