@@ -16,92 +16,93 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: SafeArea(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/alarm logo.png', width: 100, height: 100),
-                const SizedBox(height: 20),
-                Text(
-                  'منبه لذوي كبار السن والاحتياجات الخاصة',
-                  style: GoogleFonts.almarai(
-                    fontSize: 16,
-                    color: const Color(0xFF1A73E8),
-                  ),
-                ),
-                const SizedBox(height: 40),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1A73E8),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: const Text(
-                    'تسجيل الدخول',
-                    style: TextStyle(
+        body: Padding(
+          padding: const EdgeInsets.all(60),
+          child: SafeArea(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/alarm logo.png', width: 100, height: 100),
+                  const SizedBox(height: 20),
+                  Text(
+                    'منبه لذوي كبار السن والاحتياجات الخاصة',
+                    style: GoogleFonts.almarai(
                       fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: const Color(0xFF1A73E8),
                     ),
                   ),
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignupScreen()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0x00ecf1ff),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: const Text(
-                    'الاشتراك ',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF1A73E8),
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    //تشيلني لصفحه حول
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(CupertinoPageRoute(
-                            builder: (context) => const SignupScreen()));
-                      },
-                      child: Text(
-                        'حول',
+                  const SizedBox(height: 40),
+                  GestureDetector(
+                    onTap: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(18),
+                      decoration: BoxDecoration(
+                          color: const Color(0xFF2260FF),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Center(
+                          child: Text(
+                        'تسجيل الدخول',
                         style: GoogleFonts.almarai(
-                            fontSize: 12,
-                            color: const Color(0xFF1883DB),
-                            fontWeight: FontWeight.bold),
-                      ),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      )),
                     ),
-                  ],
-                )
-              ],
+                  ),
+                  const SizedBox(height: 16),
+                  GestureDetector(
+                    onTap: () async {
+                      //Navigator.push(
+                      //context,
+                      //MaterialPageRoute(
+                      // builder: (context) => const LoginScreen()),
+                      // );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(18),
+                      decoration: BoxDecoration(
+                          color: const Color(0xFFECF1FF),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Center(
+                          child: Text(
+                        ' الاشتراك',
+                        style: GoogleFonts.almarai(
+                          color: const Color(0xFF2260FF),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      )),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      //تشيلني لصفحه حول
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(CupertinoPageRoute(
+                              builder: (context) => const SignupScreen()));
+                        },
+                        child: Text(
+                          'حول',
+                          style: GoogleFonts.almarai(
+                              fontSize: 12,
+                              color: const Color(0xFF1883DB),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ));
