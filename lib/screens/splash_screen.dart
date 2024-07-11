@@ -4,6 +4,7 @@ import 'package:alarm_app/main.dart';
 // ignore: unused_import
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,7 +16,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 10), () {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const ScreenRouter()));
     });
@@ -25,13 +26,21 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xffffffff),
+        backgroundColor: const Color(0xFF2260FF),
         body: Center(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               "assets/splash3.png",
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'منبه لذوي كبار السن والاحتياجات الخاصة',
+              style: GoogleFonts.almarai(
+                fontSize: 16,
+                color: const Color(0xFFffffff),
+              ),
             ),
           ],
         )));

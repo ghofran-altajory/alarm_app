@@ -16,8 +16,6 @@ class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
-  bool isClick = false;
-  bool isShow = true;
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 13),
                   TextFormField(
-                    obscureText: isShow,
+                    obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "الرجاء إدخال كلمة المرور";
@@ -177,21 +175,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: passwordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          !isShow?Icons.visibility:
-                          Icons.visibility_off),
-                        onPressed: () {
-                          setState(() {
-                            isShow = !isShow;
-                            // isShow?
-                            // isShow=false
-                            // :
-                            // isShow = true;
-                          });
-                        },
-                      ),
-                      //  const Icon(Icons.visibility_off),
+                      suffixIcon: const Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
                       fillColor: const Color(0xFFECF1FF),
@@ -228,66 +212,47 @@ class _LoginScreenState extends State<LoginScreen> {
                   //sign in button
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: isClick
-                        ? GestureDetector(
-                            child: Container(
-                            padding: const EdgeInsets.all(18),
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF1883DB),
-                                borderRadius: BorderRadius.circular(30)),
-                            child: const Center(
-                                child: CircularProgressIndicator()),
-                          ))
-                        : GestureDetector(
-                            onTap: () async {
-                              if (formKey.currentState!.validate()) {
-                                try {
-                                  setState(() {
-                                    isClick = true;
-                                  });
-
-                                  await FirebaseAuth.instance
-                                      .signInWithEmailAndPassword(
-                                          email: emailcontroller.text,
-                                          password: passwordcontroller.text)
-                                      .then((userCredential) {
-                                    if (userCredential.user != null) {
-                                      Navigator.pushAndRemoveUntil(
-                                          context,
-                                          CupertinoPageRoute(
-                                              builder: (context) =>
-                                                  const ScreenRouter()),
-                                          (route) => false);
-                                    }
-                                  });
-                                } on FirebaseAuthException catch (e) {
-                                  setState(() {
-                                    isClick = false;
-                                  });
-
-                                  // ignore: use_build_context_synchronously
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content: Text(e.message.toString())));
-                                }
+                    child: GestureDetector(
+                      onTap: () async {
+                        if (formKey.currentState!.validate()) {
+                          try {
+                            await FirebaseAuth.instance
+                                .signInWithEmailAndPassword(
+                                    email: emailcontroller.text,
+                                    password: passwordcontroller.text)
+                                .then((userCredential) {
+                              if (userCredential.user != null) {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    CupertinoPageRoute(
+                                        builder: (context) =>
+                                            const ScreenRouter()),
+                                    (route) => false);
                               }
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(18),
-                              decoration: BoxDecoration(
-                                  color: const Color(0xFF1883DB),
-                                  borderRadius: BorderRadius.circular(30)),
-                              child: Center(
-                                  child: Text(
-                                'تسجيل الدخول',
-                                style: GoogleFonts.almarai(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                ),
-                              )),
-                            ),
+                            });
+                          } on FirebaseAuthException catch (e) {
+                            // ignore: use_build_context_synchronously
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(e.message.toString())));
+                          }
+                        }
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(18),
+                        decoration: BoxDecoration(
+                            color: const Color(0xFF1883DB),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Center(
+                            child: Text(
+                          'تسجيل الدخول',
+                          style: GoogleFonts.almarai(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
                           ),
+                        )),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 12,

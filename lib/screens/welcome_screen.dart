@@ -15,7 +15,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Center(
@@ -24,8 +23,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               children: [
                 Image.asset('assets/alarm logo.png', width: 100, height: 100),
                 const SizedBox(height: 20),
-                 Text(
-                'منبه لذوي كبار السن والاحتياجات الخاصة' ,
+                Text(
+                  'منبه لذوي كبار السن والاحتياجات الخاصة',
                   style: GoogleFonts.almarai(
                     fontSize: 16,
                     color: const Color(0xFF1A73E8),
@@ -63,8 +62,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const SignupScreen()
-                          ),
+                          builder: (context) => const SignupScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -84,30 +82,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   ),
                 ),
-                 Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      //تشيلني لصفحه حول
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(CupertinoPageRoute(
-                              builder: (context) => const SignupScreen())
-                              );
-                        },
-                        child: Text(
-                          'حول',
-                          style: GoogleFonts.almarai(
-                              fontSize: 12,
-                              color: const Color(0xFF1883DB),
-                              fontWeight: FontWeight.bold),
-                        ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    //تشيلني لصفحه حول
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(CupertinoPageRoute(
+                            builder: (context) => const SignupScreen()));
+                      },
+                      child: Text(
+                        'حول',
+                        style: GoogleFonts.almarai(
+                            fontSize: 12,
+                            color: const Color(0xFF1883DB),
+                            fontWeight: FontWeight.bold),
                       ),
-                     
-                    ],
-                  )
+                    ),
+                  ],
+                )
               ],
             ),
-            
           ),
         ));
   }
