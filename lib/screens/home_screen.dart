@@ -1,7 +1,5 @@
-import 'package:alarm_app/main.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../module/card_continer_module.dart';
 
@@ -13,6 +11,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+
   List<CardContinerModule> data = [
     const CardContinerModule(
         title: "A", suTitle: "a", date: "الاحد , 12 مايو", time: "9:00 ص "),
@@ -38,14 +40,150 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        FirebaseAuth.instance.signOut().then((value) {
-          Navigator.pushAndRemoveUntil(
-              context,
-              CupertinoPageRoute(builder: (context) => const ScreenRouter()),
-              (route) => false);
-        });
-      }),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          child: const Icon(Icons.task),
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Align(
+                        alignment: Alignment.center,
+                        child: Text("إضافة منبه ",
+                            style: GoogleFonts.almarai(
+                              color: const Color(0xFF2260FF),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ))),
+                    content: Form(
+                      key: formKey,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text('اسم المنبه ',
+                                      textAlign: TextAlign.right,
+                                      style: GoogleFonts.almarai(
+                                        color: const Color(0xFF000000),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      )),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 13),
+                          TextFormField(
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "!ادخل اسم المنبه";
+                              }
+
+                              return null;
+                            },
+                            controller: titleController,
+                            decoration: const InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 4),
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.blue)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.blue)),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text('الوصف ',
+                                      textAlign: TextAlign.right,
+                                      style: GoogleFonts.almarai(
+                                        color: const Color(0xFF000000),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      )),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 13),
+                          TextFormField(
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "!ادخل الوصف";
+                              }
+
+                              return null;
+                            },
+                            controller: descriptionController,
+                            decoration: const InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 4),
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.blue)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.blue)),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text('نوع المنبه ',
+                                      textAlign: TextAlign.right,
+                                      style: GoogleFonts.almarai(
+                                        color: const Color(0xFF000000),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      )),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 13),
+                          TextFormField(
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return " !ادخل نوع المنبه ";
+                              }
+
+                              return null;
+                            },
+                            controller: descriptionController,
+                            decoration: const InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 4),
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.blue)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.blue)),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                });
+          }),
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
         child: ListView.builder(

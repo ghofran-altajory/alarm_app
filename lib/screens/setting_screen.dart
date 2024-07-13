@@ -45,27 +45,28 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
         body: SafeArea(
             child: Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(15),
           child: ListView.builder(
               itemCount: i,
               itemBuilder: (context, i) {
                 return ListTile(
-                   onTap: () {
-                          Navigator.pushAndRemoveUntil(   context, CupertinoPageRoute(builder: (context) => const ScreenRouter()),
-              (route) => false); 
-                        },
-                  
+                    onTap: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => const ScreenRouter()),
+                          (route) => false);
+                    },
                     leading: IconButton(
                       icon: const Icon(Icons.arrow_back_ios),
-                      color:  const Color(0xFF1883DB),
+                      color: const Color(0xFF1883DB),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
                     ),
                     title: Text(
-                      
                       'تسجيل الخروج',
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.right,
                       style: GoogleFonts.almarai(
                         color: const Color.fromARGB(255, 0, 0, 0),
                         fontSize: 20,
