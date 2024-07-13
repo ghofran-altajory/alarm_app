@@ -1,4 +1,6 @@
 import 'package:alarm_app/screens/home_screen.dart';
+import 'package:alarm_app/screens/setting_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -56,7 +58,10 @@ class _TabsScreenState extends State<TabsScreen> {
                   // radius: 2,
                   backgroundColor: const Color(0xFFC5E4FE),
                   child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(CupertinoPageRoute(
+                            builder: (context) => const SettingScreen()));
+                      },
                       icon: const Icon(
                         Icons.settings,
                       )),

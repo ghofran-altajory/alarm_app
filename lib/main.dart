@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home: const TabsScreen(),
+      home: //const SettingScreen()
+          const TabsScreen(),
       // const SplashScreen(),
       //const ScreenRouter(),
     );
