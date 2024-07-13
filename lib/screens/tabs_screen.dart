@@ -102,6 +102,7 @@ class _TabsScreenState extends State<TabsScreen> {
       ),
       body: <Widget>[
         Container(
+         
           color: const Color(0xFFFCFCFf),
           alignment: Alignment.center,
           child: const Text(''),
