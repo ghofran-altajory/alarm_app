@@ -1,5 +1,5 @@
 import 'package:alarm_app/screens/home_screen.dart';
-import 'package:alarm_app/screens/splash_screen.dart';
+import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home: const SplashScreen(),
+      home: const TabsScreen(),
+      // const SplashScreen(),
       //const ScreenRouter(),
-      //const TabsScreen(),
     );
   }
 }
@@ -48,7 +48,7 @@ class _ScreenRouterState extends State<ScreenRouter> {
   @override
   Widget build(BuildContext context) {
     return FirebaseAuth.instance.currentUser != null
-        ? const HomeScreen()
+        ? const TabsScreen()
         : const WelcomeScreen();
   }
 }

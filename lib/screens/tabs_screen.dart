@@ -1,3 +1,4 @@
+import 'package:alarm_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -16,20 +17,25 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: const Color(0xFFFCFCFf),
-        leading: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: CircleAvatar(
-            // radius: 2,
-            backgroundColor: const Color(0xFFC5E4FE),
-            child: IconButton(
-                onPressed: () {},
-                icon: const Center(
-                  child: Icon(
-                    size: 30,
-                    Icons.person,
-                  ),
-                )),
-          ),
+        leading: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              width: 10,
+            ),
+            CircleAvatar(
+              radius: 22,
+              backgroundColor: const Color(0xFFC5E4FE),
+              child: IconButton(
+                  onPressed: () {},
+                  icon: const Center(
+                    child: Icon(
+                      size: 30,
+                      Icons.person,
+                    ),
+                  )),
+            ),
+          ],
         ),
         actions: [
           Padding(
@@ -67,7 +73,7 @@ class _TabsScreenState extends State<TabsScreen> {
           NavigationDestination(
             icon: Icon(
               Icons.home_filled,
-              color: Color(0xFF1883DB),
+              color: Color(0xFF2260FF),
             ),
             label: '',
           ),
@@ -101,11 +107,12 @@ class _TabsScreenState extends State<TabsScreen> {
         selectedIndex: currentPageIndex,
       ),
       body: <Widget>[
-        Container(
-          color: const Color(0xFFFCFCFf),
-          alignment: Alignment.center,
-          child: const Text(''),
-        ),
+        const HomeScreen(),
+        // Container(
+        //   color: const Color(0xFFFCFCFf),
+        //   alignment: Alignment.center,
+        //   child: const Text(''),
+        // ),
         Container(
           color: const Color(0xFFFCFCFf),
           alignment: Alignment.center,
