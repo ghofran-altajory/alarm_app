@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/splash3.png",
+              "assets/alarm2logo.png",
             ),
             const SizedBox(height: 20),
             Text(

@@ -23,7 +23,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/alarm2logo.png', width: 100, height: 100),
+                  Image.asset('assets/alarm logo@3x.png',
+                      width: 100, height: 100),
                   const SizedBox(height: 20),
                   Text(
                     'منبه لذوي كبار السن والإحتياجات الخاصة',
