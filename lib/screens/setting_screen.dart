@@ -1,4 +1,3 @@
-import 'package:alarm_app/main.dart';
 import 'package:alarm_app/screens/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
