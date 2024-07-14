@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../module/card_continer_module.dart';
@@ -14,6 +15,9 @@ class _HomeScreenState extends State<HomeScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
+  TextEditingController alarmTypeController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController timeController = TextEditingController();
 
   List<CardContinerModule> data = [
     const CardContinerModule(
@@ -52,133 +56,296 @@ class _HomeScreenState extends State<HomeScreen> {
                         alignment: Alignment.center,
                         child: Text("إضافة منبه ",
                             style: GoogleFonts.almarai(
-                              color: const Color(0xFF2260FF),
+                              color: const Color(0xFF1883DB),
                               fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                              fontSize: 22,
                             ))),
-                    content: Form(
-                      key: formKey,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text('اسم المنبه ',
-                                      textAlign: TextAlign.right,
-                                      style: GoogleFonts.almarai(
-                                        color: const Color(0xFF000000),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      )),
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 13),
-                          TextFormField(
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "!ادخل اسم المنبه";
-                              }
+                    content: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: SafeArea(
+                        child: SingleChildScrollView(
+                          child: Form(
+                            key: formKey,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Text('اسم المنبه ',
+                                            textAlign: TextAlign.right,
+                                            style: GoogleFonts.almarai(
+                                              color: const Color(0xFF000000),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 13),
+                                TextFormField(
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return "!ادخل اسم المنبه ";
+                                    }
 
-                              return null;
-                            },
-                            controller: titleController,
-                            decoration: const InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 4),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.blue)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.blue)),
+                                    return null;
+                                  },
+                                  controller: titleController,
+                                  decoration: const InputDecoration(
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 4),
+                                    border: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue)),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue)),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Text('الوصف ',
+                                            textAlign: TextAlign.right,
+                                            style: GoogleFonts.almarai(
+                                              color: const Color(0xFF000000),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 13),
+                                TextFormField(
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return "!ادخل الوصف";
+                                    }
+
+                                    return null;
+                                  },
+                                  controller: descriptionController,
+                                  decoration: const InputDecoration(
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 4),
+                                    border: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue)),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue)),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Text('نوع المنبه ',
+                                            textAlign: TextAlign.right,
+                                            style: GoogleFonts.almarai(
+                                              color: const Color(0xFF000000),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 13),
+                                TextFormField(
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return " !ادخل نوع المنبه ";
+                                    }
+
+                                    return null;
+                                  },
+                                  controller: alarmTypeController,
+                                  decoration: const InputDecoration(
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 4),
+                                    border: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue)),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.blue)),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Text(' الوقت ',
+                                            textAlign: TextAlign.right,
+                                            style: GoogleFonts.almarai(
+                                              color: const Color(0xFF000000),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 13),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 3, left: 130),
+                                  child: TextFormField(
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return "!ادخل الوقت";
+                                      }
+
+                                      return null;
+                                    },
+                                    controller: dateController,
+                                    decoration: const InputDecoration(
+                                      contentPadding: EdgeInsets.symmetric(
+                                          horizontal: 12, vertical: 4),
+                                      border: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue)),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue)),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Text(' التاريخ ',
+                                            textAlign: TextAlign.right,
+                                            style: GoogleFonts.almarai(
+                                              color: const Color(0xFF000000),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 13),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 3, left: 130),
+                                  child: TextFormField(
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return "!ادخل التاريخ";
+                                      }
+
+                                      return null;
+                                    },
+                                    controller: timeController,
+                                    decoration: const InputDecoration(
+                                      contentPadding: EdgeInsets.symmetric(
+                                          horizontal: 12, vertical: 4),
+                                      border: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue)),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide:
+                                              BorderSide(color: Colors.blue)),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          titleController.clear();
+                                          descriptionController.clear();
+                                          alarmTypeController.clear();
+                                          dateController.clear();
+                                          timeController.clear();
+                                          Navigator.pop(context);
+                                        },
+                                        child: Container(
+                                          padding: const EdgeInsets.all(15),
+                                          decoration: BoxDecoration(
+                                              color: const Color(0xFFECF1FF),
+                                              borderRadius:
+                                                  BorderRadius.circular(22)),
+                                          child: Text(
+                                            'إلغاء',
+                                            style: GoogleFonts.almarai(
+                                              color: const Color(0xFF1883DB),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          titleController.clear();
+                                          descriptionController.clear();
+                                          alarmTypeController.clear();
+                                          dateController.clear();
+                                          timeController.clear();
+                                          Navigator.pop(context);
+                                        },
+                                        child: Container(
+                                          padding: const EdgeInsets.all(15),
+                                          decoration: BoxDecoration(
+                                              color: const Color(0xFF1883DB),
+                                              borderRadius:
+                                                  BorderRadius.circular(22)),
+                                          child: Text(
+                                            'إضافة',
+                                            style: GoogleFonts.almarai(
+                                              color: const Color(0xFFECF1FF),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ])
+                              ],
                             ),
                           ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text('الوصف ',
-                                      textAlign: TextAlign.right,
-                                      style: GoogleFonts.almarai(
-                                        color: const Color(0xFF000000),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      )),
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 13),
-                          TextFormField(
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "!ادخل الوصف";
-                              }
-
-                              return null;
-                            },
-                            controller: descriptionController,
-                            decoration: const InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 4),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.blue)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.blue)),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text('نوع المنبه ',
-                                      textAlign: TextAlign.right,
-                                      style: GoogleFonts.almarai(
-                                        color: const Color(0xFF000000),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      )),
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 13),
-                          TextFormField(
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return " !ادخل نوع المنبه ";
-                              }
-
-                              return null;
-                            },
-                            controller: descriptionController,
-                            decoration: const InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 4),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.blue)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.blue)),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                        ],
+                        ),
                       ),
                     ),
                   );
