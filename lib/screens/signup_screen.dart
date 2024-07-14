@@ -19,6 +19,9 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasswordcontroller = TextEditingController();
   final _hasFocus = ValueNotifier<bool>(false);
+  bool isClick = false;
+  bool isShow = true;
+  bool isShow2 = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,7 +194,19 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: passwordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
-                      suffixIcon: const Icon(Icons.visibility_off),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                            !isShow ? Icons.visibility : Icons.visibility_off),
+                        onPressed: () {
+                          setState(() {
+                            isShow = !isShow;
+                            // isShow?
+                            // isShow=false
+                            // :
+                            // isShow = true;
+                          });
+                        },
+                      ),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
                       fillColor: const Color(0x70C5E4FE),
@@ -241,7 +256,19 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: confirmpasswordcontroller,
                     decoration: InputDecoration(
                       hintText: '**********',
-                      suffixIcon: const Icon(Icons.visibility_off),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                            !isShow2 ? Icons.visibility : Icons.visibility_off),
+                        onPressed: () {
+                          setState(() {
+                            isShow2 = !isShow2;
+                            // isShow?
+                            // isShow=false
+                            // :
+                            // isShow = true;
+                          });
+                        },
+                      ),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
                       fillColor: const Color(0x70C5E4FE),
@@ -259,47 +286,66 @@ class _SignupScreenState extends State<SignupScreen> {
                   //sign in button
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: GestureDetector(
-                      onTap: () async {
-                        if (formKey.currentState!.validate()) {
-                          try {
-                            await FirebaseAuth.instance
-                                .createUserWithEmailAndPassword(
-                                    email: emailcontroller.text,
-                                    password: passwordcontroller.text)
-                                .then((userCredential) {
-                              if (userCredential.user != null) {
-                                Navigator.pushAndRemoveUntil(
-                                    context,
-                                    CupertinoPageRoute(
-                                        builder: (context) =>
-                                            const ScreenRouter()),
-                                    (route) => false);
+                    child: isClick
+                        ? GestureDetector(
+                            child: Container(
+                            padding: const EdgeInsets.all(18),
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF1883DB),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: const Center(
+                                child: CircularProgressIndicator(
+                              color: Color(0xFFFCFCFf),
+                            )),
+                          ))
+                        : GestureDetector(
+                            onTap: () async {
+                              if (formKey.currentState!.validate()) {
+                                try {
+                                  setState(() {
+                                    isClick = true;
+                                  });
+                                  await FirebaseAuth.instance
+                                      .createUserWithEmailAndPassword(
+                                          email: emailcontroller.text,
+                                          password: passwordcontroller.text)
+                                      .then((userCredential) {
+                                    if (userCredential.user != null) {
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          CupertinoPageRoute(
+                                              builder: (context) =>
+                                                  const ScreenRouter()),
+                                          (route) => false);
+                                    }
+                                  });
+                                } on FirebaseAuthException catch (e) {
+                                  setState(() {
+                                    isClick = false;
+                                  });
+                                  // ignore: use_build_context_synchronously
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(e.message.toString())));
+                                }
                               }
-                            });
-                          } on FirebaseAuthException catch (e) {
-                            // ignore: use_build_context_synchronously
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text(e.message.toString())));
-                          }
-                        }
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                            color: const Color(0xFF1883DB),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: Center(
-                            child: Text(
-                          'إنشاء حساب',
-                          style: GoogleFonts.almarai(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFF1883DB),
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: Center(
+                                  child: Text(
+                                'إنشاء حساب',
+                                style: GoogleFonts.almarai(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              )),
+                            ),
                           ),
-                        )),
-                      ),
-                    ),
                   ),
                   const SizedBox(
                     height: 25,
