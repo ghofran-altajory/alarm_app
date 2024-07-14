@@ -1,3 +1,4 @@
+import 'package:alarm_app/screens/splash_screen.dart';
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -25,15 +26,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          useMaterial3: false,
-        ),
-        home: //const SettingScreen()
-         const TabsScreen(),
-        // const SplashScreen(),
-        //const ScreenRouter(),
-        );
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: false,
+      ),
+      home: //const SettingScreen()
+          // const TabsScreen(),
+          const SplashScreen(),
+      //const ScreenRouter(),
+    );
   }
 }
 
