@@ -1,4 +1,5 @@
 import 'package:alarm_app/main.dart';
+import 'package:alarm_app/screens/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,7 +55,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           CupertinoPageRoute(
-                              builder: (context) => const ScreenRouter()),
+                              builder: (context) => const WelcomeScreen()),
                           (route) => false);
                     },
                     leading: IconButton(

@@ -15,7 +15,7 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController usernamecontroller = TextEditingController();
-   TextEditingController emailcontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasswordcontroller = TextEditingController();
   final _hasFocus = ValueNotifier<bool>(false);
@@ -67,7 +67,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text('اسم المستخدم',
+                          Text(':اسم المستخدم',
                               textAlign: TextAlign.right,
                               style: GoogleFonts.almarai(
                                 color: const Color(0xFF000000),
@@ -90,28 +90,23 @@ class _SignupScreenState extends State<SignupScreen> {
                     },
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return
-                         "الرجاء إدخال اسم المستخدم ";
+                        return "!الرجاء إدخال اسم المستخدم ";
                       }
 
                       return null;
                     },
                     controller: usernamecontroller,
                     decoration: InputDecoration(
-                      hintText: 'user name',
+                      hintText: 'اسم المستخدم',
                       filled: true,
-                      fillColor: const Color(0xFFECF1FF),
+                      fillColor: const Color(0x70C5E4FE),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 2, horizontal: 10),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF9E9E9E),
-                        ),
-                      ),
+                          borderRadius: BorderRadius.circular(18.0),
+                          borderSide: BorderSide.none),
                       focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 221, 15, 15))),
+                          borderSide: BorderSide(color: Colors.blue)),
                     ),
                   ),
                   const SizedBox(height: 25),
@@ -122,7 +117,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text(' البريد الالكتروني',
+                          Text(' :البريد الالكتروني',
                               textAlign: TextAlign.right,
                               style: GoogleFonts.almarai(
                                 color: const Color(0xFF000000),
@@ -145,7 +140,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     },
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "الرجاء إدخال بريدك الإلكتروني ";
+                        return "!الرجاء إدخال بريدك الإلكتروني ";
                       }
 
                       return null;
@@ -154,18 +149,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     decoration: InputDecoration(
                       hintText: 'example@example.com',
                       filled: true,
-                      fillColor: const Color(0xFFECF1FF),
+                      fillColor: const Color(0x70C5E4FE),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 2, horizontal: 10),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF9E9E9E),
-                        ),
-                      ),
+                          borderRadius: BorderRadius.circular(18.0),
+                          borderSide: BorderSide.none),
                       focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 221, 15, 15))),
+                          borderSide: BorderSide(color: Colors.blue)),
                     ),
                   ),
                   const SizedBox(height: 25),
@@ -176,7 +167,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text('كلمة المرور',
+                          Text(':كلمة المرور',
                               textAlign: TextAlign.right,
                               style: GoogleFonts.almarai(
                                 color: const Color.fromARGB(255, 24, 1, 1),
@@ -192,7 +183,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "الرجاء إدخال كلمة المرور";
+                        return "!الرجاء إدخال كلمة المرور";
                       }
 
                       return null;
@@ -203,16 +194,14 @@ class _SignupScreenState extends State<SignupScreen> {
                       suffixIcon: const Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
-                      fillColor: const Color(0xFFECF1FF),
+                      fillColor: const Color(0x70C5E4FE),
                       contentPadding:
                           const EdgeInsets.symmetric(horizontal: 10),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(18.0),
-                          borderSide: const BorderSide(
-                              color: Color.fromARGB(255, 221, 15, 15))),
+                          borderSide: BorderSide.none),
                       focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 221, 15, 15))),
+                          borderSide: BorderSide(color: Colors.blue)),
                     ),
                   ),
 
@@ -224,7 +213,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text('تأكيد كلمة المرور',
+                          Text(':تأكيد كلمة المرور',
                               textAlign: TextAlign.right,
                               style: GoogleFonts.almarai(
                                 color: const Color.fromARGB(255, 24, 1, 1),
@@ -240,11 +229,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "الرجاء تأكيد كلمة المرور";
+                        return "!الرجاء تأكيد كلمة المرور";
                       }
 
                       if (value != passwordcontroller.text) {
-                        return "كلمات المرور غير متطابقة";
+                        return "!كلمات المرور غير متطابقة";
                       }
 
                       return null;
@@ -255,16 +244,14 @@ class _SignupScreenState extends State<SignupScreen> {
                       suffixIcon: const Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
-                      fillColor: const Color(0xFFECF1FF),
+                      fillColor: const Color(0x70C5E4FE),
                       contentPadding:
                           const EdgeInsets.symmetric(horizontal: 10),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(18.0),
-                          borderSide: const BorderSide(
-                              color: Color.fromARGB(255, 221, 15, 15))),
+                          borderSide: BorderSide.none),
                       focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 221, 15, 15))),
+                          borderSide: BorderSide(color: Colors.blue)),
                     ),
                   ),
 
@@ -329,7 +316,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   builder: (context) => const LoginScreen()));
                         },
                         child: Text(
-                          'تسجيل الدخول',
+                          'سجل دخولك',
                           style: GoogleFonts.almarai(
                               fontSize: 12,
                               color: const Color(0xFF1883DB),
@@ -337,7 +324,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                       ),
                       const SizedBox(
-                        width: 8,
+                        width: 5,
                       ),
                       Text(
                         'هل لديك حساب؟',

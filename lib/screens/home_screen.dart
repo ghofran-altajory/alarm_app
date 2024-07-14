@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../module/card_continer_module.dart';
@@ -45,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.blue,
-          child: const Icon(Icons.task),
+          backgroundColor: const Color(0xFF1883DB),
+          child: const Icon(Icons.add),
           onPressed: () {
             showDialog(
                 context: context,
@@ -76,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
-                                        Text('اسم المنبه ',
+                                        Text(':اسم المنبه ',
                                             textAlign: TextAlign.right,
                                             style: GoogleFonts.almarai(
                                               color: const Color(0xFF000000),
@@ -97,13 +96,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     return null;
                                   },
                                   controller: titleController,
-                                  decoration: const InputDecoration(
-                                    contentPadding: EdgeInsets.symmetric(
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: const Color(0x70C5E4FE),
+                                    contentPadding: const EdgeInsets.symmetric(
                                         horizontal: 12, vertical: 4),
                                     border: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.blue)),
-                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
+                                    focusedBorder: const OutlineInputBorder(
                                         borderSide:
                                             BorderSide(color: Colors.blue)),
                                   ),
@@ -118,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
-                                        Text('الوصف ',
+                                        Text(':الوصف ',
                                             textAlign: TextAlign.right,
                                             style: GoogleFonts.almarai(
                                               color: const Color(0xFF000000),
@@ -139,13 +141,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     return null;
                                   },
                                   controller: descriptionController,
-                                  decoration: const InputDecoration(
-                                    contentPadding: EdgeInsets.symmetric(
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: const Color(0x70C5E4FE),
+                                    contentPadding: const EdgeInsets.symmetric(
                                         horizontal: 12, vertical: 4),
                                     border: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.blue)),
-                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
+                                    focusedBorder: const OutlineInputBorder(
                                         borderSide:
                                             BorderSide(color: Colors.blue)),
                                   ),
@@ -160,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
-                                        Text('نوع المنبه ',
+                                        Text(':نوع المنبه ',
                                             textAlign: TextAlign.right,
                                             style: GoogleFonts.almarai(
                                               color: const Color(0xFF000000),
@@ -181,13 +186,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     return null;
                                   },
                                   controller: alarmTypeController,
-                                  decoration: const InputDecoration(
-                                    contentPadding: EdgeInsets.symmetric(
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: const Color(0x70C5E4FE),
+                                    contentPadding: const EdgeInsets.symmetric(
                                         horizontal: 12, vertical: 4),
                                     border: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.blue)),
-                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
+                                    focusedBorder: const OutlineInputBorder(
                                         borderSide:
                                             BorderSide(color: Colors.blue)),
                                   ),
@@ -202,7 +210,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
-                                        Text(' الوقت ',
+                                        Text(':الوقت ',
                                             textAlign: TextAlign.right,
                                             style: GoogleFonts.almarai(
                                               color: const Color(0xFF000000),
@@ -226,13 +234,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                       return null;
                                     },
                                     controller: dateController,
-                                    decoration: const InputDecoration(
-                                      contentPadding: EdgeInsets.symmetric(
-                                          horizontal: 12, vertical: 4),
+                                    decoration: InputDecoration(
+                                      suffixIcon: const Icon(
+                                        Icons.alarm,
+                                        color: Color(0xFF1883DB),
+                                      ),
+                                      filled: true,
+                                      fillColor: const Color(0x70C5E4FE),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 12, vertical: 4),
                                       border: OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide(color: Colors.blue)),
-                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                      ),
+                                      focusedBorder: const OutlineInputBorder(
                                           borderSide:
                                               BorderSide(color: Colors.blue)),
                                     ),
@@ -248,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
                                       children: [
-                                        Text(' التاريخ ',
+                                        Text(': التاريخ ',
                                             textAlign: TextAlign.right,
                                             style: GoogleFonts.almarai(
                                               color: const Color(0xFF000000),
@@ -272,20 +289,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                       return null;
                                     },
                                     controller: timeController,
-                                    decoration: const InputDecoration(
-                                      contentPadding: EdgeInsets.symmetric(
-                                          horizontal: 12, vertical: 4),
+                                    decoration: InputDecoration(
+                                      suffixIcon: const Icon(
+                                          Icons.calendar_month,
+                                          color: Color(0xFF1883DB)),
+                                      filled: true,
+                                      fillColor: const Color(0x70C5E4FE),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 12, vertical: 4),
                                       border: OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide(color: Colors.blue)),
-                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide.none,
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                      ),
+                                      focusedBorder: const OutlineInputBorder(
                                           borderSide:
                                               BorderSide(color: Colors.blue)),
                                     ),
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 5,
+                                  height: 10,
                                 ),
                                 Row(
                                     mainAxisAlignment:
@@ -303,7 +328,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         child: Container(
                                           padding: const EdgeInsets.all(15),
                                           decoration: BoxDecoration(
-                                              color: const Color(0xFFECF1FF),
+                                              color: const Color(0x70C5E4FE),
                                               borderRadius:
                                                   BorderRadius.circular(22)),
                                           child: Text(
@@ -391,7 +416,7 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
       height: 80,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(15)),
-        color: Color(0xFFC5E4FE),
+        color: Color(0x70C5E4FE),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),

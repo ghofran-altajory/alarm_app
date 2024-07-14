@@ -23,13 +23,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/alarm logo.png', width: 100, height: 100),
+                  Image.asset('assets/new_wel.png', width: 100, height: 100),
                   const SizedBox(height: 20),
                   Text(
-                    'منبه لذوي كبار السن والاحتياجات الخاصة',
+                    'منبه لذوي كبار السن والإحتياجات الخاصة',
                     style: GoogleFonts.almarai(
                       fontSize: 16,
-                      color: const Color(0xFF1A73E8),
+                      color: const Color(0xFF1883DB),
                     ),
                   ),
                   const SizedBox(height: 40),
@@ -44,7 +44,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     child: Container(
                       padding: const EdgeInsets.all(18),
                       decoration: BoxDecoration(
-                          color: const Color(0xFF2260FF),
+                          color: const Color(0xFF1883DB),
                           borderRadius: BorderRadius.circular(30)),
                       child: Center(
                           child: Text(
@@ -75,13 +75,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           child: Text(
                         ' الاشتراك',
                         style: GoogleFonts.almarai(
-                          color: const Color(0xFF2260FF),
+                          color: const Color(0xFF1883DB),
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),
                       )),
                     ),
                   ),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text('اسم المستخدم او البريد الالكتروني',
+                          Text(':اسم المستخدم او البريد الالكتروني',
                               textAlign: TextAlign.right,
                               style: GoogleFonts.almarai(
                                 color: const Color(0xFF000000),
@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "الرجاء إدخال بريدك الإلكتروني ";
+                        return "!الرجاء إدخال بريدك الإلكتروني ";
                       }
 
                       return null;
@@ -129,18 +129,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       hintText: 'example@example.com',
                       filled: true,
-                      fillColor: const Color(0xFFECF1FF),
+                      fillColor: const Color(0x70C5E4FE),
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 2, horizontal: 10),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF9E9E9E),
-                        ),
-                      ),
+                          borderRadius: BorderRadius.circular(18.0),
+                          borderSide: BorderSide.none),
                       focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 221, 15, 15))),
+                          borderSide: BorderSide(color: Colors.blue)),
                     ),
                   ),
                   const SizedBox(height: 25),
@@ -151,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text('كلمة المرور',
+                          Text(':كلمة المرور',
                               textAlign: TextAlign.right,
                               style: GoogleFonts.almarai(
                                 color: const Color.fromARGB(255, 24, 1, 1),
@@ -167,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "الرجاء إدخال كلمة المرور";
+                        return "!الرجاء إدخال كلمة المرور";
                       }
 
                       return null;
@@ -178,16 +174,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       suffixIcon: const Icon(Icons.visibility_off),
                       hintStyle: const TextStyle(fontSize: 16),
                       filled: true,
-                      fillColor: const Color(0xFFECF1FF),
+                      fillColor: const Color(0x70C5E4FE),
                       contentPadding:
                           const EdgeInsets.symmetric(horizontal: 10),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(18.0),
-                          borderSide: const BorderSide(
-                              color: Color.fromARGB(255, 221, 15, 15))),
+                          borderSide: BorderSide.none),
                       focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 221, 15, 15))),
+                          borderSide: BorderSide(color: Colors.blue)),
                     ),
                   ),
                   const SizedBox(height: 15),
