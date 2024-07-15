@@ -1,5 +1,7 @@
 import 'package:alarm_app/screens/about_screen.dart';
 import 'package:alarm_app/screens/login_screen.dart';
+import 'package:alarm_app/screens/subscribe_screen.dart';
+// ignore: prefer_typing_uninitialized_variables, non_constant_identifier_names
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -61,11 +63,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   const SizedBox(height: 16),
                   GestureDetector(
                     onTap: () async {
-                      //Navigator.push(
-                      //context,
-                      //MaterialPageRoute(
-                      // builder: (context) => const LoginScreen()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SubscribeScreen()),
+                      );
                     },
                     child: Container(
                       padding: const EdgeInsets.all(18),
