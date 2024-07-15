@@ -1,5 +1,5 @@
+import 'package:alarm_app/screens/about_screen.dart';
 import 'package:alarm_app/screens/login_screen.dart';
-import 'package:alarm_app/screens/signup_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,7 +83,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       )),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -91,16 +91,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(CupertinoPageRoute(
-                              builder: (context) => const SignupScreen()));
+                              builder: (context) => const AboutScreen()));
                         },
                         child: Text(
                           'حول',
                           style: GoogleFonts.almarai(
-                              fontSize: 12,
+                              fontSize: 20,
                               color: const Color(0xFF1883DB),
                               fontWeight: FontWeight.bold),
                         ),
                       ),
+                      Image.asset('assets/Vector2.png', width: 40, height: 40),
                     ],
                   )
                 ],

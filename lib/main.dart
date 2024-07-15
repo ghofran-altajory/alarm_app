@@ -1,4 +1,4 @@
-import 'package:alarm_app/screens/splash_screen.dart';
+import 'package:alarm_app/screens/about_screen.dart';
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -30,9 +30,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home: //const SettingScreen()
-          // const TabsScreen(),
-          const SplashScreen(),
+      home: const AboutScreen(),
+      // const WelcomeScreen(), //const SettingScreen()
+      // const TabsScreen(),
+      //const SplashScreen(),
       //const ScreenRouter(),
     );
   }
