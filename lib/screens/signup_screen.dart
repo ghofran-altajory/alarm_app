@@ -183,7 +183,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 13),
                   TextFormField(
-                    obscureText: true,
+                    obscureText: isShow,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "!الرجاء إدخال كلمة المرور";
@@ -241,7 +241,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 13),
                   TextFormField(
-                    obscureText: true,
+                    obscureText: isShow2,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "!الرجاء تأكيد كلمة المرور";
