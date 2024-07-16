@@ -41,7 +41,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
         ),
-        body: SafeArea(
+        body: 
+        SafeArea(
             child: Container(
           padding: const EdgeInsets.all(15),
           child: ListView.builder(
@@ -75,9 +76,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       (Icons.person),
                       color: Color(0xFF1883DB),
                     ));
-                    
               }),
-              
         )));
   }
 }

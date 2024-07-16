@@ -6,8 +6,6 @@ class AboutScreen extends StatefulWidget {
 
   @override
   State<AboutScreen> createState() => _AboutScreenState();
-  
-  
 }
 
 class _AboutScreenState extends State<AboutScreen> {
@@ -58,7 +56,7 @@ class _AboutScreenState extends State<AboutScreen> {
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       )),
-                       Text('',
+                  Text('',
                       textAlign: TextAlign.right,
                       style: GoogleFonts.almarai(
                         color: const Color(0xFF1883DB),
@@ -66,11 +64,9 @@ class _AboutScreenState extends State<AboutScreen> {
                         fontSize: 16,
                       )),
                 ],
-                
               ),
             ],
           ),
-          
         ),
       )),
     );
