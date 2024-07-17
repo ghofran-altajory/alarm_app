@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const CardContinerModule(
         title: "F", suTitle: "v", date: "الاحد , 12 مايو", time: "9:00 ص "),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

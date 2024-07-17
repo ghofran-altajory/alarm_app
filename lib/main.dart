@@ -1,11 +1,11 @@
-
-import 'package:alarm_app/screens/about_screen.dart';
-import 'package:alarm_app/screens/profile_screen.dart';
+import 'package:alarm_app/screens/splash_screen.dart';
+// ignore: unused_import
 import 'package:alarm_app/screens/subscribe_screen.dart';
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+// import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'screens/welcome_screen.dart';
 
@@ -21,28 +21,45 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({
     super.key,
   });
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return
+        // MultiProvider(
+        // providers: [
+        // ChangeNotifierProvider<DarkThemeProvider>(
+        //   create: (_) {
+        //     return DarkThemeProvider();
+        //   },
+        // ),
+        // ],
+        // child:
+        MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home: 
+      home: const SplashScreen(),
+      //const EditProfileScreen()
       //const SubscribeScreen()
       // const ProfileScreen(),
-       const AboutScreen(),
+      // const AboutScreen(),
       // const WelcomeScreen(),
       // //const SettingScreen()
       // const TabsScreen(),
-      //const SplashScreen(),
+
       //const ScreenRouter(),
     );
+    // );
   }
 }
 

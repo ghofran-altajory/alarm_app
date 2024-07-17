@@ -1,5 +1,6 @@
 import 'package:alarm_app/screens/archive.dart';
 import 'package:alarm_app/screens/home_screen.dart';
+import 'package:alarm_app/screens/profile_screen.dart';
 import 'package:alarm_app/screens/setting_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -125,11 +126,12 @@ class _TabsScreenState extends State<TabsScreen> {
         //alignment: Alignment.center,
         //child: const Text(''),
         //),
-        Container(
-          color: const Color(0xFFFCFCFf),
-          alignment: Alignment.center,
-          child: const Text(''),
-        ),
+        const ProfileScreen(),
+        //Container(
+          //color: const Color(0xFFFCFCFf),
+          //alignment: Alignment.center,
+          //child: const Text(''),
+        //), 
         Container(
           color: const Color(0xFFFCFCFf),
           alignment: Alignment.center,

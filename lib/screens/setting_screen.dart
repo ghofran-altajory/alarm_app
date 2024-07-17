@@ -1,7 +1,11 @@
 import 'package:alarm_app/screens/welcome_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../main.dart';
+import '../module/profi_list_title.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -13,6 +17,12 @@ class SettingScreen extends StatefulWidget {
 int i = 1;
 
 class _SettingScreenState extends State<SettingScreen> {
+  List<ProfiListTitlModule> data = [
+    const ProfiListTitlModule(title: 'تسجيل الخروج', icon: Icons.logout),
+    const ProfiListTitlModule(title: "A", icon: Icons.abc_outlined),
+    const ProfiListTitlModule(title: "A", icon: Icons.abc_outlined),
+    const ProfiListTitlModule(title: "A", icon: Icons.abc_outlined),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,25 +57,25 @@ class _SettingScreenState extends State<SettingScreen> {
             child: Container(
           padding: const EdgeInsets.all(15),
           child: ListView.builder(
-              itemCount: i,
-              itemBuilder: (context, i) {
+              itemCount: data.length,
+              itemBuilder: (context, index) {
                 return ListTile(
-                    onTap: () {
-                      Navigator.pushAndRemoveUntil(
+                    onTap: () async {
+                      await FirebaseAuth.instance.signOut().then((_) {
+                        Navigator.pushReplacement(
                           context,
                           CupertinoPageRoute(
-                              builder: (context) => const WelcomeScreen()),
-                          (route) => false);
+                              builder: (context) => const ScreenRouter()),
+                        );
+                      });
                     },
                     leading: IconButton(
                       icon: const Icon(Icons.arrow_back_ios),
                       color: const Color(0xFF1883DB),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
+                      onPressed: () {},
                     ),
                     title: Text(
-                      'تسجيل الخروج',
+                      data[index].title.toString(),
                       textAlign: TextAlign.right,
                       style: GoogleFonts.almarai(
                         color: const Color.fromARGB(255, 0, 0, 0),
@@ -73,8 +83,8 @@ class _SettingScreenState extends State<SettingScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    trailing: const Icon(
-                      (Icons.logout),
+                    trailing: Icon(
+                      (data[index].icon),
                       color: Color(0xFF1883DB),
                     ));
               }),
