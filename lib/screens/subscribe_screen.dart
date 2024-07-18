@@ -261,34 +261,7 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                   
                 
                 ),
-                  const SizedBox(height: 10),
-                  Container(
-                  height: 130,
-                  width: 500,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    color: Color(0x70C5E4FE),
-                  ),
-                  child: Center(
-                    child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 115, vertical: 30),
-                        child: Column(
-                          children: [
-                            Text(
-                              "منفرد",
-                              style: GoogleFonts.almarai(
-                                color: const Color.fromARGB(255, 24, 1, 1),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                            ),
-                          
-              ],
-            ),
-            
-          ),
-        ),
-                  ),
+                  
               ],
             ),
           ),

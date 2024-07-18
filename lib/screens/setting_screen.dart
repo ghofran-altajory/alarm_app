@@ -1,4 +1,3 @@
-import 'package:alarm_app/screens/welcome_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +84,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     ),
                     trailing: Icon(
                       (data[index].icon),
-                      color: Color(0xFF1883DB),
+                      color: const Color(0xFF1883DB),
                     ));
               }),
         )));

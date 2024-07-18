@@ -70,6 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
+                                
                                 trailing: Icon(
                                   (data[index].icon),
                                   color: const Color(0xFF1883DB),
