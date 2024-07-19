@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 // ignore_for_file: prefer_const_constructors
 
 import 'package:alarm_app/screens/home_screen.dart';
-=======
->>>>>>> cdc66067cafc23c5b9908217a6a88e4080ab4f6e
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

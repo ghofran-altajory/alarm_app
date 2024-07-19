@@ -18,9 +18,8 @@ int i = 1;
 class _SettingScreenState extends State<SettingScreen> {
   List<ProfiListTitlModule> data = [
     const ProfiListTitlModule(title: 'تسجيل الخروج', icon: Icons.logout),
-    const ProfiListTitlModule(title: "A", icon: Icons.abc_outlined),
-    const ProfiListTitlModule(title: "A", icon: Icons.abc_outlined),
-    const ProfiListTitlModule(title: "A", icon: Icons.abc_outlined),
+    const ProfiListTitlModule(title: "ضبط كلمة المرور", icon: Icons.key),
+    const ProfiListTitlModule(title: "حذف الحساب", icon: Icons.person),
   ];
   @override
   Widget build(BuildContext context) {

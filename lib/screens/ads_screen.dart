@@ -25,21 +25,21 @@ class _AdsScreenState extends State<AdsScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFCFf),
       body: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(
-              ': الإعلانات',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.almarai(
-                color: const Color(0xFF1883DB),
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4, top: 45),
+              child: Text(
+                ': الإعلانات',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.almarai(
+                  color: const Color(0xFF1883DB),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
             ),
             Expanded(
               child: ListView.builder(
@@ -77,7 +77,7 @@ class _adsWidgetState extends State<adsWidget> {
         color: Color(0x70C5E4FE),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 65, vertical: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
