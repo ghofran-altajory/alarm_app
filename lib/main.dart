@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:alarm_app/screens/about_screen.dart';
 import 'package:alarm_app/screens/ads_screen.dart';
 import 'package:alarm_app/screens/check_data.dart';
@@ -7,6 +8,9 @@ import 'package:alarm_app/screens/personal_data.dart';
 
 import 'package:alarm_app/screens/payment_meThod.dart';
 import 'package:alarm_app/screens/splash_screen.dart';
+=======
+import 'package:alarm_app/screens/payment_method.dart';
+>>>>>>> cdc66067cafc23c5b9908217a6a88e4080ab4f6e
 
 // ignore: unused_import
 import 'package:alarm_app/screens/subscribe_screen.dart';
@@ -57,9 +61,14 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         useMaterial3: false,
       ),
+<<<<<<< HEAD
       // ignore: prefer_const_constructors
       home: const AboutScreen(),
       //PersonalData(),
+=======
+      home: // PersonalData(),
+          const PaymentMethod(),
+>>>>>>> cdc66067cafc23c5b9908217a6a88e4080ab4f6e
       //CheckData(),
       //const AdsScreen()
       //const Notifications()
