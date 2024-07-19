@@ -1,7 +1,12 @@
 import 'package:alarm_app/screens/ads_screen.dart';
 import 'package:alarm_app/screens/check_data.dart';
 import 'package:alarm_app/screens/notifications.dart';
+
 import 'package:alarm_app/screens/personal_data.dart';
+
+import 'package:alarm_app/screens/payment_meThod.dart';
+import 'package:alarm_app/screens/splash_screen.dart';
+
 // ignore: unused_import
 import 'package:alarm_app/screens/subscribe_screen.dart';
 import 'package:alarm_app/screens/tabs_screen.dart';
@@ -47,6 +52,7 @@ class _MyAppState extends State<MyApp> {
         // ],
         // child:
         MaterialApp(
+
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               useMaterial3: false,
@@ -64,8 +70,25 @@ class _MyAppState extends State<MyApp> {
             // //const SettingScreen()
             // const TabsScreen(),
 
-            //const ScreenRouter(),
-            );
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: false,
+      ),
+      home:const PaymentMethod(),
+          //const AdsScreen()
+          //const Notifications()
+          
+      //const SplashScreen(),
+      //const EditProfileScreen()
+      //const SubscribeScreen()
+      // const ProfileScreen(),
+      // const AboutScreen(),
+      // const WelcomeScreen(),
+      // //const SettingScreen()
+      // const TabsScreen(),
+
+      //const ScreenRouter(),
+    );
     // );
   }
 }
