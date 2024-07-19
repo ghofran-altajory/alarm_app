@@ -13,8 +13,9 @@ class _NotificationsState extends State<Notifications> {
   List<notification_modul> data = [
     notification_modul(
         title: "  دكتور العيون",
-        suTitle:
-            "  لديك اليوم موعد دكتور العيون عند الساعة 7:00 ص في عيادة فينيسيا",
+        suTitle: '''لديك اليوم موعد دكتور العيون 
+عند الساعه 07:00 ص
+في عيادة فينيسيا ''',
         time: "2د",
         icon1: Icons.notifications,
         icon2: Icons.cable,
@@ -78,41 +79,67 @@ class _notificationWidgetState extends State<notificationWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 145,
+      height: 300,
       decoration: const BoxDecoration(
         color: Color(0x70C5E4FE),
       ),
+      
       child: Column(
+        
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            widget.data.title,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.almarai(
-              color: const Color.fromARGB(255, 0, 0, 0),
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
-            widget.data.suTitle,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.almarai(
-              color: const Color.fromARGB(255, 0, 0, 0),
-              fontSize: 12,
-            ),
-          ),
-          Text(
-            widget.data.time,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.almarai(
-              color: const Color.fromARGB(255, 0, 0, 0),
-              fontSize: 12,
-            ),
+        
+          Column(
+            
+            children: [
+              
+              SizedBox(height: 20),
+              Text(
+                widget.data.title,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.almarai(
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 22),
+              Text(
+                widget.data.suTitle,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.almarai(
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 14,
+                ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    widget.data.time,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.almarai(
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.cable),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.cable),
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
-     
     );
   }
 }

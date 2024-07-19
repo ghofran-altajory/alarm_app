@@ -1,5 +1,7 @@
 import 'package:alarm_app/screens/ads_screen.dart';
+import 'package:alarm_app/screens/check_data.dart';
 import 'package:alarm_app/screens/notifications.dart';
+import 'package:alarm_app/screens/personal_data.dart';
 // ignore: unused_import
 import 'package:alarm_app/screens/subscribe_screen.dart';
 import 'package:alarm_app/screens/tabs_screen.dart';
@@ -49,9 +51,10 @@ class _MyAppState extends State<MyApp> {
             theme: ThemeData(
               useMaterial3: false,
             ),
-            home: 
+            home: PersonalData(),
+            //CheckData(),
             //const AdsScreen()
-          const Notifications()
+          //const Notifications()
             //const SplashScreen(),
             //const EditProfileScreen()
             //const SubscribeScreen()
