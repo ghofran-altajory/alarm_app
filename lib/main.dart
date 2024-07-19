@@ -50,18 +50,18 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: false,
       ),
       home: // PersonalData(),
-          const PaymentMethod(),
-      //CheckData(),
-      //const AdsScreen()
-      //const Notifications()
-      //const SplashScreen(),
-      //const EditProfileScreen()
-      //const SubscribeScreen()
-      // const ProfileScreen(),
-      // const AboutScreen(),
-      // const WelcomeScreen(),
-      // //const SettingScreen()
-      // const TabsScreen(),
+          //  const PaymentMethod(),
+          //CheckData(),
+          //const AdsScreen()
+          //const Notifications()
+          //const SplashScreen(),
+          //const EditProfileScreen()
+          //const SubscribeScreen()
+          // const ProfileScreen(),
+          // const AboutScreen(),
+          // const WelcomeScreen(),
+          // //const SettingScreen()
+          const TabsScreen(),
     );
     // );
   }
