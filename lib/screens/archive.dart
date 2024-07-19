@@ -13,20 +13,25 @@ class _ArchiveState extends State<Archive> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFCFf),
-      appBar: AppBar(
-        toolbarHeight: kToolbarHeight,
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor: const Color.fromARGB(255, 252, 252, 252),
-        title: Text(
-          ' الأرشيف',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.almarai(
-            color: const Color(0xFF1883DB),
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+      body: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                ': الأرشيف',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.almarai(
+                  color: const Color(0xFF1883DB),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+            ]),
       ),
     );
   }

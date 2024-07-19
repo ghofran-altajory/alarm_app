@@ -1,3 +1,4 @@
+import 'package:alarm_app/screens/about_screen.dart';
 import 'package:alarm_app/screens/ads_screen.dart';
 import 'package:alarm_app/screens/check_data.dart';
 import 'package:alarm_app/screens/notifications.dart';
@@ -52,42 +53,24 @@ class _MyAppState extends State<MyApp> {
         // ],
         // child:
         MaterialApp(
-
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              useMaterial3: false,
-            ),
-            home: PersonalData(),
-            //CheckData(),
-            //const AdsScreen()
-          //const Notifications()
-            //const SplashScreen(),
-            //const EditProfileScreen()
-            //const SubscribeScreen()
-            // const ProfileScreen(),
-            // const AboutScreen(),
-            // const WelcomeScreen(),
-            // //const SettingScreen()
-            // const TabsScreen(),
-
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: false,
       ),
-      home:const PaymentMethod(),
-          //const AdsScreen()
-          //const Notifications()
-          
+      // ignore: prefer_const_constructors
+      home: const AboutScreen(),
+      //PersonalData(),
+      //CheckData(),
+      //const AdsScreen()
+      //const Notifications()
       //const SplashScreen(),
       //const EditProfileScreen()
       //const SubscribeScreen()
       // const ProfileScreen(),
-      // const AboutScreen(),
+
       // const WelcomeScreen(),
       // //const SettingScreen()
       // const TabsScreen(),
-
-      //const ScreenRouter(),
     );
     // );
   }

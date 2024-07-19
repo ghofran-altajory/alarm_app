@@ -1,3 +1,4 @@
+import 'package:alarm_app/screens/ads_screen.dart';
 import 'package:alarm_app/screens/archive.dart';
 import 'package:alarm_app/screens/home_screen.dart';
 import 'package:alarm_app/screens/profile_screen.dart';
@@ -128,11 +129,13 @@ class _TabsScreenState extends State<TabsScreen> {
         //),
         const ProfileScreen(),
         //Container(
-          //color: const Color(0xFFFCFCFf),
-          //alignment: Alignment.center,
-          //child: const Text(''),
-        //), 
+        //color: const Color(0xFFFCFCFf),
+        //alignment: Alignment.center,
+        //child: const Text(''),
+        //),
+        const AdsScreen(),
         Container(
+
           color: const Color(0xFFFCFCFf),
           alignment: Alignment.center,
           child: const Text(''),

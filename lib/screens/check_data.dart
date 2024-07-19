@@ -1,12 +1,15 @@
-import 'package:alarm_app/screens/Reminder_data.dart';
+// ignore_for_file: prefer_const_constructors
+
+import 'package:alarm_app/screens/reminder_data.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CheckData extends StatefulWidget {
-  const CheckData({super.key});
+   CheckData({super.key});
 
   @override
   State<CheckData> createState() => _CheckDataState();
+ 
 }
 
 class _CheckDataState extends State<CheckData> {
@@ -65,6 +68,7 @@ class _CheckDataState extends State<CheckData> {
               Padding(
                 padding: const EdgeInsets.only(right: 3, left: 250),
                 child: TextFormField(
+                  
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color(0x70C5E4FE),

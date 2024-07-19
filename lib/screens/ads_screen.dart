@@ -24,42 +24,35 @@ class _AdsScreenState extends State<AdsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFCFf),
-      appBar: AppBar(
-        leading: IconTheme(
-          data: const IconThemeData(
-            color: Color(0xFF1883DB),
-          ),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
-        toolbarHeight: kToolbarHeight,
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor: const Color.fromARGB(255, 252, 252, 252),
-        title: Text(
-          ' الإعلانات',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.almarai(
-            color: const Color(0xFF1883DB),
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20),
-        child: ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.all(5),
-            child: adsWidget(
-              data: data[index],
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text(
+              ': الإعلانات',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.almarai(
+                color: const Color(0xFF1883DB),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: adsWidget(
+                    data: data[index],
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
