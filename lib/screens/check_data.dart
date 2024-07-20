@@ -489,7 +489,9 @@ class _CheckDataState extends State<CheckData> {
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
-                    )),
+                    ),
+                    ),
+                    
                   ),
                 ),
               ),

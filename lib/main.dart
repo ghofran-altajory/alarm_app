@@ -1,5 +1,11 @@
 import 'package:alarm_app/screens/about_screen.dart';
+import 'package:alarm_app/screens/admin_splash.dart';
 import 'package:alarm_app/screens/ads_screen.dart';
+<<<<<<< HEAD
+import 'package:alarm_app/screens/edit_password.dart';
+import 'package:alarm_app/screens/personal_data.dart';
+=======
+>>>>>>> 20c36bd3c0e9534ece5dea443392c50bcce47a04
 import 'package:alarm_app/screens/setting_screen.dart';
 
 // ignore: unused_import
@@ -51,6 +57,13 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         useMaterial3: false,
       ),
+<<<<<<< HEAD
+      // ignore: prefer_const_constructors
+      home: const AdminSplash()
+      
+      
+       // PersonalData()
+=======
 
       home: // PersonalData(),
           //  const PaymentMethod(),
@@ -67,6 +80,7 @@ class _MyAppState extends State<MyApp> {
           const TabsScreen(),
 
       //const AdsScreen()
+>>>>>>> 20c36bd3c0e9534ece5dea443392c50bcce47a04
       // const SettingScreen()
 
       //const EditPassword(),
