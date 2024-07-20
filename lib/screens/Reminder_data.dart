@@ -14,6 +14,16 @@ class ReminderData extends StatefulWidget {
 }
 
 class _ReminderDataState extends State<ReminderData> {
+   TextEditingController drugcontroller = TextEditingController();
+  TextEditingController revcontroller = TextEditingController();
+  TextEditingController analicontroller = TextEditingController();
+  TextEditingController date1controller = TextEditingController();
+  TextEditingController date2controller = TextEditingController();
+  TextEditingController date3controller = TextEditingController();
+  TextEditingController time1controller = TextEditingController();
+  TextEditingController time2controller = TextEditingController();
+  TextEditingController time3controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +73,7 @@ class _ReminderDataState extends State<ReminderData> {
                 Padding(
                   padding: const EdgeInsets.only(right: 3, left: 30),
                   child: TextFormField(
+                    controller: drugcontroller,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0x70C5E4FE),
@@ -98,6 +109,7 @@ class _ReminderDataState extends State<ReminderData> {
                 Padding(
                   padding: const EdgeInsets.only(right: 3, left: 250),
                   child: TextFormField(
+                    controller: time1controller,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "!ادخل الوقت";
@@ -144,6 +156,7 @@ class _ReminderDataState extends State<ReminderData> {
                 Padding(
                   padding: const EdgeInsets.only(right: 3, left: 250),
                   child: TextFormField(
+                    controller: date1controller,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "!ادخل التاريخ";
@@ -181,6 +194,7 @@ class _ReminderDataState extends State<ReminderData> {
                 Padding(
                   padding: const EdgeInsets.only(right: 3, left: 30),
                   child: TextFormField(
+                    controller: revcontroller,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0x70C5E4FE),
@@ -216,6 +230,7 @@ class _ReminderDataState extends State<ReminderData> {
                 Padding(
                   padding: const EdgeInsets.only(right: 3, left: 250),
                   child: TextFormField(
+                    controller: time2controller,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "!ادخل الوقت";
@@ -262,6 +277,7 @@ class _ReminderDataState extends State<ReminderData> {
                 Padding(
                   padding: const EdgeInsets.only(right: 3, left: 250),
                   child: TextFormField(
+                    controller: date2controller,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "!ادخل التاريخ";
@@ -296,6 +312,7 @@ class _ReminderDataState extends State<ReminderData> {
                 Padding(
                   padding: const EdgeInsets.only(right: 3, left: 30),
                   child: TextFormField(
+                    controller: analicontroller,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0x70C5E4FE),
@@ -331,6 +348,7 @@ class _ReminderDataState extends State<ReminderData> {
                 Padding(
                   padding: const EdgeInsets.only(right: 3, left: 250),
                   child: TextFormField(
+                    controller: time3controller,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "!ادخل الوقت";
@@ -377,6 +395,7 @@ class _ReminderDataState extends State<ReminderData> {
                 Padding(
                   padding: const EdgeInsets.only(right: 3, left: 250),
                   child: TextFormField(
+                    controller: date3controller,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "!ادخل التاريخ";

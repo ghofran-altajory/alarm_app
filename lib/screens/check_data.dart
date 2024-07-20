@@ -5,29 +5,33 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CheckData extends StatefulWidget {
-   CheckData({super.key});
+  CheckData({super.key});
 
   @override
   State<CheckData> createState() => _CheckDataState();
- 
 }
 
 class _CheckDataState extends State<CheckData> {
+  TextEditingController acontroller = TextEditingController();
+  TextEditingController bcontroller = TextEditingController();
+  TextEditingController ccontroller = TextEditingController();
+  TextEditingController dcontroller = TextEditingController();
+  TextEditingController econtroller = TextEditingController();
+  TextEditingController fcontroller = TextEditingController();
+  TextEditingController gcontroller = TextEditingController();
+  TextEditingController hcontroller = TextEditingController();
+  TextEditingController icontroller = TextEditingController();
+  TextEditingController jcontroller = TextEditingController();
+  TextEditingController kcontroller = TextEditingController();
+  TextEditingController lcontroller = TextEditingController();
+  TextEditingController mcontroller = TextEditingController();
+  TextEditingController ncontroller = TextEditingController();
+  TextEditingController ocontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconTheme(
-          data: const IconThemeData(
-            color: Color(0xFF1883DB),
-          ),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
         toolbarHeight: kToolbarHeight,
         centerTitle: true,
         elevation: 0.0,
@@ -68,7 +72,32 @@ class _CheckDataState extends State<CheckData> {
               Padding(
                 padding: const EdgeInsets.only(right: 3, left: 250),
                 child: TextFormField(
-                  
+                  controller: acontroller,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color(0x70C5E4FE),
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue)),
+                  ),
+                ),
+              ),
+              Text(': السكر',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF000000),
+                    fontSize: 13,
+                  )),
+              const SizedBox(height: 13),
+              Padding(
+                padding: const EdgeInsets.only(right: 3, left: 250),
+                child: TextFormField(
+                  controller: bcontroller,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color(0x70C5E4FE),
@@ -104,6 +133,42 @@ class _CheckDataState extends State<CheckData> {
               Padding(
                 padding: const EdgeInsets.only(right: 3, left: 250),
                 child: TextFormField(
+                  controller: ccontroller,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: const Color(0x70C5E4FE),
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue)),
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(':الوزن',
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.almarai(
+                            color: const Color(0xFF000000),
+                            fontSize: 13,
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 13),
+              Padding(
+                padding: const EdgeInsets.only(right: 3, left: 250),
+                child: TextFormField(
+                  controller: dcontroller,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color(0x70C5E4FE),
@@ -129,6 +194,7 @@ class _CheckDataState extends State<CheckData> {
               Padding(
                 padding: const EdgeInsets.only(right: 3, left: 250),
                 child: TextFormField(
+                  controller: econtroller,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color(0x70C5E4FE),
@@ -172,21 +238,19 @@ class _CheckDataState extends State<CheckData> {
                 ],
               ),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 55),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: fcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               const SizedBox(height: 13),
@@ -197,21 +261,19 @@ class _CheckDataState extends State<CheckData> {
                     fontSize: 13,
                   )),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 55),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: gcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               const SizedBox(
@@ -233,21 +295,19 @@ class _CheckDataState extends State<CheckData> {
                     fontSize: 13,
                   )),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 55),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: hcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               const SizedBox(height: 13),
@@ -268,21 +328,19 @@ class _CheckDataState extends State<CheckData> {
                 ],
               ),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 55),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: icontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               const SizedBox(height: 13),
@@ -293,21 +351,19 @@ class _CheckDataState extends State<CheckData> {
                     fontSize: 13,
                   )),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 55),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: jcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               const SizedBox(height: 13),
@@ -318,21 +374,19 @@ class _CheckDataState extends State<CheckData> {
                     fontSize: 13,
                   )),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 55),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: kcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               const SizedBox(height: 13),
@@ -343,24 +397,19 @@ class _CheckDataState extends State<CheckData> {
                     fontSize: 13,
                   )),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: 3,
-                  left: 55,
-                ),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: lcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               const SizedBox(
@@ -382,21 +431,19 @@ class _CheckDataState extends State<CheckData> {
                     fontSize: 13,
                   )),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 55),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: mcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               const SizedBox(
@@ -418,21 +465,19 @@ class _CheckDataState extends State<CheckData> {
                     fontSize: 13,
                   )),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 55),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: ncontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               const SizedBox(
@@ -445,21 +490,19 @@ class _CheckDataState extends State<CheckData> {
                     fontSize: 13,
                   )),
               const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 55),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 10),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
+              TextFormField(
+                controller: ocontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
                   ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
                 ),
               ),
               SizedBox(
@@ -482,16 +525,15 @@ class _CheckDataState extends State<CheckData> {
                         color: const Color(0xFF1883DB),
                         borderRadius: BorderRadius.circular(30)),
                     child: Center(
-                        child: Text(
-                      'التالي ',
-                      style: GoogleFonts.almarai(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                      child: Text(
+                        'التالي ',
+                        style: GoogleFonts.almarai(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
-                    ),
-                    
                   ),
                 ),
               ),

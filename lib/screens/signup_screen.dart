@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:alarm_app/main.dart';
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:alarm_app/screens/personal_data.dart';

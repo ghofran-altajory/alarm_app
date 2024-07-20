@@ -1,11 +1,11 @@
 import 'package:alarm_app/screens/about_screen.dart';
 import 'package:alarm_app/screens/admin_splash.dart';
 import 'package:alarm_app/screens/ads_screen.dart';
-<<<<<<< HEAD
+import 'package:alarm_app/screens/check_data.dart';
+
 import 'package:alarm_app/screens/edit_password.dart';
 import 'package:alarm_app/screens/personal_data.dart';
-=======
->>>>>>> 20c36bd3c0e9534ece5dea443392c50bcce47a04
+
 import 'package:alarm_app/screens/setting_screen.dart';
 
 // ignore: unused_import
@@ -57,47 +57,12 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         useMaterial3: false,
       ),
-<<<<<<< HEAD
+home:  CheckData()
       // ignore: prefer_const_constructors
-      home: const AdminSplash()
+      // home: const AdminSplash()
       
       
-       // PersonalData()
-=======
-
-      home: // PersonalData(),
-          //  const PaymentMethod(),
-          //CheckData(),
-          //const AdsScreen()
-          //const Notifications()
-          //const SplashScreen(),
-          //const EditProfileScreen()
-          //const SubscribeScreen()
-          // const ProfileScreen(),
-          // const AboutScreen(),
-          // const WelcomeScreen(),
-          // //const SettingScreen()
-          const TabsScreen(),
-
-      //const AdsScreen()
->>>>>>> 20c36bd3c0e9534ece5dea443392c50bcce47a04
-      // const SettingScreen()
-
-      //const EditPassword(),
-
-      // const AboutScreen(),
-      //PersonalData(),
-      //CheckData(),
-
-      //const Notifications()
-      //const SplashScreen(),
-      //const EditProfileScreen()
-      //const SubscribeScreen()
-      // const ProfileScreen(),
-
-      // const WelcomeScreen(),
-      // //const SettingScreen()
-      // const TabsScreen(),
+      
     );
     // );
   }
