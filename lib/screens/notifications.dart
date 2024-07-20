@@ -124,15 +124,19 @@ class _notificationWidgetState extends State<notificationWidget> {
                   ),
                 ],
               ),
-              Row(
+              Column(
                 children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.cable),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.cable),
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.cable),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.cable),
+                      ),
+                    ],
                   ),
                 ],
               ),

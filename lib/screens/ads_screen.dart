@@ -24,42 +24,35 @@ class _AdsScreenState extends State<AdsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFCFf),
-      appBar: AppBar(
-        leading: IconTheme(
-          data: const IconThemeData(
-            color: Color(0xFF1883DB),
-          ),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
-        toolbarHeight: kToolbarHeight,
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor: const Color.fromARGB(255, 252, 252, 252),
-        title: Text(
-          ' الإعلانات',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.almarai(
-            color: const Color(0xFF1883DB),
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20),
-        child: ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.all(5),
-            child: adsWidget(
-              data: data[index],
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4, top: 45),
+              child: Text(
+                ': الإعلانات',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.almarai(
+                  color: const Color(0xFF1883DB),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-          ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: adsWidget(
+                    data: data[index],
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -84,7 +77,7 @@ class _adsWidgetState extends State<adsWidget> {
         color: Color(0x70C5E4FE),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 65, vertical: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -316,7 +316,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                           context,
                                           CupertinoPageRoute(
                                               builder: (context) =>
-                                                  const PersonalData()),
+                                                   PersonalData()),
                                           (route) => false);
                                     }
                                   });

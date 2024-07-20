@@ -3,13 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PersonalData extends StatefulWidget {
-  const PersonalData({super.key});
+  PersonalData({super.key});
 
   @override
   State<PersonalData> createState() => _PersonalDataState();
 }
 
 class _PersonalDataState extends State<PersonalData> {
+  int _selectedValue = 0;
+  void _handleRadioValueChanged(int value) {
+    setState(() {
+      _selectedValue = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +42,7 @@ class _PersonalDataState extends State<PersonalData> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Text(' : الاسم الكامل',
@@ -112,14 +119,50 @@ class _PersonalDataState extends State<PersonalData> {
                     ),
                   ),
                 ),
-                Text('الجنس'),
+                const SizedBox(
+                  height: 30,
+                ),
+                Text('الجنس',
+                    textAlign: TextAlign.right,
+                    style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text('ذكر',
+                        textAlign: TextAlign.right,
+                        style: GoogleFonts.almarai(
+                          color: const Color(0xFF000000),
+                          fontSize: 14,
+                        )),
+                    Radio<int>(
+                      value: 1, // Unique value for each radio button
+                      groupValue: _selectedValue,
+                      onChanged: (value) =>
+                          setState(() => _selectedValue = value!),
+                    ),
+                    Text('انثى',
+                        textAlign: TextAlign.right,
+                        style: GoogleFonts.almarai(
+                          color: const Color(0xFF000000),
+                          fontSize: 14,
+                        )),
+                    Radio<int>(
+                      value: 2,
+                      groupValue: _selectedValue,
+                      onChanged: (value) =>
+                          setState(() => _selectedValue = value!),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 60),
                 GestureDetector(
                   onTap: () async {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const CheckData()),
+                      MaterialPageRoute(builder: (context) => CheckData()),
                     );
                   },
                   child: Padding(
