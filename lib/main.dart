@@ -1,5 +1,5 @@
-import 'package:alarm_app/screens/about_screen.dart';
 import 'package:alarm_app/screens/admin_splash.dart';
+
 import 'package:alarm_app/screens/ads_screen.dart';
 import 'package:alarm_app/screens/check_data.dart';
 
@@ -8,8 +8,7 @@ import 'package:alarm_app/screens/personal_data.dart';
 
 import 'package:alarm_app/screens/setting_screen.dart';
 
-// ignore: unused_import
-import 'package:alarm_app/screens/subscribe_screen.dart';
+
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +52,7 @@ class _MyAppState extends State<MyApp> {
         // ],
         // child:
         MaterialApp(
+
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: false,
@@ -64,9 +64,8 @@ home:  CheckData()
       
       
     );
-    // );
-  }
-}
+
+}}
 
 class ScreenRouter extends StatefulWidget {
   const ScreenRouter({super.key});
