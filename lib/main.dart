@@ -1,7 +1,9 @@
 
 import 'package:alarm_app/screens/about_screen.dart';
+import 'package:alarm_app/screens/admin_splash.dart';
 import 'package:alarm_app/screens/ads_screen.dart';
 import 'package:alarm_app/screens/edit_password.dart';
+import 'package:alarm_app/screens/personal_data.dart';
 import 'package:alarm_app/screens/setting_screen.dart';
 
 
@@ -57,7 +59,10 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: false,
       ),
       // ignore: prefer_const_constructors
-      home: const AdsScreen()
+      home: const AdminSplash()
+      
+      
+       // PersonalData()
       // const SettingScreen()
       
       //const EditPassword(),
