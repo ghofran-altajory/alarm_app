@@ -138,20 +138,17 @@ class _TabsScreenState extends State<TabsScreen> {
         //child: const Text(''),
         //),
         const AdsScreen(),
-<<<<<<< HEAD
+
         // Container(
         //   color: const Color(0xFFFCFCFf),
         //   alignment: Alignment.center,
         //   child: const Text(''),
         // ),
-=======
         Container(
-
           color: const Color(0xFFFCFCFf),
           alignment: Alignment.center,
           child: const Text(''),
         ),
->>>>>>> 566b010bcd3e3c945be4da4a80e32e7e6f4d2b74
       ][currentPageIndex],
     );
   }

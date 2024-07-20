@@ -30,7 +30,7 @@ class _AdsScreenState extends State<AdsScreen> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 4, top: 45),
+              padding: const EdgeInsets.only(bottom: 4, top: 12),
               child: Text(
                 ': الإعلانات',
                 textAlign: TextAlign.center,
@@ -41,14 +41,12 @@ class _AdsScreenState extends State<AdsScreen> {
                 ),
               ),
             ),
+            SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: data.length,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: adsWidget(
-                    data: data[index],
-                  ),
+                itemBuilder: (context, index) => adsWidget(
+                  data: data[index],
                 ),
               ),
             )
@@ -71,7 +69,7 @@ class _adsWidgetState extends State<adsWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 145,
+      height: 156,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(15)),
         color: Color(0x70C5E4FE),
