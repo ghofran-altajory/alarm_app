@@ -76,74 +76,133 @@ class notificationWidget extends StatefulWidget {
 }
 
 class _notificationWidgetState extends State<notificationWidget> {
+  bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
-      decoration: const BoxDecoration(
-        color: Color(0x70C5E4FE),
+      // height: 300,
+      decoration: BoxDecoration(
+        color: _isChecked ? Colors.white : Color(0x70C5E4FE),
       ),
-      
-      child: Column(
-        
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-        
-          Column(
-            
-            children: [
-              
-              SizedBox(height: 20),
-              Text(
-                widget.data.title,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.almarai(
-                  color: const Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 22),
-              Text(
-                widget.data.suTitle,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.almarai(
-                  color: const Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 14,
-                ),
-              ),
-              Row(
-                children: [
-                  Text(
-                    widget.data.time,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.almarai(
-                      color: const Color.fromARGB(255, 0, 0, 0),
-                      fontSize: 12,
-                    ),
+
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: ListTile(
+            leading: Icon(Icons.cable),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.data.title,
+                  // textAlign: TextAlign.center,
+                  style: GoogleFonts.almarai(
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.cable),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.cable),
-                      ),
-                    ],
+                ),
+                // SizedBox(
+                //   width: 0,
+                // ),
+                Text(
+                  widget.data.time,
+                  // textAlign: TextAlign.center,
+                  style: GoogleFonts.almarai(
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 12,
                   ),
-                ],
+                ),
+              ],
+            ),
+            subtitle: Text(
+              widget.data.suTitle,
+              // textAlign: TextAlign.center,
+              style: GoogleFonts.almarai(
+                color: const Color.fromARGB(255, 0, 0, 0),
+                fontSize: 14,
               ),
-            ],
+            ),
+            trailing: Checkbox(
+              value: _isChecked,
+              onChanged: (bool? value) {
+                setState(() {
+                  _isChecked = value!;
+                  // _isCheckedWallet = false;
+                });
+              },
+            ),
           ),
-        ],
+        ),
       ),
+
+      // Column(
+
+      //   crossAxisAlignment: CrossAxisAlignment.center,
+      //   children: [
+
+      //     Column(
+
+      //       children: [
+
+      //         SizedBox(height: 20),
+      // Text(
+      //   widget.data.title,
+      //   textAlign: TextAlign.center,
+      //   style: GoogleFonts.almarai(
+      //     color: const Color.fromARGB(255, 0, 0, 0),
+      //     fontSize: 20,
+      //     fontWeight: FontWeight.bold,
+      //   ),
+      // ),
+
+      //
+      // SizedBox(height: 22),
+      // Text(
+      //   widget.data.suTitle,
+      //   textAlign: TextAlign.center,
+      //   style: GoogleFonts.almarai(
+      //     color: const Color.fromARGB(255, 0, 0, 0),
+      //     fontSize: 14,
+      //   ),
+      // ),
+
+      //
+      //
+      // Row(
+      //           children: [
+      //   Text(
+      //     widget.data.time,
+      //     textAlign: TextAlign.center,
+      //     style: GoogleFonts.almarai(
+      //       color: const Color.fromARGB(255, 0, 0, 0),
+      //       fontSize: 12,
+      //     ),
+      //   ),
+      // ],
+      //         ),
+      //         Column(
+      //           children: [
+      //             Row(
+      //               children: [
+      //                 IconButton(
+      //                   onPressed: () {},
+      //                   icon: const Icon(Icons.cable),
+      //                 ),
+      //                 IconButton(
+      //                   onPressed: () {},
+      //                   icon: const Icon(Icons.cable),
+      //                 ),
+      //               ],
+      //             ),
+      //           ],
+      //         ),
+      //       ],
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

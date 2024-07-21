@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../main.dart';
 import '../module/profi_list_title.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -18,8 +17,12 @@ int i = 1;
 
 class _SettingScreenState extends State<SettingScreen> {
   List<ProfiListTitlModule> data = [
-    const ProfiListTitlModule(title: "ضبط كلمة المرور", icon: Icons.key),
-    const ProfiListTitlModule(title: "حذف الحساب", icon: Icons.person),
+     ProfiListTitlModule(title: "ضبط كلمة المرور", icon: Icons.key,onTap: () {
+       
+     },),
+     ProfiListTitlModule(title: "حذف الحساب", icon: Icons.person,onTap: () {
+       
+     },),
   ];
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:alarm_app/main.dart';
 import 'package:alarm_app/screens/admin_login.dart';
 // ignore: unused_import
 import 'package:alarm_app/screens/login_screen.dart';

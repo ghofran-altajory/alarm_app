@@ -12,6 +12,8 @@ GlobalKey<FormState> formKey = GlobalKey<FormState>();
 TextEditingController alarmumController = TextEditingController();
 
 class _SubscribeScreenState extends State<SubscribeScreen> {
+  int isClick = -1;
+  bool isTrue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +52,10 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
+                    setState(() {
+                      isClick = 0;
+                    });
+
                     showDialog(
                         context: context,
                         builder: (context) {
@@ -68,6 +74,7 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   TextFormField(
+                                    keyboardType: TextInputType.number,
                                     validator: (value) {
                                       if (value!.isEmpty) {
                                         return "!يرجى إدخال العدد";
@@ -102,6 +109,9 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                                       children: [
                                         GestureDetector(
                                           onTap: () {
+                                            setState(() {
+                                              isTrue = false;
+                                            });
                                             alarmumController.clear();
 
                                             Navigator.pop(context);
@@ -135,6 +145,9 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                                               }
                                               return null;
                                             };
+                                            setState(() {
+                                              isTrue = true;
+                                            });
                                             alarmumController.clear();
                                             Navigator.pop(context);
                                           },
@@ -164,9 +177,14 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                   child: Container(
                     height: 130,
                     width: 500,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(40)),
-                      color: Color(0x70C5E4FE),
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(40)),
+                      border: Border.all(
+                        color: isClick == 0
+                            ? Color(0xFF1883DB)
+                            : Color(0x70C5E4FE),
+                      ),
+                      color: const Color(0x70C5E4FE),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -174,7 +192,7 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Column(
+                          const Column(
                             children: [
                               // ListTile(
                             ],
@@ -222,186 +240,222 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-                Container(
-                  height: 130,
-                  width: 500,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    color: Color(0x70C5E4FE),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 80, vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            // ListTile(
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "اسبوعي",
-                              style: GoogleFonts.almarai(
-                                color: const Color.fromARGB(255, 24, 1, 1),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(children: [
+                const SizedBox(height: 10),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isClick = 1;
+                    });
+                  },
+                  child: Container(
+                    height: 130,
+                    width: 500,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      border: Border.all(
+                        color: isClick == 1
+                            ? Color(0xFF1883DB)
+                            : Color(0x70C5E4FE),
+                      ),
+                      color: Color(0x70C5E4FE),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 80, vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Column(
+                            children: [
+                              // ListTile(
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
                               Text(
-                                // textAlign: TextAlign.start,
-
-                                'د.ل ',
+                                "اسبوعي",
                                 style: GoogleFonts.almarai(
                                   color: const Color.fromARGB(255, 24, 1, 1),
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                                  fontSize: 20,
                                 ),
                               ),
-                              Text(
-                                // textAlign: TextAlign.start,
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(children: [
+                                Text(
+                                  // textAlign: TextAlign.start,
 
-                                ' 5.00',
-                                style: GoogleFonts.almarai(
-                                  color: const Color.fromARGB(255, 24, 1, 1),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                                  'د.ل ',
+                                  style: GoogleFonts.almarai(
+                                    color: const Color.fromARGB(255, 24, 1, 1),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                  ),
                                 ),
-                              ),
-                            ]),
-                          ],
-                        ),
-                      ],
+                                Text(
+                                  // textAlign: TextAlign.start,
+
+                                  ' 5.00',
+                                  style: GoogleFonts.almarai(
+                                    color: const Color.fromARGB(255, 24, 1, 1),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                  ),
+                                ),
+                              ]),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-                Container(
-                  height: 130,
-                  width: 500,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    color: Color(0x70C5E4FE),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 80, vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            // ListTile(
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "شهري",
-                              style: GoogleFonts.almarai(
-                                color: const Color.fromARGB(255, 24, 1, 1),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(children: [
+                const SizedBox(height: 10),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isClick = 2;
+                    });
+                  },
+                  child: Container(
+                    height: 130,
+                    width: 500,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      border: Border.all(
+                        color: isClick == 2
+                            ? Color(0xFF1883DB)
+                            : Color(0x70C5E4FE),
+                      ),
+                      color: Color(0x70C5E4FE),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 80, vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Column(
+                            children: [
+                              // ListTile(
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
                               Text(
-                                // textAlign: TextAlign.start,
-
-                                'د.ل ',
+                                "شهري",
                                 style: GoogleFonts.almarai(
                                   color: const Color.fromARGB(255, 24, 1, 1),
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                                  fontSize: 20,
                                 ),
                               ),
-                              Text(
-                                // textAlign: TextAlign.start,
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(children: [
+                                Text(
+                                  // textAlign: TextAlign.start,
 
-                                ' 5.00',
-                                style: GoogleFonts.almarai(
-                                  color: const Color.fromARGB(255, 24, 1, 1),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                                  'د.ل ',
+                                  style: GoogleFonts.almarai(
+                                    color: const Color.fromARGB(255, 24, 1, 1),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                  ),
                                 ),
-                              ),
-                            ]),
-                          ],
-                        ),
-                      ],
+                                Text(
+                                  // textAlign: TextAlign.start,
+
+                                  ' 5.00',
+                                  style: GoogleFonts.almarai(
+                                    color: const Color.fromARGB(255, 24, 1, 1),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                  ),
+                                ),
+                              ]),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-                Container(
-                  height: 130,
-                  width: 500,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    color: Color(0x70C5E4FE),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 80, vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          children: [
-                            // ListTile(
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "سنوي",
-                              style: GoogleFonts.almarai(
-                                color: const Color.fromARGB(255, 24, 1, 1),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(children: [
+                const SizedBox(height: 10),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isClick = 3;
+                    });
+                  },
+                  child: Container(
+                    height: 130,
+                    width: 500,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40)),
+                      border: Border.all(
+                        color: isClick == 3
+                            ? Color(0xFF1883DB)
+                            : Color(0x70C5E4FE),
+                      ),
+                      color: Color(0x70C5E4FE),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 80, vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Column(
+                            children: [
+                              // ListTile(
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
                               Text(
-                                // textAlign: TextAlign.start,
-
-                                'د.ل ',
+                                "سنوي",
                                 style: GoogleFonts.almarai(
                                   color: const Color.fromARGB(255, 24, 1, 1),
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                                  fontSize: 20,
                                 ),
                               ),
-                              Text(
-                                // textAlign: TextAlign.start,
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(children: [
+                                Text(
+                                  // textAlign: TextAlign.start,
 
-                                ' 5.00',
-                                style: GoogleFonts.almarai(
-                                  color: const Color.fromARGB(255, 24, 1, 1),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                                  'د.ل ',
+                                  style: GoogleFonts.almarai(
+                                    color: const Color.fromARGB(255, 24, 1, 1),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                  ),
                                 ),
-                              ),
-                            ]),
-                          ],
-                        ),
-                      ],
+                                Text(
+                                  // textAlign: TextAlign.start,
+
+                                  ' 5.00',
+                                  style: GoogleFonts.almarai(
+                                    color: const Color.fromARGB(255, 24, 1, 1),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                  ),
+                                ),
+                              ]),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -410,7 +464,11 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    if (isClick != -1 && isClick != 0 && !isTrue) {
+                      Navigator.pop(context);
+                    } else if (isClick == 0 && isTrue) {
+                      Navigator.pop(context);
+                    }
                   },
                   child: Container(
                     padding: const EdgeInsets.symmetric(

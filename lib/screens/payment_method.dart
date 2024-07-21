@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:alarm_app/screens/done_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,7 @@ class PaymentMethod extends StatefulWidget {
 
 class _PaymentMethodState extends State<PaymentMethod> {
   // bool isClick = true;
-
+  int _selectedValue = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,41 +73,65 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 20),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 210, top: 8),
-                                    child: Text(
-                                      "واتساب",
-                                      style: GoogleFonts.almarai(
-                                        color:
-                                            const Color.fromARGB(255, 24, 1, 1),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(width: 20),
-                                  CircleAvatar(
-                                    radius: 21,
-                                    backgroundColor: const Color(0xFFC5E4FE),
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: const Center(
-                                          child: Icon(
-                                            size: 26,
-                                            Icons.person,
-                                          ),
-                                        )),
-                                  ),
-                                ],
+                        child: Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              radius: 21,
+                              backgroundColor: const Color(0xFFC5E4FE),
+                              child: Image.asset(
+                                "assets/WhatsApp_icon.png",
+                                width: 35,
+                                height: 35,
                               ),
-                            ]),
+                            ),
+                            title: Text(
+                              "واتساب",
+                              style: GoogleFonts.almarai(
+                                color: const Color.fromARGB(255, 24, 1, 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                            trailing: Radio<int>(
+                              value: 1, // Unique value for each radio button
+                              groupValue: _selectedValue,
+                              onChanged: (value) =>
+                                  setState(() => _selectedValue = value!),
+                            ),
+                          ),
+                        ),
+
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.end,
+                        //   // crossAxisAlignment: CrossAxisAlignment.end,
+                        //   children: [
+                        // Radio<int>(
+                        //   value: 1, // Unique value for each radio button
+                        //   groupValue: _selectedValue,
+                        //   onChanged: (value) =>
+                        //       setState(() => _selectedValue = value!),
+                        // ),
+                        //     SizedBox(width: 10),
+                        // Text(
+                        //   "واتساب",
+                        //   style: GoogleFonts.almarai(
+                        //     color: const Color.fromARGB(255, 24, 1, 1),
+                        //     fontWeight: FontWeight.bold,
+                        //     fontSize: 18,
+                        //   ),
+                        // ),
+                        // CircleAvatar(
+                        //   radius: 21,
+                        //   backgroundColor: const Color(0xFFC5E4FE),
+                        //   child: Image.asset(
+                        //     "assets/WhatsApp_icon.png",
+                        //     width: 35,
+                        //     height: 35,
+                        //   ),
+                        // ),
+                        //   ],
+                        // ),
                       )),
                   SizedBox(height: 8),
                   Container(
@@ -118,31 +144,65 @@ class _PaymentMethodState extends State<PaymentMethod> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 20),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 215, top: 14),
-                                    child: Text(
-                                      "واتساب",
-                                      style: GoogleFonts.almarai(
-                                        color:
-                                            const Color.fromARGB(255, 24, 1, 1),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(width: 20),
-                                  const Icon(Icons.mobile_friendly),
-                                ],
+                        child: Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              radius: 21,
+                              backgroundColor: const Color(0xFFC5E4FE),
+                              child: Image.asset(
+                                "assets/WhatsApp_icon.png",
+                                width: 35,
+                                height: 35,
                               ),
-                            ]),
+                            ),
+                            title: Text(
+                              "واتساب",
+                              style: GoogleFonts.almarai(
+                                color: const Color.fromARGB(255, 24, 1, 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                            trailing: Radio<int>(
+                              value: 2,
+                              groupValue: _selectedValue,
+                              onChanged: (value) =>
+                                  setState(() => _selectedValue = value!),
+                            ),
+                          ),
+                        ),
+
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.end,
+                        //   // crossAxisAlignment: CrossAxisAlignment.end,
+                        //   children: [
+                        // Radio<int>(
+                        //   value: 1, // Unique value for each radio button
+                        //   groupValue: _selectedValue,
+                        //   onChanged: (value) =>
+                        //       setState(() => _selectedValue = value!),
+                        // ),
+                        //     SizedBox(width: 10),
+                        // Text(
+                        //   "واتساب",
+                        //   style: GoogleFonts.almarai(
+                        //     color: const Color.fromARGB(255, 24, 1, 1),
+                        //     fontWeight: FontWeight.bold,
+                        //     fontSize: 18,
+                        //   ),
+                        // ),
+                        // CircleAvatar(
+                        //   radius: 21,
+                        //   backgroundColor: const Color(0xFFC5E4FE),
+                        //   child: Image.asset(
+                        //     "assets/WhatsApp_icon.png",
+                        //     width: 35,
+                        //     height: 35,
+                        //   ),
+                        // ),
+                        //   ],
+                        // ),
                       )),
                   SizedBox(height: 15),
                   Padding(
@@ -201,11 +261,13 @@ class _PaymentMethodState extends State<PaymentMethod> {
                         horizontal: 80, vertical: 15),
                     child: GestureDetector(
                       onTap: () async {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DoneScreen()),
-                        );
+                        if (_selectedValue != 0) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DoneScreen()),
+                          );
+                        }
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(

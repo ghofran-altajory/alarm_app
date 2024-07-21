@@ -2,6 +2,7 @@ import 'package:alarm_app/screens/ads_screen.dart';
 import 'package:alarm_app/screens/archive.dart';
 import 'package:alarm_app/screens/home_screen.dart';
 import 'package:alarm_app/screens/icon_profile.dart';
+import 'package:alarm_app/screens/notifications.dart';
 import 'package:alarm_app/screens/profile_screen.dart';
 import 'package:alarm_app/screens/setting_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -55,7 +56,10 @@ class _TabsScreenState extends State<TabsScreen> {
                   // radius: 2,
                   backgroundColor: const Color(0xFFC5E4FE),
                   child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(CupertinoPageRoute(
+                            builder: (context) => (Notifications())));
+                      },
                       icon: const Icon(
                         Icons.notifications_active,
                       )),

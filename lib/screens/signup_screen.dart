@@ -30,17 +30,6 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFCFf),
       appBar: AppBar(
-        leading: IconTheme(
-          data: const IconThemeData(
-            color: Color(0xFF1883DB),
-          ),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
         toolbarHeight: kToolbarHeight,
         centerTitle: true,
         elevation: 0.0,
@@ -318,7 +307,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                           context,
                                           CupertinoPageRoute(
                                               builder: (context) =>
-                                                   PersonalData()),
+                                                  PersonalData()),
                                           (route) => false);
                                     }
                                   });

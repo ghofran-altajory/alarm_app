@@ -62,55 +62,64 @@ class _CheckDataState extends State<CheckData> {
               const SizedBox(
                 height: 20,
               ),
-              Text(': ضغط الدم ',
-                  textAlign: TextAlign.right,
-                  style: GoogleFonts.almarai(
-                    color: const Color(0xFF000000),
-                    fontSize: 13,
-                  )),
-              const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 250),
-                child: TextFormField(
-                  controller: acontroller,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // const SizedBox(height: 13),
+                  SizedBox(
+                    width: 120,
+                    child: TextFormField(
+                      controller: acontroller,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
+                      ),
                     ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
                   ),
-                ),
-              ),
-              Text(': السكر',
-                  textAlign: TextAlign.right,
-                  style: GoogleFonts.almarai(
-                    color: const Color(0xFF000000),
-                    fontSize: 13,
-                  )),
-              const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 250),
-                child: TextFormField(
-                  controller: bcontroller,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
+                  Text(': ضغط الدم ',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontSize: 13,
+                      )),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  SizedBox(
+                    width: 120,
+                    child: TextFormField(
+                      controller: bcontroller,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
+                      ),
                     ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
                   ),
-                ),
+
+                  Text(': السكر',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontSize: 13,
+                      )),
+                  // const SizedBox(height: 13),
+                ],
               ),
               const SizedBox(height: 13),
               Row(

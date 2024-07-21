@@ -1,13 +1,7 @@
-import 'package:alarm_app/screens/admin_splash.dart';
-
-import 'package:alarm_app/screens/ads_screen.dart';
 import 'package:alarm_app/screens/check_data.dart';
-
-import 'package:alarm_app/screens/edit_password.dart';
+import 'package:alarm_app/screens/payment_method.dart';
 import 'package:alarm_app/screens/personal_data.dart';
-
-import 'package:alarm_app/screens/setting_screen.dart';
-
+import 'package:alarm_app/screens/subscribe_screen.dart';
 
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -52,20 +46,20 @@ class _MyAppState extends State<MyApp> {
         // ],
         // child:
         MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              useMaterial3: false,
+            ),
+            home:PersonalData()
+             //SubscribeScreen()
+            // PaymentMethod()
+// CheckData()
+            // ignore: prefer_const_constructors
+            // home: const AdminSplash()
 
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: false,
-      ),
-home:  CheckData()
-      // ignore: prefer_const_constructors
-      // home: const AdminSplash()
-      
-      
-      
-    );
-
-}}
+            );
+  }
+}
 
 class ScreenRouter extends StatefulWidget {
   const ScreenRouter({super.key});
