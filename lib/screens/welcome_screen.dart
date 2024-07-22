@@ -1,3 +1,4 @@
+import 'package:alarm_app/screens/about2_screen.dart';
 import 'package:alarm_app/screens/about_screen.dart';
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:alarm_app/screens/subscribe_screen.dart';
@@ -93,7 +94,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(CupertinoPageRoute(
-                              builder: (context) => const AboutScreen()));
+                              builder: (context) => const About2Screen()));
                         },
                         child: Text(
                           'حول',

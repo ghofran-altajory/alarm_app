@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_import
 
+import 'package:alarm_app/screens/admin_control_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,7 +24,8 @@ class _AdminAdsState extends State<AdminAds> {
           child: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pushReplacement(context,
+                  CupertinoPageRoute(builder: (context) => AdminControlPage()));
             },
           ),
         ),
@@ -203,8 +205,7 @@ class _AdminAdsState extends State<AdminAds> {
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
-                    )
-                    ),
+                    )),
                   ),
                 ),
               ),

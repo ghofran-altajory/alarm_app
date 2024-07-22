@@ -1,3 +1,6 @@
+import 'package:alarm_app/screens/done_screen.dart';
+import 'package:alarm_app/screens/setting_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -75,15 +78,15 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                                 children: [
                                   TextFormField(
                                     keyboardType: TextInputType.number,
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "!يرجى إدخال العدد";
-                                      }
-                                      if (value.length != Characters) {
-                                        return "أدخل ارقام فقط !";
-                                      }
-                                      return null;
-                                    },
+                                    // validator: (value) {
+                                    //   if (value!.isEmpty) {
+                                    //     return "!يرجى إدخال العدد";
+                                    //   }
+                                    //   if (value.length != Characters) {
+                                    //     return "أدخل ارقام فقط !";
+                                    //   }
+                                    //   return null;
+                                    // },
                                     controller: alarmumController,
                                     decoration: InputDecoration(
                                       filled: true,
@@ -135,21 +138,9 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                                         const SizedBox(width: 15),
                                         GestureDetector(
                                           onTap: () {
-                                            (value) {
-                                              if (value!.isEmpty) {
-                                                return "يرجى إدخال العدد";
-                                              }
-                                              // ignore: unrelated_type_equality_checks
-                                              if (value.length != Characters) {
-                                                return "يرجى إدخال ارقام";
-                                              }
-                                              return null;
-                                            };
                                             setState(() {
                                               isTrue = true;
                                             });
-                                            alarmumController.clear();
-                                            Navigator.pop(context);
                                           },
                                           child: Container(
                                             padding: const EdgeInsets.all(15),
@@ -465,7 +456,10 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                 GestureDetector(
                   onTap: () {
                     if (isClick != -1 && isClick != 0 && !isTrue) {
-                      Navigator.pop(context);
+                      Navigator.pushReplacement(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => const DoneScreen()));
                     } else if (isClick == 0 && isTrue) {
                       Navigator.pop(context);
                     }

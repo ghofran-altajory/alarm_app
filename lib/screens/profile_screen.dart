@@ -1,5 +1,8 @@
 import 'package:alarm_app/main.dart';
 import 'package:alarm_app/module/profi_list_title.dart';
+import 'package:alarm_app/screens/about_screen.dart';
+import 'package:alarm_app/screens/edit_profile_screen.dart';
+import 'package:alarm_app/screens/setting_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,17 +26,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ProfiListTitlModule(
         title: ' تعديل الملف الشخصي',
         icon: Icons.person,
-        onTap: () {},
+        onTap: () {
+          Navigator.pushReplacement(
+              context,
+              CupertinoPageRoute(
+                  builder: (context) => const EditProfileScreen()));
+        },
       ),
       ProfiListTitlModule(
         title: "الإعدادات",
         icon: Icons.settings,
-        onTap: () {},
+        onTap: () {
+          Navigator.pushReplacement(context,
+              CupertinoPageRoute(builder: (context) => const SettingScreen()));
+        },
       ),
       ProfiListTitlModule(
         title: "حول",
         icon: Icons.question_mark,
-        onTap: () {},
+        onTap: () {
+          Navigator.pushReplacement(context,
+              CupertinoPageRoute(builder: (context) => const AboutScreen()));
+        },
       ),
       ProfiListTitlModule(
         title: "تسجيل الخروج",

@@ -1,4 +1,6 @@
 // ignore: unused_import
+import 'package:alarm_app/screens/edit_password.dart';
+import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,16 +18,23 @@ class SettingScreen extends StatefulWidget {
 int i = 1;
 
 class _SettingScreenState extends State<SettingScreen> {
-  List<ProfiListTitlModule> data = [
-     ProfiListTitlModule(title: "ضبط كلمة المرور", icon: Icons.key,onTap: () {
-       
-     },),
-     ProfiListTitlModule(title: "حذف الحساب", icon: Icons.person,onTap: () {
-       
-     },),
-  ];
   @override
   Widget build(BuildContext context) {
+    List<ProfiListTitlModule> data = [
+      ProfiListTitlModule(
+        title: "ضبط كلمة المرور",
+        icon: Icons.key,
+        onTap: () {
+          Navigator.pushReplacement(context,
+              CupertinoPageRoute(builder: (context) => const EditPassword()));
+        },
+      ),
+      ProfiListTitlModule(
+        title: "حذف الحساب",
+        icon: Icons.person,
+        onTap: () {},
+      ),
+    ];
     return Scaffold(
         backgroundColor: const Color(0xFFFCFCFf),
         appBar: AppBar(
@@ -36,7 +45,10 @@ class _SettingScreenState extends State<SettingScreen> {
             child: IconButton(
               icon: const Icon(Icons.arrow_back_ios),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.pushReplacement(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) => const TabsScreen()));
               },
             ),
           ),
@@ -61,7 +73,7 @@ class _SettingScreenState extends State<SettingScreen> {
               itemCount: data.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                    onTap: () {},
+                    onTap: data[index].onTap,
                     leading: IconButton(
                       icon: const Icon(Icons.arrow_back_ios),
                       color: const Color(0xFF1883DB),

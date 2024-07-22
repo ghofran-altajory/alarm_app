@@ -1,3 +1,6 @@
+import 'package:alarm_app/screens/admin_subscrib.dart';
+import 'package:alarm_app/screens/tabs_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -28,7 +31,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           child: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pushReplacement(context,
+                  CupertinoPageRoute(builder: (context) => const TabsScreen()));
             },
           ),
         ),

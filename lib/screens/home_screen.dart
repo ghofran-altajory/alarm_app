@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 22,
                             ))),
                     content: Padding(
-                      padding: const EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(5),
                       child: SafeArea(
                         child: SingleChildScrollView(
                           child: Form(
@@ -205,110 +205,118 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 5,
                                 ),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(':الوقت ',
-                                            textAlign: TextAlign.right,
-                                            style: GoogleFonts.almarai(
-                                              color: const Color(0xFF000000),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                            )),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [],
+                                        ),
                                       ],
                                     ),
-                                  ],
-                                ),
-                                const SizedBox(height: 13),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 3, left: 130),
-                                  child: TextFormField(
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "!ادخل الوقت";
-                                      }
+                                    const SizedBox(height: 13),
+                                    SizedBox(
+                                      width: 60,
+                                      child: TextFormField(
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return "!ادخل الوقت";
+                                          }
 
-                                      return null;
-                                    },
-                                    controller: dateController,
-                                    decoration: InputDecoration(
-                                      suffixIcon: const Icon(
-                                        Icons.alarm,
-                                        color: Color(0xFF1883DB),
+                                          return null;
+                                        },
+                                        controller: dateController,
+                                        decoration: InputDecoration(
+                                          suffixIcon: const Icon(
+                                            Icons.alarm,
+                                            color: Color(0xFF1883DB),
+                                          ),
+                                          filled: true,
+                                          fillColor: const Color(0x70C5E4FE),
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 12, vertical: 4),
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                          ),
+                                          focusedBorder:
+                                              const OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors.blue)),
+                                        ),
                                       ),
-                                      filled: true,
-                                      fillColor: const Color(0x70C5E4FE),
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              horizontal: 12, vertical: 4),
-                                      border: OutlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(15.0),
-                                      ),
-                                      focusedBorder: const OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide(color: Colors.blue)),
                                     ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                    Text(':الوقت ',
+                                        textAlign: TextAlign.right,
+                                        style: GoogleFonts.almarai(
+                                          color: const Color(0xFF000000),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                        )),
+                                    const SizedBox(
+                                      width: 7,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Text(': التاريخ ',
-                                            textAlign: TextAlign.right,
-                                            style: GoogleFonts.almarai(
-                                              color: const Color(0xFF000000),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                            )),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [],
+                                        ),
                                       ],
                                     ),
-                                  ],
-                                ),
-                                const SizedBox(height: 13),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 3, left: 130),
-                                  child: TextFormField(
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "!ادخل التاريخ";
-                                      }
+                                    const SizedBox(height: 13),
+                                    SizedBox(
+                                      width: 60,
+                                      child: TextFormField(
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return "!ادخل التاريخ";
+                                          }
 
-                                      return null;
-                                    },
-                                    controller: timeController,
-                                    decoration: InputDecoration(
-                                      suffixIcon: const Icon(
-                                          Icons.calendar_month,
-                                          color: Color(0xFF1883DB)),
-                                      filled: true,
-                                      fillColor: const Color(0x70C5E4FE),
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              horizontal: 12, vertical: 4),
-                                      border: OutlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                        borderRadius:
-                                            BorderRadius.circular(15.0),
+                                          return null;
+                                        },
+                                        controller: dateController,
+                                        decoration: InputDecoration(
+                                          suffixIcon: const Icon(
+                                              Icons.calendar_month,
+                                              color: Color(0xFF1883DB)),
+                                          filled: true,
+                                          fillColor: const Color(0x70C5E4FE),
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 12, vertical: 4),
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                          ),
+                                          focusedBorder:
+                                              const OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors.blue)),
+                                        ),
                                       ),
-                                      focusedBorder: const OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide(color: Colors.blue)),
                                     ),
-                                  ),
+                                    Text(': التاريخ ',
+                                        textAlign: TextAlign.right,
+                                        style: GoogleFonts.almarai(
+                                          color: const Color(0xFF000000),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                        )),
+                                    SizedBox(
+                                      width: 3,
+                                    ),
+                                  ],
                                 ),
                                 const SizedBox(
                                   height: 10,
@@ -414,7 +422,7 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 90,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(15)),
         color: Color(0x70C5E4FE),
@@ -455,16 +463,39 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
                 const SizedBox(
                   height: 5,
                 ),
-                Row(
-                  children: [
-                    Text(widget.data.time),
-                    const Icon(Icons.timelapse),
-                  ],
-                )
+                Container(
+                  // width: 92,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Icon(Icons.timelapse),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          widget.data.time,
+                          style: const TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
             Column(
-              children: [Text(widget.data.title), Text(widget.data.suTitle)],
+              children: [
+                Text(widget.data.title),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(widget.data.suTitle)
+              ],
             ),
           ],
         ),

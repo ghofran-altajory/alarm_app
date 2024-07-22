@@ -1,3 +1,4 @@
+import 'package:alarm_app/screens/admin_control_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -26,7 +27,8 @@ class _AdminSubscribState extends State<AdminSubscrib> {
           child: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pushReplacement(context,
+                  CupertinoPageRoute(builder: (context) => AdminControlPage()));
             },
           ),
         ),
@@ -105,48 +107,157 @@ class _AdminSubscribState extends State<AdminSubscrib> {
                             ),
                           ]),
                           SizedBox(height: 20),
-                          Column(
+                          Row(
                             children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    // width: 92,
-                                    decoration: const BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.white,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 17),
-                                      child: Row(children: [
-                                        Text(
-                                          "تعديل",
-                                          style: const TextStyle(fontSize: 12),
-                                        )
-                                      ]),
-                                    ),
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Align(
+                                              alignment: Alignment.center,
+                                              child: Text(" : تعديل السعر",
+                                                  style: GoogleFonts.almarai(
+                                                    color:
+                                                        const Color(0xFF1883DB),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18,
+                                                  ))),
+                                          content: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              TextFormField(
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                // validator: (value) {
+                                                //   if (value!.isEmpty) {
+                                                //     return "!يرجى إدخال العدد";
+                                                //   }
+                                                //   if (value.length != Characters) {
+                                                //     return "أدخل ارقام فقط !";
+                                                //   }
+                                                //   return null;
+                                                // },
+                                                controller: alarmumController,
+                                                decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor:
+                                                      const Color(0x70C5E4FE),
+                                                  contentPadding:
+                                                      const EdgeInsets
+                                                          .symmetric(
+                                                          vertical: 2,
+                                                          horizontal: 10),
+                                                  border: OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              18.0),
+                                                      borderSide:
+                                                          BorderSide.none),
+                                                  focusedBorder:
+                                                      const OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                      .blue)),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        alarmumController
+                                                            .clear();
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(15),
+                                                        decoration: BoxDecoration(
+                                                            color: const Color(
+                                                                0x70C5E4FE),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        22)),
+                                                        child: Text(
+                                                          'إلغاء',
+                                                          style: GoogleFonts
+                                                              .almarai(
+                                                            color: const Color(
+                                                                0xFF1883DB),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 16,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(width: 15),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        alarmumController
+                                                            .clear();
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(15),
+                                                        decoration: BoxDecoration(
+                                                            color: const Color(
+                                                                0xFF1883DB),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        22)),
+                                                        child: Text(
+                                                          'حفظ',
+                                                          style: GoogleFonts
+                                                              .almarai(
+                                                            color: const Color(
+                                                                0xFFECF1FF),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 16,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ])
+                                            ],
+                                          ),
+                                        );
+                                      });
+                                },
+                                child: Container(
+                                  // width: 92,
+                                  decoration: const BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    color: Colors.white,
                                   ),
-                                  SizedBox(width: 20),
-                                  Container(
-                                    // width: 92,
-                                    decoration: const BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.white,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 17),
-                                      child: Row(children: [
-                                        Text(
-                                          "حذفٍ",
-                                          style: const TextStyle(fontSize: 12),
-                                        )
-                                      ]),
-                                    ),
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 34),
+                                    child: Row(children: [
+                                      Text(
+                                        "تعديل",
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    ]),
                                   ),
-                                ],
+                                ),
                               ),
                             ],
                           ),
@@ -212,48 +323,157 @@ class _AdminSubscribState extends State<AdminSubscrib> {
                             ),
                           ]),
                           SizedBox(height: 20),
-                          Column(
+                          Row(
                             children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    // width: 92,
-                                    decoration: const BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.white,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 17),
-                                      child: Row(children: [
-                                        Text(
-                                          "تعديل",
-                                          style: const TextStyle(fontSize: 12),
-                                        )
-                                      ]),
-                                    ),
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Align(
+                                              alignment: Alignment.center,
+                                              child: Text(" : تعديل السعر",
+                                                  style: GoogleFonts.almarai(
+                                                    color:
+                                                        const Color(0xFF1883DB),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18,
+                                                  ))),
+                                          content: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              TextFormField(
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                // validator: (value) {
+                                                //   if (value!.isEmpty) {
+                                                //     return "!يرجى إدخال العدد";
+                                                //   }
+                                                //   if (value.length != Characters) {
+                                                //     return "أدخل ارقام فقط !";
+                                                //   }
+                                                //   return null;
+                                                // },
+                                                controller: alarmumController,
+                                                decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor:
+                                                      const Color(0x70C5E4FE),
+                                                  contentPadding:
+                                                      const EdgeInsets
+                                                          .symmetric(
+                                                          vertical: 2,
+                                                          horizontal: 10),
+                                                  border: OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              18.0),
+                                                      borderSide:
+                                                          BorderSide.none),
+                                                  focusedBorder:
+                                                      const OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                      .blue)),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        alarmumController
+                                                            .clear();
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(15),
+                                                        decoration: BoxDecoration(
+                                                            color: const Color(
+                                                                0x70C5E4FE),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        22)),
+                                                        child: Text(
+                                                          'إلغاء',
+                                                          style: GoogleFonts
+                                                              .almarai(
+                                                            color: const Color(
+                                                                0xFF1883DB),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 16,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(width: 15),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        alarmumController
+                                                            .clear();
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(15),
+                                                        decoration: BoxDecoration(
+                                                            color: const Color(
+                                                                0xFF1883DB),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        22)),
+                                                        child: Text(
+                                                          'حفظ',
+                                                          style: GoogleFonts
+                                                              .almarai(
+                                                            color: const Color(
+                                                                0xFFECF1FF),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 16,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ])
+                                            ],
+                                          ),
+                                        );
+                                      });
+                                },
+                                child: Container(
+                                  // width: 92,
+                                  decoration: const BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    color: Colors.white,
                                   ),
-                                  SizedBox(width: 20),
-                                  Container(
-                                    // width: 92,
-                                    decoration: const BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.white,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 17),
-                                      child: Row(children: [
-                                        Text(
-                                          "حذفٍ",
-                                          style: const TextStyle(fontSize: 12),
-                                        )
-                                      ]),
-                                    ),
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 34),
+                                    child: Row(children: [
+                                      Text(
+                                        "تعديل",
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    ]),
                                   ),
-                                ],
+                                ),
                               ),
                             ],
                           ),
@@ -319,48 +539,157 @@ class _AdminSubscribState extends State<AdminSubscrib> {
                             ),
                           ]),
                           SizedBox(height: 20),
-                          Column(
+                          Row(
                             children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    // width: 92,
-                                    decoration: const BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.white,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 17),
-                                      child: Row(children: [
-                                        Text(
-                                          "تعديل",
-                                          style: const TextStyle(fontSize: 12),
-                                        )
-                                      ]),
-                                    ),
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Align(
+                                              alignment: Alignment.center,
+                                              child: Text(" : تعديل السعر",
+                                                  style: GoogleFonts.almarai(
+                                                    color:
+                                                        const Color(0xFF1883DB),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18,
+                                                  ))),
+                                          content: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              TextFormField(
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                // validator: (value) {
+                                                //   if (value!.isEmpty) {
+                                                //     return "!يرجى إدخال العدد";
+                                                //   }
+                                                //   if (value.length != Characters) {
+                                                //     return "أدخل ارقام فقط !";
+                                                //   }
+                                                //   return null;
+                                                // },
+                                                controller: alarmumController,
+                                                decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor:
+                                                      const Color(0x70C5E4FE),
+                                                  contentPadding:
+                                                      const EdgeInsets
+                                                          .symmetric(
+                                                          vertical: 2,
+                                                          horizontal: 10),
+                                                  border: OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              18.0),
+                                                      borderSide:
+                                                          BorderSide.none),
+                                                  focusedBorder:
+                                                      const OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                      .blue)),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        alarmumController
+                                                            .clear();
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(15),
+                                                        decoration: BoxDecoration(
+                                                            color: const Color(
+                                                                0x70C5E4FE),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        22)),
+                                                        child: Text(
+                                                          'إلغاء',
+                                                          style: GoogleFonts
+                                                              .almarai(
+                                                            color: const Color(
+                                                                0xFF1883DB),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 16,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(width: 15),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        alarmumController
+                                                            .clear();
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(15),
+                                                        decoration: BoxDecoration(
+                                                            color: const Color(
+                                                                0xFF1883DB),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        22)),
+                                                        child: Text(
+                                                          'حفظ',
+                                                          style: GoogleFonts
+                                                              .almarai(
+                                                            color: const Color(
+                                                                0xFFECF1FF),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 16,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ])
+                                            ],
+                                          ),
+                                        );
+                                      });
+                                },
+                                child: Container(
+                                  // width: 92,
+                                  decoration: const BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    color: Colors.white,
                                   ),
-                                  SizedBox(width: 20),
-                                  Container(
-                                    // width: 92,
-                                    decoration: const BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.white,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 17),
-                                      child: Row(children: [
-                                        Text(
-                                          "حذفٍ",
-                                          style: const TextStyle(fontSize: 12),
-                                        )
-                                      ]),
-                                    ),
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 34),
+                                    child: Row(children: [
+                                      Text(
+                                        "تعديل",
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    ]),
                                   ),
-                                ],
+                                ),
                               ),
                             ],
                           ),
@@ -426,48 +755,157 @@ class _AdminSubscribState extends State<AdminSubscrib> {
                             ),
                           ]),
                           SizedBox(height: 20),
-                          Column(
+                          Row(
                             children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    // width: 92,
-                                    decoration: const BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.white,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 17),
-                                      child: Row(children: [
-                                        Text(
-                                          "تعديل",
-                                          style: const TextStyle(fontSize: 12),
-                                        )
-                                      ]),
-                                    ),
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title: Align(
+                                              alignment: Alignment.center,
+                                              child: Text(" : تعديل السعر",
+                                                  style: GoogleFonts.almarai(
+                                                    color:
+                                                        const Color(0xFF1883DB),
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18,
+                                                  ))),
+                                          content: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              TextFormField(
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                // validator: (value) {
+                                                //   if (value!.isEmpty) {
+                                                //     return "!يرجى إدخال العدد";
+                                                //   }
+                                                //   if (value.length != Characters) {
+                                                //     return "أدخل ارقام فقط !";
+                                                //   }
+                                                //   return null;
+                                                // },
+                                                controller: alarmumController,
+                                                decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor:
+                                                      const Color(0x70C5E4FE),
+                                                  contentPadding:
+                                                      const EdgeInsets
+                                                          .symmetric(
+                                                          vertical: 2,
+                                                          horizontal: 10),
+                                                  border: OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              18.0),
+                                                      borderSide:
+                                                          BorderSide.none),
+                                                  focusedBorder:
+                                                      const OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                      .blue)),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 10,
+                                              ),
+                                              Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        alarmumController
+                                                            .clear();
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(15),
+                                                        decoration: BoxDecoration(
+                                                            color: const Color(
+                                                                0x70C5E4FE),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        22)),
+                                                        child: Text(
+                                                          'إلغاء',
+                                                          style: GoogleFonts
+                                                              .almarai(
+                                                            color: const Color(
+                                                                0xFF1883DB),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 16,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(width: 15),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        alarmumController
+                                                            .clear();
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(15),
+                                                        decoration: BoxDecoration(
+                                                            color: const Color(
+                                                                0xFF1883DB),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        22)),
+                                                        child: Text(
+                                                          'حفظ',
+                                                          style: GoogleFonts
+                                                              .almarai(
+                                                            color: const Color(
+                                                                0xFFECF1FF),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 16,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ])
+                                            ],
+                                          ),
+                                        );
+                                      });
+                                },
+                                child: Container(
+                                  // width: 92,
+                                  decoration: const BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    color: Colors.white,
                                   ),
-                                  SizedBox(width: 20),
-                                  Container(
-                                    // width: 92,
-                                    decoration: const BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.white,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 17),
-                                      child: Row(children: [
-                                        Text(
-                                          "حذفٍ",
-                                          style: const TextStyle(fontSize: 12),
-                                        )
-                                      ]),
-                                    ),
+                                  child: Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 34),
+                                    child: Row(children: [
+                                      Text(
+                                        "تعديل",
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    ]),
                                   ),
-                                ],
+                                ),
                               ),
                             ],
                           ),
@@ -482,7 +920,11 @@ class _AdminSubscribState extends State<AdminSubscrib> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) => AdminControlPage()),
+                  );
                 },
                 child: Container(
                   padding:
