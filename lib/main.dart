@@ -1,7 +1,4 @@
-import 'package:alarm_app/screens/check_data.dart';
-import 'package:alarm_app/screens/payment_method.dart';
 import 'package:alarm_app/screens/personal_data.dart';
-import 'package:alarm_app/screens/subscribe_screen.dart';
 
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';

@@ -1,4 +1,7 @@
 // ignore: unused_import
+import 'package:alarm_app/main.dart';
+import 'package:alarm_app/module/profi_list_title.dart';
+import 'package:alarm_app/screens/edit_password.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +11,7 @@ import '../module/profi_list_title.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
+  
 
   @override
   State<SettingScreen> createState() => _SettingScreenState();
@@ -16,14 +20,16 @@ class SettingScreen extends StatefulWidget {
 int i = 1;
 
 class _SettingScreenState extends State<SettingScreen> {
+   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   List<ProfiListTitlModule> data = [
-     ProfiListTitlModule(title: "ضبط كلمة المرور", icon: Icons.key,onTap: () {
-       
-     },),
-     ProfiListTitlModule(title: "حذف الحساب", icon: Icons.person,onTap: () {
-       
-     },),
+     ProfiListTitlModule(title: "ضبط كلمة المرور", icon: Icons.key,onTap: () {}),
+                                       
+     ProfiListTitlModule(title: "حذف الحساب", icon: Icons.person,onTap: () {})
   ];
+                  
+                            
+       
+    
   @override
   Widget build(BuildContext context) {
     return Scaffold(

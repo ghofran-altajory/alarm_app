@@ -1,4 +1,5 @@
 import 'package:alarm_app/screens/check_data.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,6 +11,10 @@ class PersonalData extends StatefulWidget {
 }
 
 class _PersonalDataState extends State<PersonalData> {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController phonecontroller = TextEditingController();
+  TextEditingController familyPhoneontroller = TextEditingController();
   int _selectedValue = 0;
   void _handleRadioValueChanged(int value) {
     setState(() {
@@ -39,153 +44,201 @@ class _PersonalDataState extends State<PersonalData> {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                const SizedBox(
-                  height: 30,
-                ),
-                Text(' : الاسم الكامل',
-                    textAlign: TextAlign.right,
-                    style: GoogleFonts.almarai(
-                        color: const Color(0xFF000000),
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold)),
-                const SizedBox(height: 13),
-                Padding(
-                  padding: const EdgeInsets.only(right: 3, left: 30),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color(0x70C5E4FE),
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 4),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue)),
-                    ),
+            child: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const SizedBox(
+                    height: 30,
                   ),
-                ),
-                const SizedBox(height: 30),
-                Text(': رقم الهاتف ',
-                    textAlign: TextAlign.right,
-                    style: GoogleFonts.almarai(
-                        color: const Color(0xFF000000),
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold)),
-                const SizedBox(height: 13),
-                Padding(
-                  padding: const EdgeInsets.only(right: 3, left: 30),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color(0x70C5E4FE),
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 4),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue)),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 30),
-                Text(':ارقام هواتف الاسرة ',
-                    textAlign: TextAlign.right,
-                    style: GoogleFonts.almarai(
-                        color: const Color(0xFF000000),
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold)),
-                const SizedBox(height: 13),
-                Padding(
-                  padding: const EdgeInsets.only(right: 3, left: 30),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color(0x70C5E4FE),
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 4),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue)),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Text('الجنس',
-                    textAlign: TextAlign.right,
-                    style: GoogleFonts.almarai(
-                        color: const Color(0xFF000000),
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text('ذكر',
-                        textAlign: TextAlign.right,
-                        style: GoogleFonts.almarai(
+                  Text(' : الاسم الكامل',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
                           color: const Color(0xFF000000),
-                          fontSize: 14,
-                        )),
-                    Radio<int>(
-                      value: 1, // Unique value for each radio button
-                      groupValue: _selectedValue,
-                      onChanged: (value) =>
-                          setState(() => _selectedValue = value!),
-                    ),
-                    Text('انثى',
-                        textAlign: TextAlign.right,
-                        style: GoogleFonts.almarai(
-                          color: const Color(0xFF000000),
-                          fontSize: 14,
-                        )),
-                    Radio<int>(
-                      value: 2,
-                      groupValue: _selectedValue,
-                      onChanged: (value) =>
-                          setState(() => _selectedValue = value!),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 60),
-                GestureDetector(
-                  onTap: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CheckData()),
-                    );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 62, vertical: 15),
-                    child: Container(
-                      padding: const EdgeInsets.all(18),
-                      decoration: BoxDecoration(
-                          color: const Color(0xFF1883DB),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Center(
-                          child: Text(
-                        'التالي ',
-                        style: GoogleFonts.almarai(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 13),
+                  SizedBox(
+                    width: 350,
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "!الرجاء إدخال  اسم المستخدم ";
+                        }
+
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
-                      )),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  const SizedBox(height: 30),
+                  Text(': رقم الهاتف ',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                          color: const Color(0xFF000000),
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 13),
+                  SizedBox(
+                    width: 350,
+                    child: TextFormField(
+                      keyboardType: TextInputType.phone,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "!الرجاء إدخال  رقم الهاتف ";
+                        }
+
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  Text(':ارقام هواتف الاسرة ',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                          color: const Color(0xFF000000),
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold)),
+                  Row(
+                    children: [
+                      const SizedBox(height: 13),
+                      SizedBox(
+                        width: 200,
+                        child: TextFormField(
+                          keyboardType: TextInputType.phone,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "!الرجاء إدخال  رقم الهاتف ";
+                            }
+
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: const Color(0x70C5E4FE),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 4),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            focusedBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue)),
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.of(context).push(CupertinoPageRoute(
+                                builder: (context) => AlertDialog(
+                                      title: Align(
+                                          alignment: Alignment.center,
+                                          child: Text(" : ادخل عدد التنبيهات",
+                                              style: GoogleFonts.almarai(
+                                                color: const Color(0xFF1883DB),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18,
+                                              ))),
+                                    )));
+                          },
+                          icon: const Center(
+                            child: Icon(
+                              size: 30,
+                              Icons.person,
+                            ),
+                          )),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Text('الجنس',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                          color: const Color(0xFF000000),
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text('ذكر',
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.almarai(
+                            color: const Color(0xFF000000),
+                            fontSize: 14,
+                          )),
+                      Radio<int>(
+                        value: 1, // Unique value for each radio button
+                        groupValue: _selectedValue,
+                        onChanged: (value) =>
+                            setState(() => _selectedValue = value!),
+                      ),
+                      Text('انثى',
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.almarai(
+                            color: const Color(0xFF000000),
+                            fontSize: 14,
+                          )),
+                      Radio<int>(
+                        value: 2,
+                        groupValue: _selectedValue,
+                        onChanged: (value) =>
+                            setState(() => _selectedValue = value!),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 60),
+                  GestureDetector(
+                    onTap: () async {
+                      Navigator.of(context).push(CupertinoPageRoute(
+                          builder: (context) => CheckData()));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 62, vertical: 15),
+                      child: Container(
+                        padding: const EdgeInsets.all(18),
+                        decoration: BoxDecoration(
+                            color: const Color(0xFF1883DB),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Center(
+                            child: Text(
+                          'التالي ',
+                          style: GoogleFonts.almarai(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        )),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

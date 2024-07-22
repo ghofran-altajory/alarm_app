@@ -69,6 +69,7 @@ class _CheckDataState extends State<CheckData> {
                   SizedBox(
                     width: 120,
                     child: TextFormField(
+                      keyboardType: TextInputType.number,
                       controller: acontroller,
                       decoration: InputDecoration(
                         filled: true,
@@ -84,7 +85,7 @@ class _CheckDataState extends State<CheckData> {
                       ),
                     ),
                   ),
-                  Text(': ضغط الدم ',
+                  Text(': السكر  ',
                       textAlign: TextAlign.right,
                       style: GoogleFonts.almarai(
                         color: const Color(0xFF000000),
@@ -96,6 +97,7 @@ class _CheckDataState extends State<CheckData> {
                   SizedBox(
                     width: 120,
                     child: TextFormField(
+                      keyboardType: TextInputType.number,
                       controller: bcontroller,
                       decoration: InputDecoration(
                         filled: true,
@@ -112,7 +114,7 @@ class _CheckDataState extends State<CheckData> {
                     ),
                   ),
 
-                  Text(': السكر',
+                  Text(': ضغط الدم',
                       textAlign: TextAlign.right,
                       style: GoogleFonts.almarai(
                         color: const Color(0xFF000000),
@@ -123,99 +125,105 @@ class _CheckDataState extends State<CheckData> {
               ),
               const SizedBox(height: 13),
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(': فصيلة الدم ',
-                          textAlign: TextAlign.right,
-                          style: GoogleFonts.almarai(
-                            color: const Color(0xFF000000),
-                            fontSize: 13,
-                          )),
-                    ],
+                  // const SizedBox(height: 13),
+                  SizedBox(
+                    width: 120,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      controller: ccontroller,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
+                      ),
+                    ),
                   ),
+                  Text(': الوزن  ',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontSize: 13,
+                      )),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  SizedBox(
+                    width: 120,
+                    child: TextFormField(
+                      controller: dcontroller,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
+                      ),
+                    ),
+                  ),
+
+                  Text(': فصيلة الدم ',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontSize: 13,
+                      )),
+                  // const SizedBox(height: 13),
                 ],
               ),
               const SizedBox(height: 13),
               Padding(
-                padding: const EdgeInsets.only(right: 3, left: 250),
-                child: TextFormField(
-                  controller: ccontroller,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
-                  ),
+                padding: const EdgeInsets.only(
+                  left: 100,
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(':الوزن',
-                          textAlign: TextAlign.right,
-                          style: GoogleFonts.almarai(
-                            color: const Color(0xFF000000),
-                            fontSize: 13,
-                          )),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 250),
-                child: TextFormField(
-                  controller: dcontroller,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
+                child: Row(
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // const SizedBox(height: 13),
+                    SizedBox(
+                      width: 120,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        controller: econtroller,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: const Color(0x70C5E4FE),
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 4),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue)),
+                        ),
+                      ),
                     ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 13),
-              Text(':الطول ',
-                  textAlign: TextAlign.right,
-                  style: GoogleFonts.almarai(
-                    color: const Color(0xFF000000),
-                    fontSize: 13,
-                  )),
-              const SizedBox(height: 13),
-              Padding(
-                padding: const EdgeInsets.only(right: 3, left: 250),
-                child: TextFormField(
-                  controller: econtroller,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: const Color(0x70C5E4FE),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15.0),
+                    SizedBox(
+                      width: 0,
                     ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue)),
-                  ),
+                    Text(': الطول',
+                        textAlign: TextAlign.right,
+                        style: GoogleFonts.almarai(
+                          color: const Color(0xFF000000),
+                          fontSize: 13,
+                        )),
+                    // const SizedBox(height: 13),
+                  ],
                 ),
               ),
               const SizedBox(

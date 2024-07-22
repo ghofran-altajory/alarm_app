@@ -491,15 +491,15 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                 //     showDialog(
                 //         context: context,
                 //         builder: (context) {
-                //           return AlertDialog(
-                //             title: Align(
-                //                 alignment: Alignment.center,
-                //                 child: Text(" : ادخل عدد التنبيهات",
-                //                     style: GoogleFonts.almarai(
-                //                       color: const Color(0xFF1883DB),
-                //                       fontWeight: FontWeight.bold,
-                //                       fontSize: 18,
-                //                     ))),
+                          // return AlertDialog(
+                          //   title: Align(
+                          //       alignment: Alignment.center,
+                          //       child: Text(" : ادخل عدد التنبيهات",
+                          //           style: GoogleFonts.almarai(
+                          //             color: const Color(0xFF1883DB),
+                          //             fontWeight: FontWeight.bold,
+                          //             fontSize: 18,
+                          //           ))),
                 //             content: Form(
                 //               key: formKey,
                 //               child: Column(
