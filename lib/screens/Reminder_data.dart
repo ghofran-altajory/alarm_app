@@ -22,6 +22,8 @@ class _ReminderDataState extends State<ReminderData> {
   TextEditingController time2controller = TextEditingController();
   TextEditingController time3controller = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey2 = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey3 = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -424,7 +426,31 @@ class _ReminderDataState extends State<ReminderData> {
                   GestureDetector(
                     onTap: () async {
                       if (formKey.currentState!.validate()) {
-                        if (drugcontroller.text.isNotEmpty) {
+                        if (drugcontroller.text.isNotEmpty &&
+                            date1controller.text.isNotEmpty &&
+                            time1controller.text.isNotEmpty) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const TabsScreen()),
+                          );
+                        }
+                      }
+                      if (formKey2.currentState!.validate()) {
+                        if (revcontroller.text.isNotEmpty &&
+                            date2controller.text.isNotEmpty &&
+                            time2controller.text.isNotEmpty) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const TabsScreen()),
+                          );
+                        }
+                      }
+                      if (formKey.currentState!.validate()) {
+                        if (analicontroller.text.isNotEmpty &&
+                            date3controller.text.isNotEmpty &&
+                            time3controller.text.isNotEmpty) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -433,24 +459,6 @@ class _ReminderDataState extends State<ReminderData> {
                         }
                       }
 
-                      if (revcontroller.text.isNotEmpty &&
-                          date2controller.text.isNotEmpty &&
-                          time2controller.text.isNotEmpty) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const TabsScreen()),
-                        );
-                      }
-                      if (analicontroller.text.isNotEmpty &&
-                          date3controller.text.isNotEmpty &&
-                          time3controller.text.isNotEmpty) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const TabsScreen()),
-                        );
-                      }
                       // else {
                       //    Navigator.push(
                       //       context,
