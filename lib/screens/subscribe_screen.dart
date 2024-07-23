@@ -1,4 +1,5 @@
 import 'package:alarm_app/screens/done_screen.dart';
+import 'package:alarm_app/screens/payment_method.dart';
 import 'package:alarm_app/screens/setting_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -459,7 +460,7 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                       Navigator.pushReplacement(
                           context,
                           CupertinoPageRoute(
-                              builder: (context) => const DoneScreen()));
+                              builder: (context) => const PaymentMethod()));
                     } else if (isClick == 0 && isTrue) {
                       Navigator.pop(context);
                     }
@@ -485,15 +486,15 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                 //     showDialog(
                 //         context: context,
                 //         builder: (context) {
-                          // return AlertDialog(
-                          //   title: Align(
-                          //       alignment: Alignment.center,
-                          //       child: Text(" : ادخل عدد التنبيهات",
-                          //           style: GoogleFonts.almarai(
-                          //             color: const Color(0xFF1883DB),
-                          //             fontWeight: FontWeight.bold,
-                          //             fontSize: 18,
-                          //           ))),
+                // return AlertDialog(
+                //   title: Align(
+                //       alignment: Alignment.center,
+                //       child: Text(" : ادخل عدد التنبيهات",
+                //           style: GoogleFonts.almarai(
+                //             color: const Color(0xFF1883DB),
+                //             fontWeight: FontWeight.bold,
+                //             fontSize: 18,
+                //           ))),
                 //             content: Form(
                 //               key: formKey,
                 //               child: Column(

@@ -128,27 +128,27 @@ class _PersonalDataState extends State<PersonalData> {
                   const SizedBox(height: 13),
                   Row(
                     children: [
-                      FloatingActionButton(
-                        backgroundColor: const Color(0xFF1883DB),
-                        child: Icon(Icons.add),
+                      IconButton(
                         onPressed: () {
                           showDialog(
                               context: context,
                               builder: (context) {
-                                return AlertDialog(
-                                  title: Align(
-                                      alignment: Alignment.center,
-                                      child: Text(" : اضافة ارقام اخرى",
-                                          style: GoogleFonts.almarai(
-                                            color: const Color(0xFF1883DB),
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18,
-                                          ))),
-                                  content: Form(
-                                    key: formKey,
+                                return Dialog(
+                                    child: SizedBox(
+                                  height: 200,
+                                  width: double.infinity,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15),
                                     child: Column(
-                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
+                                        Text(" : اضافة ارقام اخرى",
+                                            style: GoogleFonts.almarai(
+                                              color: const Color(0xFF1883DB),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18,
+                                            )),
                                         TextFormField(
                                           keyboardType: TextInputType.phone,
                                           // validator: (value) {
@@ -236,13 +236,14 @@ class _PersonalDataState extends State<PersonalData> {
                                                   ),
                                                 ),
                                               ),
-                                            ])
+                                            ]),
                                       ],
                                     ),
                                   ),
-                                );
+                                ));
                               });
                         },
+                        icon: Icon(Icons.add),
                       ),
                       const SizedBox(width: 45),
                       SizedBox(
@@ -314,17 +315,17 @@ class _PersonalDataState extends State<PersonalData> {
                   GestureDetector(
                     onTap: () async {
                       if (formKey.currentState!.validate()) {
-                        if (namecontroller.text.isEmpty &&
-                            phonecontroller.text.isEmpty &&
-                            familyPhoneontroller.text.isEmpty) {
-                          Navigator.of(context).push(CupertinoPageRoute(
-                              builder: (context) => CheckData()));
-                          namecontroller.clear();
-                          phonecontroller.clear();
-                          familyPhoneontroller.clear();
+                        // if (namecontroller.text.isEmpty &&
+                        //     phonecontroller.text.isEmpty &&
+                        //     familyPhoneontroller.text.isEmpty) {
+                        Navigator.of(context).push(CupertinoPageRoute(
+                            builder: (context) => CheckData()));
+                        namecontroller.clear();
+                        phonecontroller.clear();
+                        familyPhoneontroller.clear();
 
-                          // Navigator.pop(context);
-                        }
+                        // Navigator.pop(context);
+                        // }
                       }
                     },
                     child: Padding(

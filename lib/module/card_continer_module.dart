@@ -1,11 +1,14 @@
 class CardContinerModule {
-  final String title;
-  final String suTitle;
-  final String date;
-  final String time;
-  const CardContinerModule(
-      {required this.title,
-      required this.suTitle,
-      required this.date,
-      required this.time});
+  String? title;
+  String? dec;
+  String? date;
+  String? time;
+  CardContinerModule({this.title, this.dec, this.date, this.time});
+
+  CardContinerModule.fromJson(Map<String, dynamic> json) {
+    title = json['title'] ?? "";
+    dec = json['dec'] ?? "";
+    date = json['date'] ?? "";
+    time = json['time'] ?? "";
+  }
 }

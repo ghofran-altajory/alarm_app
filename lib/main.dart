@@ -1,4 +1,7 @@
+import 'package:alarm_app/screens/check_data.dart';
 import 'package:alarm_app/screens/personal_data.dart';
+import 'package:alarm_app/screens/reminder_data.dart';
+import 'package:alarm_app/screens/splash_screen.dart';
 
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -47,8 +50,16 @@ class _MyAppState extends State<MyApp> {
             theme: ThemeData(
               useMaterial3: false,
             ),
-            home:PersonalData()
-             //SubscribeScreen()
+            home:
+
+                // ReminderData()
+                // CheckData()
+
+                // WelcomeScreen()
+
+                //
+                TabsScreen()
+            //SubscribeScreen()
             // PaymentMethod()
 // CheckData()
             // ignore: prefer_const_constructors
