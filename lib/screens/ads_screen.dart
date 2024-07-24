@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:alarm_app/module/ads_module.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,62 +14,97 @@ class AdsScreen extends StatefulWidget {
 }
 
 class _AdsScreenState extends State<AdsScreen> {
-  List<adsModule> data = [
-    adsModule(
-        title: "الطبيب أحمد علي",
-        suTitle: "دكتور قلب",
-        place: "متواجد في مصحه الامل",
-        time: " من الساعة 8:00 ص الى 8:00 م ",
-        cost: "سعر الحجز 50 د.ل",
-        icon: Icons.abc)
-  ];
+FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  List<adsModule> data = [];
+Future<List<adsModule>> getData() async {
+    var data = await firestore
+        .collection('ads')
+        .where('user_id', isEqualTo: auth.currentUser!.uid)
+        .get();
+    return data.docs.map((e) => adsModule.fromJson(e.data())).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       
       backgroundColor: const Color(0xFFFCFCFf),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
+      body:
+      FutureBuilder<List<adsModule>>(
+            future: getData(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                    child: CircularProgressIndicator(
+                  backgroundColor: const Color(0xFF1883DB),
+                ));
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else {
+                data = snapshot.data ?? [];
+
+                return data.isEmpty
+                    ? Center(child: Image.asset("assets/new_wel.png"))
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 20),
+                        child: ListView.builder(
+                          itemCount: data.length,
+                          itemBuilder: (context, index) => Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: adsWidget(
+                              data: data[index],
+                            ),
+                          ),
+                        ),
+                        
+                      );
+              }
+            })
+      
+      //  Padding(
+      //   padding: const EdgeInsets.all(10),
+      //   child: Column(
         
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Padding(
+      //     crossAxisAlignment: CrossAxisAlignment.end,
+      //     children: [
+      //       Padding(
 
-        
 
-              padding: const EdgeInsets.only(bottom: 4, top: 12),
+      //         padding: const EdgeInsets.only(bottom: 4, top: 12),
 
-              child: Text(
-                ': الإعلانات',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.almarai(
-                  color: const Color(0xFF1883DB),
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-            Expanded(
-              child: ListView.builder(
-                itemCount: data.length,
+              // child: Text(
+              //   ': الإعلانات',
+              //   textAlign: TextAlign.center,
+              //   style: GoogleFonts.almarai(
+              //     color: const Color(0xFF1883DB),
+              //     fontSize: 20,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
+      //       ),
+      //       SizedBox(height: 20),
+      //       Expanded(
+      //         child: ListView.builder(
+      //           itemCount: data.length,
 
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: adsWidget(
-                    data: data[index],
-                  ),
+      //           itemBuilder: (context, index) => Padding(
+      //             padding: const EdgeInsets.all(10),
+      //             child: adsWidget(
+      //               data: data[index],
+      //             ),
 
                
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
+      //           ),
+      //         ),
+      //       )
+      //     ],
+      //   ),
+      // ),
     );
+   
   }
 }
 
@@ -103,7 +140,7 @@ class _adsWidgetState extends State<adsWidget> {
                       Column(
                         children: [
                           Text(
-                            widget.data.title,
+                            widget.data.title.toString(),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.almarai(
                               color: const Color(0xFF1883DB),
@@ -115,7 +152,7 @@ class _adsWidgetState extends State<adsWidget> {
                             height: 6,
                           ),
                           Text(
-                            widget.data.suTitle,
+                            widget.data.suTitle.toString(),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.almarai(
                               color: const Color.fromARGB(255, 0, 4, 7),
@@ -125,7 +162,7 @@ class _adsWidgetState extends State<adsWidget> {
                           const SizedBox(
                             height: 2,
                           ),
-                          Text(widget.data.place,
+                          Text(widget.data.place.toString(),
                               textAlign: TextAlign.center,
                               style: GoogleFonts.almarai(
                                 color: const Color.fromARGB(255, 0, 4, 7),
@@ -134,13 +171,13 @@ class _adsWidgetState extends State<adsWidget> {
                           const SizedBox(
                             height: 2,
                           ),
-                          Text(widget.data.time,
+                          Text(widget.data.time.toString(),
                               textAlign: TextAlign.center,
                               style: GoogleFonts.almarai(
                                 color: const Color.fromARGB(255, 0, 4, 7),
                                 fontSize: 15,
                               )),
-                          Text(widget.data.cost,
+                          Text(widget.data.cost.toString(),
                               textAlign: TextAlign.center,
                               style: GoogleFonts.almarai(
                                 color: const Color.fromARGB(255, 0, 4, 7),

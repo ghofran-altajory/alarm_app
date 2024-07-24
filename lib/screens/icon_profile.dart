@@ -17,209 +17,554 @@ class IconProfile extends StatefulWidget {
 }
 
 class _IconProfileState extends State<IconProfile> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  TextEditingController acontroller = TextEditingController();
+  TextEditingController bcontroller = TextEditingController();
+  TextEditingController ccontroller = TextEditingController();
+  TextEditingController dcontroller = TextEditingController();
+  TextEditingController econtroller = TextEditingController();
+  TextEditingController fcontroller = TextEditingController();
+  TextEditingController gcontroller = TextEditingController();
+  TextEditingController hcontroller = TextEditingController();
+  TextEditingController icontroller = TextEditingController();
+  TextEditingController jcontroller = TextEditingController();
+  TextEditingController kcontroller = TextEditingController();
+  TextEditingController lcontroller = TextEditingController();
+  TextEditingController mcontroller = TextEditingController();
+  TextEditingController ncontroller = TextEditingController();
+  TextEditingController ocontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    List<ProfiListTitlModule> data = [
-      ProfiListTitlModule(
-        title: ' تعديل الملف الشخصي',
-        icon: Icons.person,
-        onTap: () {
-          Navigator.pushReplacement(
-              context,
-              CupertinoPageRoute(
-                  builder: (context) => const EditProfileScreen()));
-        },
-      ),
-      ProfiListTitlModule(
-        title: "الإعدادات",
-        icon: Icons.settings,
-        onTap: () {
-          Navigator.pushReplacement(context,
-              CupertinoPageRoute(builder: (context) => const SettingScreen()));
-        },
-      ),
-      ProfiListTitlModule(
-        title: "حول",
-        icon: Icons.question_mark,
-        onTap: () {
-          Navigator.pushReplacement(context,
-              CupertinoPageRoute(builder: (context) => const AboutScreen()));
-        },
-      ),
-      ProfiListTitlModule(
-        title: "تسجيل الخروج",
-        icon: Icons.logout,
-        onTap: () {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  title: Align(
-                      alignment: Alignment.center,
-                      child: Text(" هل تريد تسجيل الخروج؟ ",
-                          style: GoogleFonts.almarai(
-                            color: const Color(0xFF1883DB),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ))),
-                  content: Form(
-                    key: formKey,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                      color: const Color(0x70C5E4FE),
-                                      borderRadius: BorderRadius.circular(22)),
-                                  child: Text(
-                                    'إلغاء',
-                                    style: GoogleFonts.almarai(
-                                      color: const Color(0xFF1883DB),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 15),
-                              GestureDetector(
-                                onTap: () async {
-                                  await FirebaseAuth.instance
-                                      .signOut()
-                                      .then((_) {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      CupertinoPageRoute(
-                                          builder: (context) =>
-                                              const ScreenRouter()),
-                                    );
-                                  });
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF1883DB),
-                                      borderRadius: BorderRadius.circular(22)),
-                                  child: Text(
-                                    'نعم, متأكد',
-                                    style: GoogleFonts.almarai(
-                                      color: const Color(0xFFECF1FF),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ])
-                      ],
-                    ),
-                  ),
-                );
-              });
-        },
-      ),
-    ];
-
     return Scaffold(
-        backgroundColor: const Color(0xFFFCFCFf),
-        appBar: AppBar(
-          leading: IconTheme(
-            data: const IconThemeData(
-              color: Color(0xFF1883DB),
-            ),
-            child: IconButton(
-              icon: const Icon(Icons.arrow_back_ios),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ),
-          toolbarHeight: kToolbarHeight,
-          centerTitle: true,
-          elevation: 0.0,
-          backgroundColor: const Color.fromARGB(255, 252, 252, 252),
-          title: Text(
-            '  الملف الشخصي',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.almarai(
-              color: const Color(0xFF1883DB),
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+      appBar: AppBar(
+        toolbarHeight: kToolbarHeight,
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: const Color.fromARGB(255, 252, 252, 252),
+        title: Text(
+          ' بيانات التشخيص',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.almarai(
+            color: const Color(0xFF1883DB),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        body: SafeArea(
-            child: Container(
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const CircleAvatar(
-                      radius: 80,
-                      backgroundColor: Color(0x70C5E4FE),
-                      child: Icon(
-                        Icons.person,
-                        size: 90,
+      ),
+      body: SafeArea(
+          child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(' :المعدلات الحيوية',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                      color: const Color(0xFF000000),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold)),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // const SizedBox(height: 13),
+                  SizedBox(
+                    width: 120,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      controller: acontroller,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
                       ),
                     ),
-                    // const SizedBox(height: 20),
-                    // Text(
-                    //   ' اسم المستخدم ',
-                    //   textAlign: TextAlign.center,
-                    //   style: GoogleFonts.almarai(
-                    //     color: const Color(0xFF1883DB),
-                    //     fontSize: 20,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
+                  ),
+                  Text(': السكر  ',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontSize: 13,
+                      )),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  SizedBox(
+                    width: 120,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      controller: bcontroller,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
+                      ),
+                    ),
+                  ),
+
+                  Text(': ضغط الدم',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontSize: 13,
+                      )),
+                  // const SizedBox(height: 13),
+                ],
+              ),
+              const SizedBox(height: 13),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // const SizedBox(height: 13),
+                  SizedBox(
+                    width: 120,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      controller: ccontroller,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
+                      ),
+                    ),
+                  ),
+                  Text(': الوزن  ',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontSize: 13,
+                      )),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  SizedBox(
+                    width: 120,
+                    child: TextFormField(
+                      controller: dcontroller,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0x70C5E4FE),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue)),
+                      ),
+                    ),
+                  ),
+
+                  Text(': فصيلة الدم ',
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontSize: 13,
+                      )),
+                  // const SizedBox(height: 13),
+                ],
+              ),
+              const SizedBox(height: 13),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 100,
+                ),
+                child: Row(
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // const SizedBox(height: 13),
+                    SizedBox(
+                      width: 120,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        controller: econtroller,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: const Color(0x70C5E4FE),
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 4),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.blue)),
+                        ),
+                      ),
+                    ),
                     const SizedBox(
-                      height: 35,
+                      width: 0,
                     ),
-                    Expanded(
-                      child: ListView.builder(
-                          itemCount: data.length,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                                onTap: data[index].onTap,
-                                //  () {
-                                // Navigator.push(
-                                //   context,
-                                //   CupertinoPageRoute(
-                                //       builder: (context) =>
-                                //           const EditProfileScreen()),
-                                // );
-                                // },
-                                leading: IconButton(
-                                  icon: const Icon(Icons.arrow_back_ios),
-                                  color: const Color(0xFF1883DB),
-                                  onPressed: () {},
-                                ),
-                                title: Text(
-                                  data[index].title.toString(),
-                                  textAlign: TextAlign.right,
-                                  style: GoogleFonts.almarai(
-                                    color: const Color.fromARGB(255, 0, 0, 0),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Icon(
-                                  (data[index].icon),
-                                  color: const Color(0xFF1883DB),
-                                ));
-                          }),
-                    ),
+                    Text(': الطول',
+                        textAlign: TextAlign.right,
+                        style: GoogleFonts.almarai(
+                          color: const Color(0xFF000000),
+                          fontSize: 13,
+                        )),
+                    // const SizedBox(height: 13),
                   ],
-                ))));
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Text('الادوية',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                      color: const Color(0xFF000000),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold)),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(': الادوية الحالية ',
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.almarai(
+                            color: const Color(0xFF000000),
+                            fontSize: 13,
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: fcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(height: 13),
+              Text(': التطعيمات  ',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF000000),
+                    fontSize: 13,
+                  )),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: gcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Text(' :الامراض',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                      color: const Color(0xFF000000),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold)),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(': الامراض المزمنة ',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF000000),
+                    fontSize: 13,
+                  )),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: hcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(height: 13),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(':الامراض الخطيرة ',
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.almarai(
+                            color: const Color(0xFF000000),
+                            fontSize: 13,
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: icontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(height: 13),
+              Text(':الجراحات السابقة ',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF000000),
+                    fontSize: 13,
+                  )),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: jcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(height: 13),
+              Text(':امراض العائلة  ',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF000000),
+                    fontSize: 13,
+                  )),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: kcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(height: 13),
+              Text(':امراض اخرى  ',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF000000),
+                    fontSize: 13,
+                  )),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: lcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Text(' : الحساسية(دواء_طعام)',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                      color: const Color(0xFF000000),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold)),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(': حساسية من',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF000000),
+                    fontSize: 13,
+                  )),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: mcontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Text(' :الصور',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                      color: const Color(0xFF000000),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold)),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(':صور اشعة',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF000000),
+                    fontSize: 13,
+                  )),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: ncontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(':صور تحاليل',
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF000000),
+                    fontSize: 13,
+                  )),
+              const SizedBox(height: 13),
+              TextFormField(
+                controller: ocontroller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color(0x70C5E4FE),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 25),
+              //   child: GestureDetector(
+              //     onTap: () async {
+              //       Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //             builder: (context) => const ReminderData()),
+              //       );
+              //     },
+              //     child: Padding(
+              //       padding: const EdgeInsets.symmetric(
+              //           horizontal: 62, vertical: 15),
+              //       child: Container(
+              //         padding: const EdgeInsets.all(18),
+              //         decoration: BoxDecoration(
+              //             color: const Color(0xFF1883DB),
+              //             borderRadius: BorderRadius.circular(30)),
+              //         child: Center(
+              //           child: Text(
+              //             'التالي ',
+              //             style: GoogleFonts.almarai(
+              //               color: Colors.white,
+              //               fontWeight: FontWeight.bold,
+              //               fontSize: 18,
+              //             ),
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
+        ),
+      )),
+    );
   }
 }
