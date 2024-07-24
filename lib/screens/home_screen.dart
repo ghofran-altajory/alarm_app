@@ -20,7 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController alarmTypeController = TextEditingController();
   TextEditingController dateController = TextEditingController();
   TextEditingController timeController = TextEditingController();
+  bool isClick = false;
   ////////
+
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   // /////
@@ -347,69 +349,113 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ),
                                           ),
                                         ),
-                                        GestureDetector(
-                                          onTap: () async {
-                                            try {
-                                              await firestore
-                                                  .collection('add')
-                                                  .add({
-                                                'user_id':
-                                                    auth.currentUser!.uid,
-                                                "date": dateController.text,
-                                                "time": timeController.text,
-                                                "dec":
-                                                    descriptionController.text,
-                                                "title": titleController.text,
-                                                "type":
-                                                    alarmTypeController.text,
-                                              }).then((value) {
-                                                // setState(() async {
-                                                // data = await getData();
-                                                // });
+                                        Padding(
+                                          padding: const EdgeInsets.all(0.0),
+                                          child: isClick
+                                              ? GestureDetector(
+                                                  child: Container(
+                                                  padding:
+                                                      const EdgeInsets.all(18),
+                                                  decoration: BoxDecoration(
+                                                      color: const Color(
+                                                          0xFF1883DB),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              30)),
+                                                  child: const Center(
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                    color: Color(0xFFFCFCFf),
+                                                  )),
+                                                ))
+                                              : GestureDetector(
+                                                  onTap: () async {
+                                                    try {
+                                                      setState(() {
+                                                        isClick = true;
+                                                      });
+                                                      await firestore
+                                                          .collection('add')
+                                                          .add({
+                                                        'user_id': auth
+                                                            .currentUser!.uid,
+                                                        "date":
+                                                            dateController.text,
+                                                        "time":
+                                                            timeController.text,
+                                                        "dec":
+                                                            descriptionController
+                                                                .text,
+                                                        "title": titleController
+                                                            .text,
+                                                        "type":
+                                                            alarmTypeController
+                                                                .text,
+                                                      }).then((value) {
+                                                        // setState(() async {
+                                                        // data = await getData();
+                                                        // });
 
-                                                titleController.clear();
-                                                descriptionController.clear();
-                                                alarmTypeController.clear();
-                                                dateController.clear();
-                                                timeController.clear();
-                                              });
-                                            } on FirebaseException catch (e) {
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(SnackBar(
-                                                      content: Text(e.message
-                                                          .toString())));
+                                                        titleController.clear();
+                                                        descriptionController
+                                                            .clear();
+                                                        alarmTypeController
+                                                            .clear();
+                                                        dateController.clear();
+                                                        timeController.clear();
+                                                      });
+                                                    } on FirebaseException catch (e) {
+                                                      setState(() {
+                                                        isClick = false;
+                                                      });
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(SnackBar(
+                                                              content: Text(e
+                                                                  .message
+                                                                  .toString())));
 
-                                              titleController.clear();
-                                              descriptionController.clear();
-                                              alarmTypeController.clear();
-                                              dateController.clear();
-                                              timeController.clear();
-                                              Navigator.pop(context);
-                                            }
-                                            setState(() {});
+                                                      titleController.clear();
+                                                      descriptionController
+                                                          .clear();
+                                                      alarmTypeController
+                                                          .clear();
+                                                      dateController.clear();
+                                                      timeController.clear();
+                                                      Navigator.pop(context);
+                                                    }
+                                                    setState(() {});
 
-                                            // titleController.clear();
-                                            // descriptionController.clear();
-                                            // alarmTypeController.clear();
-                                            // dateController.clear();
-                                            // timeController.clear();
-                                            // Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                            padding: const EdgeInsets.all(15),
-                                            decoration: BoxDecoration(
-                                                color: const Color(0xFF1883DB),
-                                                borderRadius:
-                                                    BorderRadius.circular(22)),
-                                            child: Text(
-                                              'إضافة',
-                                              style: GoogleFonts.almarai(
-                                                color: const Color(0xFFECF1FF),
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18,
-                                              ),
-                                            ),
-                                          ),
+                                                    // titleController.clear();
+                                                    // descriptionController.clear();
+                                                    // alarmTypeController.clear();
+                                                    // dateController.clear();
+                                                    // timeController.clear();
+                                                    // Navigator.pop(context);
+                                                  },
+                                                  child: Container(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            15),
+                                                    decoration: BoxDecoration(
+                                                        color: const Color(
+                                                            0xFF1883DB),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(22)),
+                                                    child: Text(
+                                                      'إضافة',
+                                                      style:
+                                                          GoogleFonts.almarai(
+                                                        color: const Color(
+                                                            0xFFECF1FF),
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 18,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
                                         ),
                                       ])
                                 ],
