@@ -370,31 +370,56 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ))
                                               : GestureDetector(
                                                   onTap: () async {
-                                                    try {
-                                                      setState(() {
-                                                        isClick = true;
-                                                      });
-                                                      await firestore
-                                                          .collection('add')
-                                                          .add({
-                                                        'user_id': auth
-                                                            .currentUser!.uid,
-                                                        "date":
-                                                            dateController.text,
-                                                        "time":
-                                                            timeController.text,
-                                                        "dec":
-                                                            descriptionController
-                                                                .text,
-                                                        "title": titleController
-                                                            .text,
-                                                        "type":
-                                                            alarmTypeController
-                                                                .text,
-                                                      }).then((value) {
-                                                        // setState(() async {
-                                                        // data = await getData();
-                                                        // });
+                                                    if (formKey.currentState!
+                                                        .validate()) {
+                                                      try {
+                                                        setState(() {
+                                                          isClick = true;
+                                                        });
+                                                        await firestore
+                                                            .collection('add')
+                                                            .add({
+                                                          'user_id': auth
+                                                              .currentUser!.uid,
+                                                          "date": dateController
+                                                              .text,
+                                                          "time": timeController
+                                                              .text,
+                                                          "dec":
+                                                              descriptionController
+                                                                  .text,
+                                                          "title":
+                                                              titleController
+                                                                  .text,
+                                                          "type":
+                                                              alarmTypeController
+                                                                  .text,
+                                                        }).then((value) {
+                                                          // setState(() async {
+                                                          // data = await getData();
+                                                          // });
+
+                                                          titleController
+                                                              .clear();
+                                                          descriptionController
+                                                              .clear();
+                                                          alarmTypeController
+                                                              .clear();
+                                                          dateController
+                                                              .clear();
+                                                          timeController
+                                                              .clear();
+                                                        });
+                                                      } on FirebaseException catch (e) {
+                                                        setState(() {
+                                                          isClick = false;
+                                                        });
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(SnackBar(
+                                                                content: Text(e
+                                                                    .message
+                                                                    .toString())));
 
                                                         titleController.clear();
                                                         descriptionController
@@ -403,35 +428,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             .clear();
                                                         dateController.clear();
                                                         timeController.clear();
-                                                      });
-                                                    } on FirebaseException catch (e) {
-                                                      setState(() {
-                                                        isClick = false;
-                                                      });
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .showSnackBar(SnackBar(
-                                                              content: Text(e
-                                                                  .message
-                                                                  .toString())));
+                                                        Navigator.pop(context);
+                                                      }
+                                                      setState(() {});
 
-                                                      titleController.clear();
-                                                      descriptionController
-                                                          .clear();
-                                                      alarmTypeController
-                                                          .clear();
-                                                      dateController.clear();
-                                                      timeController.clear();
-                                                      Navigator.pop(context);
+                                                      // titleController.clear();
+                                                      // descriptionController.clear();
+                                                      // alarmTypeController.clear();
+                                                      // dateController.clear();
+                                                      // timeController.clear();
+                                                      // Navigator.pop(context);
                                                     }
-                                                    setState(() {});
-
-                                                    // titleController.clear();
-                                                    // descriptionController.clear();
-                                                    // alarmTypeController.clear();
-                                                    // dateController.clear();
-                                                    // timeController.clear();
-                                                    // Navigator.pop(context);
                                                   },
                                                   child: Container(
                                                     padding:
