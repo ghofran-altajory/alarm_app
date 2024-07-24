@@ -520,87 +520,91 @@ class CardContinerWidget extends StatefulWidget {
 class _CardContinerWidgetState extends State<CardContinerWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 90,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        color: Color(0x70C5E4FE),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                // ListTile(
+    return Padding(
+      padding: const EdgeInsets.all(0.0),
+      child: Container(
+        // height: 90,
+        //width: 150,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          color: Color(0x70C5E4FE),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  // ListTile(
 
-                // ),
-                Container(
-                  // width: 92,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Colors.white,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Icon(Icons.timelapse),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          widget.data.date.toString(),
-                          style: const TextStyle(fontSize: 12),
-                        ),
-                      ],
+                  // ),
+                  Container(
+                    // width: 92,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Colors.white,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Icon(Icons.timelapse),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            widget.data.date.toString(),
+                            style: const TextStyle(fontSize: 12),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Container(
-                  // width: 92,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Colors.white,
+                  const SizedBox(
+                    height: 5,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Icon(Icons.timelapse),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          widget.data.time.toString(),
-                          style: const TextStyle(fontSize: 12),
-                        ),
-                      ],
+                  Container(
+                    // width: 92,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Colors.white,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Icon(Icons.timelapse),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            widget.data.time.toString(),
+                            style: const TextStyle(fontSize: 12),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Text(
-                  widget.data.title.toString(),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  widget.data.dec.toString(),
-                )
-              ],
-            ),
-          ],
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    widget.data.title.toString(),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    widget.data.dec.toString(),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -277,7 +277,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(height: 80),
                   //sign in button
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    padding:  EdgeInsets.symmetric(horizontal: 25),
                     child: isClick
                         ? GestureDetector(
                             child: Container(
