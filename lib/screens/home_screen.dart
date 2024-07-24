@@ -435,13 +435,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 data = snapshot.data ?? [];
 
                 return data.isEmpty
-                    ? Center(
-                      child: Icon(
-              Icons.cabin,
-              color: Color(0xFF1883DB),
-            ),
-                      // child: Image.asset("assets/new_wel.png")
-                    )
+                    ? Center(child: Image.asset("assets/Untitled design.png"))
                     : Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 20),
