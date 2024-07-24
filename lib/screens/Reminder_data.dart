@@ -12,18 +12,12 @@ class ReminderData extends StatefulWidget {
 }
 
 class _ReminderDataState extends State<ReminderData> {
-  TextEditingController drugcontroller = TextEditingController();
-  TextEditingController revcontroller = TextEditingController();
-  TextEditingController analicontroller = TextEditingController();
-  TextEditingController date1controller = TextEditingController();
-  TextEditingController date2controller = TextEditingController();
-  TextEditingController date3controller = TextEditingController();
-  TextEditingController time1controller = TextEditingController();
-  TextEditingController time2controller = TextEditingController();
-  TextEditingController time3controller = TextEditingController();
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  TextEditingController alarmTypeController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  TextEditingController timeController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  GlobalKey<FormState> formKey2 = GlobalKey<FormState>();
-  GlobalKey<FormState> formKey3 = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -54,122 +48,46 @@ class _ReminderDataState extends State<ReminderData> {
           ),
         ),
       ),
-      body: Form(
-        key: formKey,
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: SingleChildScrollView(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: SingleChildScrollView(
+            child: Form(
+              key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisSize: MainAxisSize.min,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(':اسم المنبه ',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.almarai(
+                                color: const Color(0xFF000000),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 13),
                   SizedBox(
-                    height: 30,
-                  ),
-                  Text(' : الادوية',
-                      textAlign: TextAlign.right,
-                      style: GoogleFonts.almarai(
-                          color: const Color(0xFF000000),
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 13),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 3, left: 30),
+                    width: 350,
                     child: TextFormField(
-                      controller: drugcontroller,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(':الوقت ',
-                              textAlign: TextAlign.right,
-                              style: GoogleFonts.almarai(
-                                color: const Color(0xFF000000),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              )),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 13),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 3, left: 250),
-                    child: TextFormField(
-                      controller: time1controller,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "!ادخل الوقت";
+                          return "!ادخل اسم المنبه ";
                         }
 
                         return null;
                       },
+                      controller: titleController,
                       decoration: InputDecoration(
-                        suffixIcon: const Icon(
-                          Icons.alarm,
-                          color: Color(0xFF1883DB),
-                        ),
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(': التاريخ ',
-                              textAlign: TextAlign.right,
-                              style: GoogleFonts.almarai(
-                                color: const Color(0xFF000000),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              )),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 13),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 3, left: 250),
-                    child: TextFormField(
-                      controller: date1controller,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "!ادخل التاريخ";
-                        }
-
-                        return null;
-                      },
-                      decoration: InputDecoration(
-                        suffixIcon: const Icon(Icons.calendar_month,
-                            color: Color(0xFF1883DB)),
                         filled: true,
                         fillColor: const Color(0x70C5E4FE),
                         contentPadding: const EdgeInsets.symmetric(
@@ -186,39 +104,13 @@ class _ReminderDataState extends State<ReminderData> {
                   const SizedBox(
                     height: 5,
                   ),
-                  const SizedBox(height: 30),
-                  Text(':المراجعات المستقبلية ',
-                      textAlign: TextAlign.right,
-                      style: GoogleFonts.almarai(
-                          color: const Color(0xFF000000),
-                          fontSize: 13,
-                          fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 13),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 3, left: 30),
-                    child: TextFormField(
-                      controller: revcontroller,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                      ),
-                    ),
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text(':الوقت ',
+                          Text(':الوصف ',
                               textAlign: TextAlign.right,
                               style: GoogleFonts.almarai(
                                 color: const Color(0xFF000000),
@@ -230,22 +122,18 @@ class _ReminderDataState extends State<ReminderData> {
                     ],
                   ),
                   const SizedBox(height: 13),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 3, left: 250),
+                  SizedBox(
+                    width: 350,
                     child: TextFormField(
-                      controller: time2controller,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "!ادخل الوقت";
+                          return "!ادخل الوصف";
                         }
 
                         return null;
                       },
+                      controller: descriptionController,
                       decoration: InputDecoration(
-                        suffixIcon: const Icon(
-                          Icons.alarm,
-                          color: Color(0xFF1883DB),
-                        ),
                         filled: true,
                         fillColor: const Color(0x70C5E4FE),
                         contentPadding: const EdgeInsets.symmetric(
@@ -259,13 +147,16 @@ class _ReminderDataState extends State<ReminderData> {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 5,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text(': التاريخ ',
+                          Text(':نوع المنبه ',
                               textAlign: TextAlign.right,
                               style: GoogleFonts.almarai(
                                 color: const Color(0xFF000000),
@@ -277,45 +168,17 @@ class _ReminderDataState extends State<ReminderData> {
                     ],
                   ),
                   const SizedBox(height: 13),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 3, left: 250),
+                  SizedBox(
+                    width: 350,
                     child: TextFormField(
-                      controller: date2controller,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "!ادخل التاريخ";
+                          return " !ادخل نوع المنبه ";
                         }
 
                         return null;
                       },
-                      decoration: InputDecoration(
-                        suffixIcon: const Icon(Icons.calendar_month,
-                            color: Color(0xFF1883DB)),
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 13),
-                  Text(':تحاليل ',
-                      textAlign: TextAlign.right,
-                      style: GoogleFonts.almarai(
-                          color: const Color(0xFF000000),
-                          fontSize: 13,
-                          fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 13),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 3, left: 30),
-                    child: TextFormField(
-                      controller: analicontroller,
+                      controller: alarmTypeController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0x70C5E4FE),
@@ -330,141 +193,97 @@ class _ReminderDataState extends State<ReminderData> {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  const SizedBox(height: 13),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(':الوقت ',
-                              textAlign: TextAlign.right,
-                              style: GoogleFonts.almarai(
-                                color: const Color(0xFF000000),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              )),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 13),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 3, left: 250),
-                    child: TextFormField(
-                      controller: time3controller,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "!ادخل الوقت";
-                        }
+                      SizedBox(
+                        width: 120,
+                        child: TextFormField(
+                          keyboardType: TextInputType.datetime,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "!ادخل الوقت";
+                            }
 
-                        return null;
-                      },
-                      decoration: InputDecoration(
-                        suffixIcon: const Icon(
-                          Icons.alarm,
-                          color: Color(0xFF1883DB),
+                            return null;
+                          },
+                          controller: timeController,
+                          decoration: InputDecoration(
+                            suffixIcon: const Icon(
+                              Icons.alarm,
+                              color: Color(0xFF1883DB),
+                            ),
+                            filled: true,
+                            fillColor: const Color(0x70C5E4FE),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 4),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            focusedBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue)),
+                          ),
                         ),
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
                       ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(': التاريخ ',
-                              textAlign: TextAlign.right,
-                              style: GoogleFonts.almarai(
-                                color: const Color(0xFF000000),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              )),
-                        ],
+                      Text(':الوقت ',
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.almarai(
+                            color: const Color(0xFF000000),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          )),
+                      const SizedBox(
+                        width: 7,
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 13),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 3, left: 250),
-                    child: TextFormField(
-                      controller: date3controller,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "!ادخل التاريخ";
-                        }
+                      SizedBox(
+                        width: 120,
+                        child: TextFormField(
+                          keyboardType: TextInputType.datetime,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "!ادخل التاريخ";
+                            }
 
-                        return null;
-                      },
-                      decoration: InputDecoration(
-                        suffixIcon: const Icon(Icons.calendar_month,
-                            color: Color(0xFF1883DB)),
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
+                            return null;
+                          },
+                          controller: dateController,
+                          decoration: InputDecoration(
+                            suffixIcon: const Icon(Icons.calendar_month,
+                                color: Color(0xFF1883DB)),
+                            filled: true,
+                            fillColor: const Color(0x70C5E4FE),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 4),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            focusedBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue)),
+                          ),
                         ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
                       ),
-                    ),
+                      Text(': التاريخ ',
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.almarai(
+                            color: const Color(0xFF000000),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          )),
+                    ],
                   ),
                   const SizedBox(height: 60),
                   GestureDetector(
-                    onTap: () async {
-                      if (formKey.currentState!.validate()) {
-                        if (drugcontroller.text.isNotEmpty &&
-                            date1controller.text.isNotEmpty &&
-                            time1controller.text.isNotEmpty) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const TabsScreen()),
-                          );
-                        }
-                      }
-                      if (formKey2.currentState!.validate()) {
-                        if (revcontroller.text.isNotEmpty &&
-                            date2controller.text.isNotEmpty &&
-                            time2controller.text.isNotEmpty) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const TabsScreen()),
-                          );
-                        }
-                      }
-                      if (formKey.currentState!.validate()) {
-                        if (analicontroller.text.isNotEmpty &&
-                            date3controller.text.isNotEmpty &&
-                            time3controller.text.isNotEmpty) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const TabsScreen()),
-                          );
-                        }
-                      }
-
-                      // else {
-                      //    Navigator.push(
-                      //       context,
-                      //        MaterialPageRoute(
-                      //       builder: (context) => const TabsScreen()),
-                      //       );
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TabsScreen()),
+                      );
                     },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(

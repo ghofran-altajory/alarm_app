@@ -39,10 +39,7 @@ class _TabsScreenState extends State<TabsScreen> {
                         builder: (context) => const IconProfile()));
                   },
                   icon: const Center(
-                    child: Icon(
-                      size: 30,
-                      Icons.person,
-                    ),
+                    child: Icon(size: 30, Icons.medical_information),
                   )),
             ),
           ],
@@ -109,7 +106,7 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
           NavigationDestination(
             icon: Icon(
-              Icons.settings,
+              Icons.person_search_rounded,
               color: Color(0xFF1883DB),
             ),
             label: '',

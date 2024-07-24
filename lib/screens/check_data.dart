@@ -525,13 +525,9 @@ class _CheckDataState extends State<CheckData> {
               SizedBox(
                 height: 30,
               ),
-              
               Padding(
-                
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    
-                child:
-                 GestureDetector(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: GestureDetector(
                   onTap: () async {
                     Navigator.push(
                       context,
@@ -540,8 +536,8 @@ class _CheckDataState extends State<CheckData> {
                     );
                   },
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 62, vertical: 15),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 62, vertical: 15),
                     child: Container(
                       padding: const EdgeInsets.all(18),
                       decoration: BoxDecoration(
