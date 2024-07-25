@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:alarm_app/module/check_data_module.dart';
 import 'package:alarm_app/screens/reminder_data.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,21 +15,37 @@ class CheckData extends StatefulWidget {
 }
 
 class _CheckDataState extends State<CheckData> {
-  TextEditingController acontroller = TextEditingController();
-  TextEditingController bcontroller = TextEditingController();
-  TextEditingController ccontroller = TextEditingController();
-  TextEditingController dcontroller = TextEditingController();
-  TextEditingController econtroller = TextEditingController();
-  TextEditingController fcontroller = TextEditingController();
-  TextEditingController gcontroller = TextEditingController();
-  TextEditingController hcontroller = TextEditingController();
-  TextEditingController icontroller = TextEditingController();
-  TextEditingController jcontroller = TextEditingController();
-  TextEditingController kcontroller = TextEditingController();
-  TextEditingController lcontroller = TextEditingController();
-  TextEditingController mcontroller = TextEditingController();
-  TextEditingController ncontroller = TextEditingController();
-  TextEditingController ocontroller = TextEditingController();
+  TextEditingController bloodPressureController = TextEditingController();
+  TextEditingController diabetesController = TextEditingController();
+  TextEditingController bloodtypeController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
+  TextEditingController longController = TextEditingController();
+  TextEditingController currentdrugsController = TextEditingController();
+  TextEditingController vaccinesController = TextEditingController();
+  TextEditingController chronicdiseaseController = TextEditingController();
+  TextEditingController seriousillnessesController = TextEditingController();
+  TextEditingController priorsurgeryController = TextEditingController();
+  TextEditingController FamilyIllnessController = TextEditingController();
+  TextEditingController otherillnessesController = TextEditingController();
+  TextEditingController allergictoController = TextEditingController();
+  TextEditingController XraysController = TextEditingController();
+  TextEditingController PhotoAnalysesController = TextEditingController();
+  bool isClick = false;
+  //
+
+  FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+//
+
+  List<CheckDataModule> data = [];
+
+//  Future<List<CheckDataModule>> getData() async {
+//     var data = await firestore
+//         .collection('checkData')
+//         .where('user_id', isEqualTo: auth.currentUser!.uid)
+//         .get();
+//     return data.docs.map((e) => CheckDataModule.fromJson(e.data())).toList();
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +89,7 @@ class _CheckDataState extends State<CheckData> {
                     width: 120,
                     child: TextFormField(
                       keyboardType: TextInputType.number,
-                      controller: acontroller,
+                      controller: diabetesController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0x70C5E4FE),
@@ -98,7 +117,7 @@ class _CheckDataState extends State<CheckData> {
                     width: 120,
                     child: TextFormField(
                       keyboardType: TextInputType.number,
-                      controller: bcontroller,
+                      controller: bloodPressureController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0x70C5E4FE),
@@ -132,7 +151,7 @@ class _CheckDataState extends State<CheckData> {
                     width: 120,
                     child: TextFormField(
                       keyboardType: TextInputType.number,
-                      controller: ccontroller,
+                      controller: weightController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0x70C5E4FE),
@@ -159,7 +178,7 @@ class _CheckDataState extends State<CheckData> {
                   SizedBox(
                     width: 120,
                     child: TextFormField(
-                      controller: dcontroller,
+                      controller: bloodtypeController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: const Color(0x70C5E4FE),
@@ -198,7 +217,7 @@ class _CheckDataState extends State<CheckData> {
                       width: 120,
                       child: TextFormField(
                         keyboardType: TextInputType.number,
-                        controller: econtroller,
+                        controller: longController,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: const Color(0x70C5E4FE),
@@ -256,7 +275,7 @@ class _CheckDataState extends State<CheckData> {
               ),
               const SizedBox(height: 13),
               TextFormField(
-                controller: fcontroller,
+                controller: currentdrugsController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -279,7 +298,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: gcontroller,
+                controller: vaccinesController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -313,7 +332,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: hcontroller,
+                controller: chronicdiseaseController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -346,7 +365,7 @@ class _CheckDataState extends State<CheckData> {
               ),
               const SizedBox(height: 13),
               TextFormField(
-                controller: icontroller,
+                controller: seriousillnessesController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -369,7 +388,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: jcontroller,
+                controller: priorsurgeryController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -392,7 +411,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: kcontroller,
+                controller: FamilyIllnessController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -415,7 +434,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: lcontroller,
+                controller: otherillnessesController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -449,7 +468,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: mcontroller,
+                controller: allergictoController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -483,7 +502,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: ncontroller,
+                controller:  XraysController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -508,7 +527,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: ocontroller,
+                controller: PhotoAnalysesController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -529,11 +548,74 @@ class _CheckDataState extends State<CheckData> {
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: GestureDetector(
                   onTap: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ReminderData()),
-                    );
+                    try {
+                      await firestore.collection('checkData').add({
+                        'user_id': auth.currentUser!.uid,
+                         "diabetes": diabetesController.text,
+                        "bloodPressure ": bloodPressureController.text,
+                       
+                        "blood type": bloodtypeController.text,
+                        "weight ": weightController.text,
+                        "long": longController.text,
+                        "current drugs": currentdrugsController.text,
+                        "vaccines": vaccinesController.text,
+                        "chronic disease": chronicdiseaseController.text,
+                        " serious illnesses": seriousillnessesController.text,
+                        "prior surgery": priorsurgeryController.text,
+                        "Family Illness": FamilyIllnessController.text,
+                        "other illnesses": otherillnessesController.text,
+                        "allergic to": allergictoController.text,
+                        "X-rays": XraysController.text,
+                        "Photo Analyses": PhotoAnalysesController.text,
+                      }).then((value) {
+                        // setState(() async {
+                        // data = await getData();
+                        // });
+
+                        bloodPressureController.clear();
+                        diabetesController.clear();
+                        bloodtypeController.clear();
+                        weightController.clear();
+                        longController.clear();
+                        currentdrugsController.clear();
+                        vaccinesController.clear();
+                        chronicdiseaseController.clear();
+                        seriousillnessesController.clear();
+                        priorsurgeryController.clear();
+                        FamilyIllnessController.clear();
+                        otherillnessesController.clear();
+                        allergictoController.clear();
+                        XraysController.clear();
+                        PhotoAnalysesController.clear();
+
+                      });
+                    } on FirebaseException catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(e.message.toString())));
+
+                     bloodPressureController.clear();
+                        diabetesController.clear();
+                        bloodtypeController.clear();
+                        weightController.clear();
+                        longController.clear();
+                        currentdrugsController.clear();
+                        vaccinesController.clear();
+                        chronicdiseaseController.clear();
+                        seriousillnessesController.clear();
+                        priorsurgeryController.clear();
+                        FamilyIllnessController.clear();
+                        otherillnessesController.clear();
+                        allergictoController.clear();
+                        XraysController.clear();
+                        PhotoAnalysesController.clear();
+                    }
+                    setState(() {});
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const ReminderData()),
+                    // );
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(

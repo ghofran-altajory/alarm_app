@@ -1,11 +1,13 @@
 class CheckDataModule {
-  final String title;
-  final String suTitle;
+   String? title;
  
   CheckDataModule({
-    required this.title,
-     required this.suTitle,
+      this.title,
       
          });
-  
+
+  CheckDataModule.fromJson(Map<String, dynamic> json) {
+    title = json['title'] ?? "";
+   
+  }
 }

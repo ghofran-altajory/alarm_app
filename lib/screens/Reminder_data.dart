@@ -66,36 +66,7 @@ Future<List<CardContinerModule>> getData() async {
           ),
         ),
       ),
-      // body:  FutureBuilder<List<CardContinerModule>>(
-      //       future: getData(),
-      //       builder: (context, snapshot) {
-      //         if (snapshot.connectionState == ConnectionState.waiting) {
-      //           return const Center(
-      //               child: CircularProgressIndicator(
-      //             backgroundColor: const Color(0xFF1883DB),
-      //           ));
-      //         } else if (snapshot.hasError) {
-      //           return Center(child: Text('Error: ${snapshot.error}'));
-      //         } else {
-      //           data = snapshot.data ?? [];
-
-      //           return data.isEmpty
-      //               ? Center(child: Image.asset("assets/Untitled design.png"))
-      //               : Padding(
-      //                   padding: const EdgeInsets.symmetric(
-      //                       horizontal: 15, vertical: 20),
-      //                   child: ListView.builder(
-      //                     itemCount: data.length,
-      //                     itemBuilder: (context, index) => Padding(
-      //                       padding: const EdgeInsets.all(5),
-      //                       child: CardContinerWidget(
-      //                         data: data[index],
-      //                       ),
-      //                     ),
-      //                   ),
-      //                 );
-      //         }
-      //       })
+      
     body:   SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
