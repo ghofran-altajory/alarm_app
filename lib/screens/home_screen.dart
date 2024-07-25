@@ -508,17 +508,8 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class CardContinerWidget extends StatefulWidget {
-  // final String title;
-  // final String suTitle;
-  // final String date;
-  // final String time;
   final CardContinerModule data;
-  const CardContinerWidget(
-      {super.key,
-      // required this.title,
-      // required this.suTitle,
-      // required this.date,
-      required this.data});
+  const CardContinerWidget({super.key, required this.data});
 
   @override
   State<CardContinerWidget> createState() => _CardContinerWidgetState();

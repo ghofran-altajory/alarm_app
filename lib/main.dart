@@ -1,4 +1,5 @@
 import 'package:alarm_app/screens/check_data.dart';
+import 'package:alarm_app/screens/edit_profile_screen.dart';
 import 'package:alarm_app/screens/personal_data.dart';
 import 'package:alarm_app/screens/reminder_data.dart';
 import 'package:alarm_app/screens/splash_screen.dart';
@@ -58,7 +59,7 @@ class _MyAppState extends State<MyApp> {
                 // WelcomeScreen()
 
                 //
-                TabsScreen()
+                EditProfileScreen()
             //SubscribeScreen()
             // PaymentMethod()
 // CheckData()
