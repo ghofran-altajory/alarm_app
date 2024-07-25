@@ -16,19 +16,18 @@ class _ArchiveState extends State<Archive> {
       body: SafeArea(
           child: Container(
               padding: const EdgeInsets.all(15),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      ': الأرشيف ',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.almarai(
-                        color: const Color(0xFF1883DB),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ]))),
+              child:
+                  Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                Text(
+                  ': الأرشيف',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF1883DB),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ]))),
     );
   }
 }
