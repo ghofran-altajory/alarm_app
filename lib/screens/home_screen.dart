@@ -409,6 +409,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               .clear();
                                                           timeController
                                                               .clear();
+                                                          setState(() {
+                                                            isClick = false;
+                                                          });
                                                         });
                                                       } on FirebaseException catch (e) {
                                                         setState(() {

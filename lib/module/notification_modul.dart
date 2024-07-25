@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class notification_modul {
+class Notificationmodul {
   final String title;
   final String suTitle;
   final String time;
@@ -8,7 +8,7 @@ class notification_modul {
   final IconData icon2;
   final IconData icon3;
 
-  notification_modul(
+  Notificationmodul(
       {required this.title,
       required this.suTitle,
       required this.time,

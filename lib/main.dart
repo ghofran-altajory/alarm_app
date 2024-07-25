@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
                 // WelcomeScreen()
 
                 //
-                EditProfileScreen()
+                SplashScreen()
             //SubscribeScreen()
             // PaymentMethod()
 // CheckData()

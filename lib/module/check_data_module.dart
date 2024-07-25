@@ -1,13 +1,53 @@
 class CheckDataModule {
-   String? title;
- 
+  String? diabetes;
+  String? bloodPressure;
+  String? bloodtype;
+  String? weight;
+  String? long;
+  String? currentdrugs;
+  String? vaccines;
+  String? chronicdisease;
+  String? seriousillnesses;
+  String? priorsurgery;
+  String? familyillness;
+  String? otherillnesses;
+  String? allergicto;
+  String? xrays;
+  String? photoanalyses;
+
   CheckDataModule({
-      this.title,
-      
-         });
+    this.diabetes,
+    this.bloodPressure,
+    this.bloodtype,
+    this.weight,
+    this.long,
+    this.currentdrugs,
+    this.vaccines,
+    this.chronicdisease,
+    this.seriousillnesses,
+    this.priorsurgery,
+    this.familyillness,
+    this.otherillnesses,
+    this.allergicto,
+    this.xrays,
+    this.photoanalyses,
+  });
 
   CheckDataModule.fromJson(Map<String, dynamic> json) {
-    title = json['title'] ?? "";
-   
+    diabetes = json['diabetes'] ?? "";
+    bloodPressure = json['bloodPressure'] ?? "";
+    bloodtype = json['blood type'] ?? "";
+    weight = json['weight'] ?? "";
+    long = json['long'] ?? "";
+    currentdrugs = json['current drugs'] ?? "";
+    vaccines = json['vaccines'] ?? "";
+    chronicdisease = json['chronic disease'] ?? "";
+    seriousillnesses = json['serious illnesses'] ?? "";
+    priorsurgery = json['prior surgery'] ?? "";
+    familyillness = json['Family Illness'] ?? "";
+    otherillnesses = json['other illnesses'] ?? "";
+    allergicto = json['allergic to'] ?? "";
+    xrays = json['X-rays'] ?? "";
+    photoanalyses = json['Photo Analyses'] ?? "";
   }
 }

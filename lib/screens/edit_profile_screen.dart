@@ -180,45 +180,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                               BorderSide(color: Colors.blue)),
                                     ),
                                   ),
-                                  // const SizedBox(height: 25),
-                                  //password
-                                  // Row(
-                                  //   mainAxisAlignment: MainAxisAlignment.end,
-                                  //   children: [
-                                  //     Column(
-                                  //       crossAxisAlignment: CrossAxisAlignment.end,
-                                  //       children: [
-                                  //         // Text(': ارقام هواتف الاسرة',
-                                  //         //     textAlign: TextAlign.right,
-                                  //         //     style: GoogleFonts.almarai(
-                                  //         //       color: const Color.fromARGB(255, 24, 1, 1),
-                                  //         //       fontWeight: FontWeight.bold,
-                                  //         //       fontSize: 15,
-                                  //         //     )),
-                                  //       ],
-                                  //     ),
-                                  //   ],
-                                  // ),
-                                  // // const SizedBox(height: 13),
-                                  // // TextFormField(
-                                  // //   controller: familyphonecontroller,
-                                  // //   decoration: InputDecoration(
-                                  // //     hintText: '+21891xxxxxxx',
-                                  // //     hintStyle: const TextStyle(fontSize: 16),
-                                  // //     filled: true,
-                                  // //     fillColor: const Color(0x70C5E4FE),
-                                  // //     contentPadding:
-                                  // //         const EdgeInsets.symmetric(horizontal: 10),
-                                  // //     border: OutlineInputBorder(
-                                  // //         borderRadius: BorderRadius.circular(18.0),
-                                  // //         borderSide: BorderSide.none),
-                                  // //     focusedBorder: const OutlineInputBorder(
-                                  // //         borderSide: BorderSide(color: Colors.blue)),
-                                  // //   ),
-                                  // // ),
-
                                   const SizedBox(height: 25),
-                                  //emile
+                                  // password
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
@@ -226,11 +189,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
                                         children: [
-                                          Text(': البريد الالكتروني',
+                                          Text('أرقام أخرى :',
                                               textAlign: TextAlign.right,
                                               style: GoogleFonts.almarai(
-                                                color: const Color.fromARGB(
-                                                    255, 24, 1, 1),
+                                                color: const Color(0xFF000000),
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15,
                                               )),
@@ -240,16 +202,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   ),
                                   const SizedBox(height: 13),
                                   TextFormField(
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return "!الرجاء إدخال بريدك الإلكتروني ";
-                                      }
-
-                                      return null;
-                                    },
-                                    controller: emilecontroller,
+                                    controller: familyphonecontroller,
                                     decoration: InputDecoration(
-                                      hintText: 'example@example.com',
+                                      hintText: '+21891xxxxxxx',
                                       hintStyle: const TextStyle(fontSize: 16),
                                       filled: true,
                                       fillColor: const Color(0x70C5E4FE),
@@ -265,6 +220,55 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                               BorderSide(color: Colors.blue)),
                                     ),
                                   ),
+
+                                  const SizedBox(height: 25),
+                                  //emile
+                                  // Row(
+                                  //   mainAxisAlignment: MainAxisAlignment.end,
+                                  //   children: [
+                                  //     Column(
+                                  //       crossAxisAlignment:
+                                  //           CrossAxisAlignment.end,
+                                  //       children: [
+                                  //         Text(': البريد الالكتروني',
+                                  //             textAlign: TextAlign.right,
+                                  //             style: GoogleFonts.almarai(
+                                  //               color: const Color.fromARGB(
+                                  //                   255, 24, 1, 1),
+                                  //               fontWeight: FontWeight.bold,
+                                  //               fontSize: 15,
+                                  //             )),
+                                  //       ],
+                                  //     ),
+                                  //   ],
+                                  // ),
+                                  // const SizedBox(height: 13),
+                                  // TextFormField(
+                                  //   validator: (value) {
+                                  //     if (value!.isEmpty) {
+                                  //       return "!الرجاء إدخال بريدك الإلكتروني ";
+                                  //     }
+
+                                  //     return null;
+                                  //   },
+                                  //   controller: emilecontroller,
+                                  //   decoration: InputDecoration(
+                                  //     hintText: 'example@example.com',
+                                  //     hintStyle: const TextStyle(fontSize: 16),
+                                  //     filled: true,
+                                  //     fillColor: const Color(0x70C5E4FE),
+                                  //     contentPadding:
+                                  //         const EdgeInsets.symmetric(
+                                  //             horizontal: 10),
+                                  //     border: OutlineInputBorder(
+                                  //         borderRadius:
+                                  //             BorderRadius.circular(18.0),
+                                  //         borderSide: BorderSide.none),
+                                  //     focusedBorder: const OutlineInputBorder(
+                                  //         borderSide:
+                                  //             BorderSide(color: Colors.blue)),
+                                  //   ),
+                                  // ),
 
                                   const SizedBox(height: 80),
                                   //ubdite

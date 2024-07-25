@@ -10,8 +10,8 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
-  List<notification_modul> data = [
-    notification_modul(
+  List<Notificationmodul> data = [
+    Notificationmodul(
         title: "  دكتور العيون",
         suTitle: '''لديك اليوم موعد دكتور العيون 
 عند الساعه 07:00 ص
@@ -57,7 +57,7 @@ class _NotificationsState extends State<Notifications> {
           itemCount: data.length,
           itemBuilder: (context, index) => Padding(
             padding: const EdgeInsets.all(5),
-            child: notificationWidget(
+            child: NotificationmodulWidget(
               data: data[index],
             ),
           ),
@@ -67,15 +67,16 @@ class _NotificationsState extends State<Notifications> {
   }
 }
 
-class notificationWidget extends StatefulWidget {
-  final notification_modul data;
-  const notificationWidget({super.key, required this.data});
+class NotificationmodulWidget extends StatefulWidget {
+  final Notificationmodul data;
+  const NotificationmodulWidget({super.key, required this.data});
 
   @override
-  State<notificationWidget> createState() => _notificationWidgetState();
+  State<NotificationmodulWidget> createState() =>
+      _NotificationmodulWidgetState();
 }
 
-class _notificationWidgetState extends State<notificationWidget> {
+class _NotificationmodulWidgetState extends State<NotificationmodulWidget> {
   bool _isChecked = false;
   @override
   Widget build(BuildContext context) {

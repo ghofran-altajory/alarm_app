@@ -25,11 +25,11 @@ class _CheckDataState extends State<CheckData> {
   TextEditingController chronicdiseaseController = TextEditingController();
   TextEditingController seriousillnessesController = TextEditingController();
   TextEditingController priorsurgeryController = TextEditingController();
-  TextEditingController FamilyIllnessController = TextEditingController();
+  TextEditingController familyillnessController = TextEditingController();
   TextEditingController otherillnessesController = TextEditingController();
   TextEditingController allergictoController = TextEditingController();
-  TextEditingController XraysController = TextEditingController();
-  TextEditingController PhotoAnalysesController = TextEditingController();
+  TextEditingController xraysController = TextEditingController();
+  TextEditingController photoanalysesController = TextEditingController();
   bool isClick = false;
   //
 
@@ -37,7 +37,7 @@ class _CheckDataState extends State<CheckData> {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 //
 
-  List<CheckDataModule> data = [];
+  // List<CheckDataModule> data = [];
 
 //  Future<List<CheckDataModule>> getData() async {
 //     var data = await firestore
@@ -411,7 +411,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: FamilyIllnessController,
+                controller: familyillnessController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -502,7 +502,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller:  XraysController,
+                controller: xraysController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -527,7 +527,7 @@ class _CheckDataState extends State<CheckData> {
                   )),
               const SizedBox(height: 13),
               TextFormField(
-                controller: PhotoAnalysesController,
+                controller: photoanalysesController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: const Color(0x70C5E4FE),
@@ -551,10 +551,9 @@ class _CheckDataState extends State<CheckData> {
                     try {
                       await firestore.collection('checkData').add({
                         'user_id': auth.currentUser!.uid,
-                         "diabetes": diabetesController.text,
+                        "diabetes": diabetesController.text,
                         "bloodPressure ": bloodPressureController.text,
-                       
-                        "blood type": bloodtypeController.text,
+                        "bloodtype": bloodtypeController.text,
                         "weight ": weightController.text,
                         "long": longController.text,
                         "current drugs": currentdrugsController.text,
@@ -562,11 +561,11 @@ class _CheckDataState extends State<CheckData> {
                         "chronic disease": chronicdiseaseController.text,
                         " serious illnesses": seriousillnessesController.text,
                         "prior surgery": priorsurgeryController.text,
-                        "Family Illness": FamilyIllnessController.text,
+                        "Family Illness": familyillnessController.text,
                         "other illnesses": otherillnessesController.text,
                         "allergic to": allergictoController.text,
-                        "X-rays": XraysController.text,
-                        "Photo Analyses": PhotoAnalysesController.text,
+                        "X-rays": xraysController.text,
+                        "Photo Analyses": photoanalysesController.text,
                       }).then((value) {
                         // setState(() async {
                         // data = await getData();
@@ -582,40 +581,38 @@ class _CheckDataState extends State<CheckData> {
                         chronicdiseaseController.clear();
                         seriousillnessesController.clear();
                         priorsurgeryController.clear();
-                        FamilyIllnessController.clear();
+                        familyillnessController.clear();
                         otherillnessesController.clear();
                         allergictoController.clear();
-                        XraysController.clear();
-                        PhotoAnalysesController.clear();
-
+                        xraysController.clear();
+                        photoanalysesController.clear();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ReminderData()),
+                        );
                       });
                     } on FirebaseException catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(e.message.toString())));
 
-                     bloodPressureController.clear();
-                        diabetesController.clear();
-                        bloodtypeController.clear();
-                        weightController.clear();
-                        longController.clear();
-                        currentdrugsController.clear();
-                        vaccinesController.clear();
-                        chronicdiseaseController.clear();
-                        seriousillnessesController.clear();
-                        priorsurgeryController.clear();
-                        FamilyIllnessController.clear();
-                        otherillnessesController.clear();
-                        allergictoController.clear();
-                        XraysController.clear();
-                        PhotoAnalysesController.clear();
+                      bloodPressureController.clear();
+                      diabetesController.clear();
+                      bloodtypeController.clear();
+                      weightController.clear();
+                      longController.clear();
+                      currentdrugsController.clear();
+                      vaccinesController.clear();
+                      chronicdiseaseController.clear();
+                      seriousillnessesController.clear();
+                      priorsurgeryController.clear();
+                      familyillnessController.clear();
+                      otherillnessesController.clear();
+                      allergictoController.clear();
+                      xraysController.clear();
+                      photoanalysesController.clear();
                     }
-                    setState(() {});
-
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => const ReminderData()),
-                    // );
+                    // setState(() {});
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
