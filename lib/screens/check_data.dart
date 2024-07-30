@@ -28,8 +28,7 @@ class _CheckDataState extends State<CheckData> {
   TextEditingController familyillnessController = TextEditingController();
   TextEditingController otherillnessesController = TextEditingController();
   TextEditingController allergictoController = TextEditingController();
-  TextEditingController xraysController = TextEditingController();
-  TextEditingController photoanalysesController = TextEditingController();
+ 
   bool isClick = false;
   //
 
@@ -232,8 +231,8 @@ class _CheckDataState extends State<CheckData> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 0,
+                    const SizedBox(
+                      width: 7,
                     ),
                     Text(': الطول',
                         textAlign: TextAlign.right,
@@ -485,65 +484,6 @@ class _CheckDataState extends State<CheckData> {
               const SizedBox(
                 height: 30,
               ),
-              Text(' :الصور',
-                  textAlign: TextAlign.right,
-                  style: GoogleFonts.almarai(
-                      color: const Color(0xFF000000),
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold)),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(':صور اشعة',
-                  textAlign: TextAlign.right,
-                  style: GoogleFonts.almarai(
-                    color: const Color(0xFF000000),
-                    fontSize: 13,
-                  )),
-              const SizedBox(height: 13),
-              TextFormField(
-                controller: xraysController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color(0x70C5E4FE),
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue)),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(':صور تحاليل',
-                  textAlign: TextAlign.right,
-                  style: GoogleFonts.almarai(
-                    color: const Color(0xFF000000),
-                    fontSize: 13,
-                  )),
-              const SizedBox(height: 13),
-              TextFormField(
-                controller: photoanalysesController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color(0x70C5E4FE),
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blue)),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: GestureDetector(
@@ -564,8 +504,7 @@ class _CheckDataState extends State<CheckData> {
                         "Family Illness": familyillnessController.text,
                         "other illnesses": otherillnessesController.text,
                         "allergic to": allergictoController.text,
-                        "X-rays": xraysController.text,
-                        "Photo Analyses": photoanalysesController.text,
+                       
                       }).then((value) {
                         // setState(() async {
                         // data = await getData();
@@ -584,8 +523,7 @@ class _CheckDataState extends State<CheckData> {
                         familyillnessController.clear();
                         otherillnessesController.clear();
                         allergictoController.clear();
-                        xraysController.clear();
-                        photoanalysesController.clear();
+                       
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -609,8 +547,7 @@ class _CheckDataState extends State<CheckData> {
                       familyillnessController.clear();
                       otherillnessesController.clear();
                       allergictoController.clear();
-                      xraysController.clear();
-                      photoanalysesController.clear();
+                     
                     }
                     // setState(() {});
                   },

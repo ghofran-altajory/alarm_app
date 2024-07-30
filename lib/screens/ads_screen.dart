@@ -14,25 +14,23 @@ class AdsScreen extends StatefulWidget {
 }
 
 class _AdsScreenState extends State<AdsScreen> {
-FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  List<adsModule> data = [];
-Future<List<adsModule>> getData() async {
+  List<AdsModule> data = [];
+  Future<List<AdsModule>> getData() async {
     var data = await firestore
         .collection('ads')
         .where('user_id', isEqualTo: auth.currentUser!.uid)
         .get();
-    return data.docs.map((e) => adsModule.fromJson(e.data())).toList();
+    return data.docs.map((e) => AdsModule.fromJson(e.data())).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      backgroundColor: const Color(0xFFFCFCFf),
-      body:
-      FutureBuilder<List<adsModule>>(
+        backgroundColor: const Color(0xFFFCFCFf),
+        body: FutureBuilder<List<AdsModule>>(
             future: getData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -46,7 +44,7 @@ Future<List<adsModule>> getData() async {
                 data = snapshot.data ?? [];
 
                 return data.isEmpty
-                    ? Center(child: Image.asset("assets/new_wel.png"))
+                    ? Center(child: Image.asset("assets/Untitled design.png"))
                     : Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 20),
@@ -59,57 +57,53 @@ Future<List<adsModule>> getData() async {
                             ),
                           ),
                         ),
-                        
                       );
               }
             })
-      
-      //  Padding(
-      //   padding: const EdgeInsets.all(10),
-      //   child: Column(
-        
-      //     crossAxisAlignment: CrossAxisAlignment.end,
-      //     children: [
-      //       Padding(
 
+        //  Padding(
+        //   padding: const EdgeInsets.all(10),
+        //   child: Column(
 
-      //         padding: const EdgeInsets.only(bottom: 4, top: 12),
+        //     crossAxisAlignment: CrossAxisAlignment.end,
+        //     children: [
+        //       Padding(
 
-              // child: Text(
-              //   ': الإعلانات',
-              //   textAlign: TextAlign.center,
-              //   style: GoogleFonts.almarai(
-              //     color: const Color(0xFF1883DB),
-              //     fontSize: 20,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
-      //       ),
-      //       SizedBox(height: 20),
-      //       Expanded(
-      //         child: ListView.builder(
-      //           itemCount: data.length,
+        //         padding: const EdgeInsets.only(bottom: 4, top: 12),
 
-      //           itemBuilder: (context, index) => Padding(
-      //             padding: const EdgeInsets.all(10),
-      //             child: adsWidget(
-      //               data: data[index],
-      //             ),
+        // child: Text(
+        //   ': الإعلانات',
+        //   textAlign: TextAlign.center,
+        //   style: GoogleFonts.almarai(
+        //     color: const Color(0xFF1883DB),
+        //     fontSize: 20,
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        // ),
+        //       ),
+        //       SizedBox(height: 20),
+        //       Expanded(
+        //         child: ListView.builder(
+        //           itemCount: data.length,
 
-               
-      //           ),
-      //         ),
-      //       )
-      //     ],
-      //   ),
-      // ),
-    );
-   
+        //           itemBuilder: (context, index) => Padding(
+        //             padding: const EdgeInsets.all(10),
+        //             child: adsWidget(
+        //               data: data[index],
+        //             ),
+
+        //           ),
+        //         ),
+        //       )
+        //     ],
+        //   ),
+        // ),
+        );
   }
 }
 
 class adsWidget extends StatefulWidget {
-  final adsModule data;
+  final AdsModule data;
   const adsWidget({super.key, required this.data});
 
   @override
@@ -120,81 +114,71 @@ class _adsWidgetState extends State<adsWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 156,
+      height: 180,
+      width: 500,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(15)),
         color: Color(0x70C5E4FE),
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 65, vertical: 20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            widget.data.title.toString(),
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.almarai(
-                              color: const Color(0xFF1883DB),
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 6,
-                          ),
-                          Text(
-                            widget.data.suTitle.toString(),
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.almarai(
-                              color: const Color.fromARGB(255, 0, 4, 7),
-                              fontSize: 15,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 2,
-                          ),
-                          Text(widget.data.place.toString(),
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.almarai(
-                                color: const Color.fromARGB(255, 0, 4, 7),
-                                fontSize: 15,
-                              )),
-                          const SizedBox(
-                            height: 2,
-                          ),
-                          Text(widget.data.time.toString(),
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.almarai(
-                                color: const Color.fromARGB(255, 0, 4, 7),
-                                fontSize: 15,
-                              )),
-                          Text(widget.data.cost.toString(),
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.almarai(
-                                color: const Color.fromARGB(255, 0, 4, 7),
-                                fontSize: 15,
-                              ))
-                        ],
-                      ),
-                    ],
-                  ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                widget.data.title.toString(),
+                textAlign: TextAlign.center,
+                style: GoogleFonts.almarai(
+                  color: const Color(0xFF1883DB),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
                 ),
-                const SizedBox(
-                  height: 5,
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Text(
+                widget.data.suTitle.toString(),
+                textAlign: TextAlign.center,
+                style: GoogleFonts.almarai(
+                  color: const Color.fromARGB(255, 0, 4, 7),
+                  fontSize: 20,
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(widget.data.place.toString(),
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.almarai(
+                    color: const Color.fromARGB(255, 0, 4, 7),
+                    fontSize: 20,
+                  )),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(widget.data.time.toString(),
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.almarai(
+                    color: const Color.fromARGB(255, 0, 4, 7),
+                    fontSize: 20,
+                  )),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(widget.data.cost.toString(),
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.almarai(
+                    color: const Color.fromARGB(255, 0, 4, 7),
+                    fontSize: 20,
+                  )),
+              const SizedBox(
+                height: 5,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

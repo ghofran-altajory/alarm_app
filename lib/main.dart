@@ -1,8 +1,12 @@
+import 'package:alarm_app/screens/admin_ads.dart';
+import 'package:alarm_app/screens/admin_login.dart';
+import 'package:alarm_app/screens/admin_subscrib.dart';
 import 'package:alarm_app/screens/check_data.dart';
 import 'package:alarm_app/screens/edit_profile_screen.dart';
 import 'package:alarm_app/screens/personal_data.dart';
 import 'package:alarm_app/screens/reminder_data.dart';
 import 'package:alarm_app/screens/splash_screen.dart';
+import 'package:alarm_app/screens/subscribe_screen.dart';
 
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -51,15 +55,16 @@ class _MyAppState extends State<MyApp> {
             theme: ThemeData(
               useMaterial3: false,
             ),
-            home:
+            home: AdminSubscrib()
+            //AdminLogin()
 
-                // ReminderData()
-                // CheckData()
+            // ReminderData()
+            // CheckData()
 
-                // WelcomeScreen()
+            // WelcomeScreen()
 
-                //
-                SplashScreen()
+            //
+            //SplashScreen()
             //SubscribeScreen()
             // PaymentMethod()
 // CheckData()

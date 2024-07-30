@@ -184,11 +184,6 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Column(
-                            children: [
-                              // ListTile(
-                            ],
-                          ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class adsModule {
+class AdsModule {
   String? title;
   String? suTitle;
   String? place;
@@ -8,7 +8,7 @@ class adsModule {
   String? cost;
  // IconData icon;
 
-  adsModule({
+  AdsModule({
     this.title,
     this.suTitle,
     this.place,
@@ -16,7 +16,7 @@ class adsModule {
     this.cost,
    // required this.icon,
   });
-  adsModule.fromJson(Map<String, dynamic> json) {
+  AdsModule.fromJson(Map<String, dynamic> json) {
     title = json['title'] ?? "";
     suTitle = json['subTitle'] ?? "";
    place = json['place'] ?? "";

@@ -12,8 +12,7 @@ class CheckDataModule {
   String? familyillness;
   String? otherillnesses;
   String? allergicto;
-  String? xrays;
-  String? photoanalyses;
+ 
 
   CheckDataModule({
     this.diabetes,
@@ -29,8 +28,7 @@ class CheckDataModule {
     this.familyillness,
     this.otherillnesses,
     this.allergicto,
-    this.xrays,
-    this.photoanalyses,
+   
   });
 
   CheckDataModule.fromJson(Map<String, dynamic> json) {
@@ -47,7 +45,6 @@ class CheckDataModule {
     familyillness = json['Family Illness'] ?? "";
     otherillnesses = json['other illnesses'] ?? "";
     allergicto = json['allergic to'] ?? "";
-    xrays = json['X-rays'] ?? "";
-    photoanalyses = json['Photo Analyses'] ?? "";
+   
   }
 }

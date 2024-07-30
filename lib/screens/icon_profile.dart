@@ -26,8 +26,7 @@ class _IconProfileState extends State<IconProfile> {
   TextEditingController familyillnessController = TextEditingController();
   TextEditingController otherillnessesController = TextEditingController();
   TextEditingController allergictoController = TextEditingController();
-  TextEditingController xraysController = TextEditingController();
-  TextEditingController photoanalysesController = TextEditingController();
+  
   bool isClick = false;
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -42,6 +41,7 @@ class _IconProfileState extends State<IconProfile> {
         .get();
     return data.docs.map((e) => CheckDataModule.fromJson(e.data())).toList();
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -272,8 +272,8 @@ class _IconProfileState extends State<IconProfile> {
                                           ),
                                         ),
                                       ),
-                                      SizedBox(
-                                        width: 0,
+                                      const SizedBox(
+                                        width: 7,
                                       ),
                                       Text(': الطول',
                                           textAlign: TextAlign.right,
@@ -540,79 +540,7 @@ class _IconProfileState extends State<IconProfile> {
                                             BorderSide(color: Colors.blue)),
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Text(' :الصور',
-                                    textAlign: TextAlign.right,
-                                    style: GoogleFonts.almarai(
-                                        color: const Color(0xFF000000),
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold)),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Text(':صور اشعة',
-                                    textAlign: TextAlign.right,
-                                    style: GoogleFonts.almarai(
-                                      color: const Color(0xFF000000),
-                                      fontSize: 13,
-                                    )),
-                                const SizedBox(height: 13),
-                                TextFormField(
-                                  controller: xraysController,
-                                  decoration: InputDecoration(
-                                    hintText: data.first.xrays,
-                                    filled: true,
-                                    fillColor: const Color(0x70C5E4FE),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 2, horizontal: 10),
-                                    border: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(15.0),
-                                    ),
-                                    focusedBorder: const OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.blue)),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Text(':صور تحاليل',
-                                    textAlign: TextAlign.right,
-                                    style: GoogleFonts.almarai(
-                                      color: const Color(0xFF000000),
-                                      fontSize: 13,
-                                    )),
-                                const SizedBox(height: 13),
-                                Text(':صور تحاليل',
-                                    textAlign: TextAlign.right,
-                                    style: GoogleFonts.almarai(
-                                      color: const Color(0xFF000000),
-                                      fontSize: 13,
-                                    )),
-                                const SizedBox(height: 13),
-                                TextFormField(
-                                  controller: photoanalysesController,
-                                  decoration: InputDecoration(
-                                    hintText: data.first.photoanalyses,
-                                    filled: true,
-                                    fillColor: const Color(0x70C5E4FE),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 2, horizontal: 10),
-                                    border: OutlineInputBorder(
-                                      borderSide: BorderSide.none,
-                                      borderRadius: BorderRadius.circular(15.0),
-                                    ),
-                                    focusedBorder: const OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.blue)),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 30,
-                                ),
+                                const SizedBox(height: 30),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 25),
@@ -663,11 +591,7 @@ class _IconProfileState extends State<IconProfile> {
                                             .where("allergic to",
                                                 isEqualTo:
                                                     data.first.allergicto)
-                                            .where("X-rays",
-                                                isEqualTo: data.first.xrays)
-                                            .where("Photo Analyses",
-                                                isEqualTo:
-                                                    data.first.photoanalyses)
+                                           
                                             .get();
 
                                         firestore
@@ -696,9 +620,7 @@ class _IconProfileState extends State<IconProfile> {
                                               otherillnessesController.text,
                                           "allergic to":
                                               allergictoController.text,
-                                          "X-rays": xraysController.text,
-                                          "Photo Analyses":
-                                              photoanalysesController.text
+                                         
                                           // "name": namecontroller.text,
                                           // "phone": phonecontroller.text,
                                         }
@@ -744,8 +666,7 @@ class _IconProfileState extends State<IconProfile> {
                                         familyillnessController.clear();
                                         otherillnessesController.clear();
                                         allergictoController.clear();
-                                        xraysController.clear();
-                                        photoanalysesController.clear();
+                                       
                                       }
                                       // Navigator.push(
                                       //   context,

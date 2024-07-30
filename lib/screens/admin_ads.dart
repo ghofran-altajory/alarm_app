@@ -1,6 +1,9 @@
 // ignore_for_file: unnecessary_import
 
+import 'package:alarm_app/module/ads_module.dart';
 import 'package:alarm_app/screens/admin_control_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,6 +16,17 @@ class AdminAds extends StatefulWidget {
 }
 
 class _AdminAdsState extends State<AdminAds> {
+   TextEditingController costController = TextEditingController();
+  TextEditingController timeController = TextEditingController();
+  TextEditingController placeController = TextEditingController();
+  TextEditingController subTitleController = TextEditingController();
+  TextEditingController titleController = TextEditingController();
+   bool isClick = false;
+
+   //
+  FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+//
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +75,7 @@ class _AdminAdsState extends State<AdminAds> {
               Padding(
                 padding: const EdgeInsets.only(right: 3, left: 15),
                 child: TextFormField(
+                  controller: titleController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color(0x70C5E4FE),
@@ -89,6 +104,7 @@ class _AdminAdsState extends State<AdminAds> {
                   left: 15,
                 ),
                 child: TextFormField(
+                   controller: subTitleController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color(0x70C5E4FE),
@@ -116,6 +132,7 @@ class _AdminAdsState extends State<AdminAds> {
               Padding(
                 padding: const EdgeInsets.only(right: 3, left: 15),
                 child: TextFormField(
+                   controller: placeController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color(0x70C5E4FE),
@@ -143,6 +160,7 @@ class _AdminAdsState extends State<AdminAds> {
               Padding(
                 padding: const EdgeInsets.only(right: 3, left: 15),
                 child: TextFormField(
+                   controller: timeController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color(0x70C5E4FE),
@@ -170,6 +188,7 @@ class _AdminAdsState extends State<AdminAds> {
               Padding(
                 padding: const EdgeInsets.only(right: 3, left: 15),
                 child: TextFormField(
+                   controller: costController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: const Color(0x70C5E4FE),
@@ -184,11 +203,55 @@ class _AdminAdsState extends State<AdminAds> {
                   ),
                 ),
               ),
+              // ignore: prefer_const_constructors
               SizedBox(
                 height: 30,
               ),
               GestureDetector(
-                onTap: () async {},
+                onTap: () async {
+                
+                    try {
+                      setState(() {
+                        isClick = true;
+                      });
+                      await firestore.collection('ads').add({
+                        'user_id': auth.currentUser!.uid,
+                        "cost": costController.text,
+                        "time": timeController.text,
+                        "subTitle": subTitleController.text,
+                        "title": titleController.text,
+                        "place": placeController.text,
+                      }).then((value) {
+                        
+
+                        titleController.clear();
+                        subTitleController.clear();
+                        placeController.clear();
+                        costController.clear();
+                        timeController.clear();
+                        setState(() {
+                          isClick = false;
+                        });
+                      });
+                    } on FirebaseException catch (e) {
+                      setState(() {
+                        isClick = false;
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(e.message.toString())));
+
+                     titleController.clear();
+                        subTitleController.clear();
+                        placeController.clear();
+                        costController.clear();
+                        timeController.clear();
+                      Navigator.pop(context);
+                    }
+                    setState(() {});
+
+                   
+                  
+                },
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 62, vertical: 15),
