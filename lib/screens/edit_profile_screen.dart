@@ -117,7 +117,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   const SizedBox(height: 13),
                                   TextFormField(
                                     controller: namecontroller,
-                                    // readOnly: true,
+                                    //readOnly: true,
                                     decoration: InputDecoration(
                                       hintText: data.first.name,
                                       filled: true,

@@ -55,7 +55,8 @@ class _MyAppState extends State<MyApp> {
             theme: ThemeData(
               useMaterial3: false,
             ),
-            home: AdminSubscrib()
+            home: SubscribeScreen()
+            // AdminLogin()
             //AdminLogin()
 
             // ReminderData()

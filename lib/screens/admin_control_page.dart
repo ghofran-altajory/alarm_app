@@ -56,65 +56,62 @@ class _AdminControlPageState extends State<AdminControlPage> {
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ))),
-                  content: Form(
-                    key: formKey,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                      color: const Color(0x70C5E4FE),
-                                      borderRadius: BorderRadius.circular(22)),
-                                  child: Text(
-                                    'إلغاء',
-                                    style: GoogleFonts.almarai(
-                                      color: const Color(0xFF1883DB),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(15),
+                                decoration: BoxDecoration(
+                                    color: const Color(0x70C5E4FE),
+                                    borderRadius: BorderRadius.circular(22)),
+                                child: Text(
+                                  'إلغاء',
+                                  style: GoogleFonts.almarai(
+                                    color: const Color(0xFF1883DB),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
                                   ),
                                 ),
                               ),
-                              const SizedBox(width: 15),
-                              GestureDetector(
-                                onTap: () async {
-                                  await FirebaseAuth.instance
-                                      .signOut()
-                                      .then((_) {
-                                    Navigator.pushReplacement(
-                                      context,
-                                      CupertinoPageRoute(
-                                          builder: (context) =>
-                                              const ScreenRouter()),
-                                    );
-                                  });
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF1883DB),
-                                      borderRadius: BorderRadius.circular(22)),
-                                  child: Text(
-                                    'نعم, متأكد',
-                                    style: GoogleFonts.almarai(
-                                      color: const Color(0xFFECF1FF),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
+                            ),
+                            const SizedBox(width: 15),
+                            GestureDetector(
+                              onTap: () async {
+                                await FirebaseAuth.instance
+                                    .signOut()
+                                    .then((_) {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    CupertinoPageRoute(
+                                        builder: (context) =>
+                                            const ScreenRouter()),
+                                  );
+                                });
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(15),
+                                decoration: BoxDecoration(
+                                    color: const Color(0xFF1883DB),
+                                    borderRadius: BorderRadius.circular(22)),
+                                child: Text(
+                                  'نعم, متأكد',
+                                  style: GoogleFonts.almarai(
+                                    color: const Color(0xFFECF1FF),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
                                   ),
                                 ),
                               ),
-                            ])
-                      ],
-                    ),
+                            ),
+                          ])
+                    ],
                   ),
                 );
               });
