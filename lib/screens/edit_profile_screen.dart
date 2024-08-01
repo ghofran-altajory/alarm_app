@@ -81,6 +81,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 return Center(child: Text('Error: ${snapshot.error}'));
               } else {
                 data = snapshot.data ?? [];
+                if (data.isNotEmpty) {
+                  namecontroller.text = data.first.name ?? "";
+                  phonecontroller.text = data.first.phone ?? "";
+                  familyphonecontroller.text = data.first.familyPhone ?? "";
+                }
 
                 return data.isEmpty
                     ? Center(child: Image.asset("assets/Untitled design.png"))

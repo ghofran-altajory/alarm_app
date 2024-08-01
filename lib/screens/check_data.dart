@@ -492,18 +492,18 @@ class _CheckDataState extends State<CheckData> {
                       await firestore.collection('checkData').add({
                         'user_id': auth.currentUser!.uid,
                         "diabetes": diabetesController.text,
-                        "bloodPressure ": bloodPressureController.text,
+                        "bloodPressure": bloodPressureController.text,
                         "bloodtype": bloodtypeController.text,
-                        "weight ": weightController.text,
+                        "weight": weightController.text,
                         "long": longController.text,
-                        "current drugs": currentdrugsController.text,
+                        "currentDrugs": currentdrugsController.text,
                         "vaccines": vaccinesController.text,
-                        "chronic disease": chronicdiseaseController.text,
-                        " serious illnesses": seriousillnessesController.text,
-                        "prior surgery": priorsurgeryController.text,
-                        "Family Illness": familyillnessController.text,
-                        "other illnesses": otherillnessesController.text,
-                        "allergic to": allergictoController.text,
+                        "chronicDisease": chronicdiseaseController.text,
+                        "seriousIllnesses": seriousillnessesController.text,
+                        "priorSurgery": priorsurgeryController.text,
+                        "FamilyIllness": familyillnessController.text,
+                        "otherIllnesses": otherillnessesController.text,
+                        "allergicTo": allergictoController.text,
                        
                       }).then((value) {
                         // setState(() async {

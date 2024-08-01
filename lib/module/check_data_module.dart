@@ -34,17 +34,17 @@ class CheckDataModule {
   CheckDataModule.fromJson(Map<String, dynamic> json) {
     diabetes = json['diabetes'] ?? "";
     bloodPressure = json['bloodPressure'] ?? "";
-    bloodtype = json['blood type'] ?? "";
+    bloodtype = json['bloodtype'] ?? "";
     weight = json['weight'] ?? "";
     long = json['long'] ?? "";
-    currentdrugs = json['current drugs'] ?? "";
+    currentdrugs = json['currentDrugs'] ?? "";
     vaccines = json['vaccines'] ?? "";
-    chronicdisease = json['chronic disease'] ?? "";
-    seriousillnesses = json['serious illnesses'] ?? "";
-    priorsurgery = json['prior surgery'] ?? "";
-    familyillness = json['Family Illness'] ?? "";
-    otherillnesses = json['other illnesses'] ?? "";
-    allergicto = json['allergic to'] ?? "";
+    chronicdisease = json['chronicDisease'] ?? "";
+    seriousillnesses = json['seriousIllnesses'] ?? "";
+    priorsurgery = json['priorSurgery'] ?? "";
+    familyillness = json['FamilyIllness'] ?? "";
+    otherillnesses = json['otherIllnesses'] ?? "";
+    allergicto = json['allergicTo'] ?? "";
    
   }
 }

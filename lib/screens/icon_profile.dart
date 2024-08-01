@@ -26,7 +26,7 @@ class _IconProfileState extends State<IconProfile> {
   TextEditingController familyillnessController = TextEditingController();
   TextEditingController otherillnessesController = TextEditingController();
   TextEditingController allergictoController = TextEditingController();
-  
+
   bool isClick = false;
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -41,7 +41,6 @@ class _IconProfileState extends State<IconProfile> {
         .get();
     return data.docs.map((e) => CheckDataModule.fromJson(e.data())).toList();
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +72,9 @@ class _IconProfileState extends State<IconProfile> {
                 return Center(child: Text('Error: ${snapshot.error}'));
               } else {
                 data = snapshot.data ?? [];
-
+//  if (data.isNotEmpty) {
+//                   namecontroller.text = data.first.name ?? "";
+//                 }
                 return data.isEmpty
                     ? Center(child: Image.asset("assets/Untitled design.png"))
                     : SafeArea(
@@ -194,6 +195,7 @@ class _IconProfileState extends State<IconProfile> {
                                         ),
                                       ),
                                     ),
+
                                     Text(': الوزن  ',
                                         textAlign: TextAlign.right,
                                         style: GoogleFonts.almarai(
@@ -568,30 +570,29 @@ class _IconProfileState extends State<IconProfile> {
                                                 isEqualTo: data.first.weight)
                                             .where("long",
                                                 isEqualTo: data.first.long)
-                                            .where("current drugs",
+                                            .where("currentDrugs",
                                                 isEqualTo:
                                                     data.first.currentdrugs)
                                             .where("vaccines",
                                                 isEqualTo: data.first.vaccines)
-                                            .where("chronic disease",
+                                            .where("chronicDisease",
                                                 isEqualTo:
                                                     data.first.chronicdisease)
-                                            .where("serious illnesses",
+                                            .where("seriousIllnesses",
                                                 isEqualTo:
                                                     data.first.seriousillnesses)
-                                            .where("prior surgery",
+                                            .where("priorSurgery",
                                                 isEqualTo:
                                                     data.first.priorsurgery)
-                                            .where("Family Illness",
+                                            .where("FamilyIllness",
                                                 isEqualTo:
                                                     data.first.familyillness)
-                                            .where("other illnesses",
+                                            .where("otherIllnesses",
                                                 isEqualTo:
                                                     data.first.otherillnesses)
-                                            .where("allergic to",
+                                            .where("allergicTo",
                                                 isEqualTo:
                                                     data.first.allergicto)
-                                           
                                             .get();
 
                                         firestore
@@ -600,27 +601,27 @@ class _IconProfileState extends State<IconProfile> {
                                                 .toString())
                                             .update({
                                           "diabetes": diabetesController.text,
-                                          "bloodPressure ":
+                                          "bloodPressure":
                                               bloodPressureController.text,
                                           "bloodtype": bloodtypeController.text,
-                                          "weight ": weightController.text,
+                                          "weight": weightController.text,
                                           "long": longController.text,
-                                          "current drugs":
+                                          "currentDrugs":
                                               currentdrugsController.text,
                                           "vaccines": vaccinesController.text,
-                                          "chronic disease":
+                                          "chronicDisease":
                                               chronicdiseaseController.text,
-                                          " serious illnesses":
+                                          "seriousIllnesses":
                                               seriousillnessesController.text,
-                                          "prior surgery":
+                                          "priorSurgery":
                                               priorsurgeryController.text,
-                                          "Family Illness":
+                                          "FamilyIllness":
                                               familyillnessController.text,
-                                          "other illnesses":
+                                          "otherIllnesses":
                                               otherillnessesController.text,
-                                          "allergic to":
+                                          "allergicTo":
                                               allergictoController.text,
-                                         
+
                                           // "name": namecontroller.text,
                                           // "phone": phonecontroller.text,
                                         }
@@ -666,7 +667,6 @@ class _IconProfileState extends State<IconProfile> {
                                         familyillnessController.clear();
                                         otherillnessesController.clear();
                                         allergictoController.clear();
-                                       
                                       }
                                       // Navigator.push(
                                       //   context,
