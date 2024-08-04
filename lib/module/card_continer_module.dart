@@ -1,5 +1,6 @@
 class CardContinerModule {
   String? title;
+  String? type;
   String? dec;
   String? date;
   String? time;
@@ -7,6 +8,7 @@ class CardContinerModule {
 
   CardContinerModule.fromJson(Map<String, dynamic> json) {
     title = json['title'] ?? "";
+    type = json['type'] ?? "";
     dec = json['dec'] ?? "";
     date = json['date'] ?? "";
     time = json['time'] ?? "";

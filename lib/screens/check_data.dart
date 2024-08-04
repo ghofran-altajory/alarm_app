@@ -28,7 +28,7 @@ class _CheckDataState extends State<CheckData> {
   TextEditingController familyillnessController = TextEditingController();
   TextEditingController otherillnessesController = TextEditingController();
   TextEditingController allergictoController = TextEditingController();
- 
+
   bool isClick = false;
   //
 
@@ -486,92 +486,103 @@ class _CheckDataState extends State<CheckData> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: GestureDetector(
-                  onTap: () async {
-                    try {
-                      await firestore.collection('checkData').add({
-                        'user_id': auth.currentUser!.uid,
-                        "diabetes": diabetesController.text,
-                        "bloodPressure": bloodPressureController.text,
-                        "bloodtype": bloodtypeController.text,
-                        "weight": weightController.text,
-                        "long": longController.text,
-                        "currentDrugs": currentdrugsController.text,
-                        "vaccines": vaccinesController.text,
-                        "chronicDisease": chronicdiseaseController.text,
-                        "seriousIllnesses": seriousillnessesController.text,
-                        "priorSurgery": priorsurgeryController.text,
-                        "FamilyIllness": familyillnessController.text,
-                        "otherIllnesses": otherillnessesController.text,
-                        "allergicTo": allergictoController.text,
-                       
-                      }).then((value) {
-                        // setState(() async {
-                        // data = await getData();
-                        // });
+                child: isClick
+                    ? GestureDetector(
+                        child: Container(
+                        padding: const EdgeInsets.all(18),
+                        decoration: BoxDecoration(
+                            color: const Color(0xFF1883DB),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: const Center(
+                            child: CircularProgressIndicator(
+                          color: Color(0xFFFCFCFf),
+                        )),
+                      ))
+                    : GestureDetector(
+                        onTap: () async {
+                          try {
+                            await firestore.collection('checkData').add({
+                              'user_id': auth.currentUser!.uid,
+                              "diabetes": diabetesController.text,
+                              "bloodPressure": bloodPressureController.text,
+                              "bloodtype": bloodtypeController.text,
+                              "weight": weightController.text,
+                              "long": longController.text,
+                              "currentDrugs": currentdrugsController.text,
+                              "vaccines": vaccinesController.text,
+                              "chronicDisease": chronicdiseaseController.text,
+                              "seriousIllnesses":
+                                  seriousillnessesController.text,
+                              "priorSurgery": priorsurgeryController.text,
+                              "FamilyIllness": familyillnessController.text,
+                              "otherIllnesses": otherillnessesController.text,
+                              "allergicTo": allergictoController.text,
+                            }).then((value) {
+                              // setState(() async {
+                              // data = await getData();
+                              // });
 
-                        bloodPressureController.clear();
-                        diabetesController.clear();
-                        bloodtypeController.clear();
-                        weightController.clear();
-                        longController.clear();
-                        currentdrugsController.clear();
-                        vaccinesController.clear();
-                        chronicdiseaseController.clear();
-                        seriousillnessesController.clear();
-                        priorsurgeryController.clear();
-                        familyillnessController.clear();
-                        otherillnessesController.clear();
-                        allergictoController.clear();
-                       
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ReminderData()),
-                        );
-                      });
-                    } on FirebaseException catch (e) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(e.message.toString())));
+                              bloodPressureController.clear();
+                              diabetesController.clear();
+                              bloodtypeController.clear();
+                              weightController.clear();
+                              longController.clear();
+                              currentdrugsController.clear();
+                              vaccinesController.clear();
+                              chronicdiseaseController.clear();
+                              seriousillnessesController.clear();
+                              priorsurgeryController.clear();
+                              familyillnessController.clear();
+                              otherillnessesController.clear();
+                              allergictoController.clear();
 
-                      bloodPressureController.clear();
-                      diabetesController.clear();
-                      bloodtypeController.clear();
-                      weightController.clear();
-                      longController.clear();
-                      currentdrugsController.clear();
-                      vaccinesController.clear();
-                      chronicdiseaseController.clear();
-                      seriousillnessesController.clear();
-                      priorsurgeryController.clear();
-                      familyillnessController.clear();
-                      otherillnessesController.clear();
-                      allergictoController.clear();
-                     
-                    }
-                    // setState(() {});
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 62, vertical: 15),
-                    child: Container(
-                      padding: const EdgeInsets.all(18),
-                      decoration: BoxDecoration(
-                          color: const Color(0xFF1883DB),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Center(
-                        child: Text(
-                          'التالي ',
-                          style: GoogleFonts.almarai(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ReminderData()),
+                              );
+                            });
+                          } on FirebaseException catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(e.message.toString())));
+
+                            bloodPressureController.clear();
+                            diabetesController.clear();
+                            bloodtypeController.clear();
+                            weightController.clear();
+                            longController.clear();
+                            currentdrugsController.clear();
+                            vaccinesController.clear();
+                            chronicdiseaseController.clear();
+                            seriousillnessesController.clear();
+                            priorsurgeryController.clear();
+                            familyillnessController.clear();
+                            otherillnessesController.clear();
+                            allergictoController.clear();
+                          }
+                          // setState(() {});
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 62, vertical: 15),
+                          child: Container(
+                            padding: const EdgeInsets.all(18),
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF1883DB),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: Center(
+                              child: Text(
+                                'التالي ',
+                                style: GoogleFonts.almarai(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                ),
               ),
             ],
           ),

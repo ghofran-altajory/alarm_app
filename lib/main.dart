@@ -59,18 +59,18 @@ class _MyAppState extends State<MyApp> {
               useMaterial3: false,
             ),
             home:
-            // AdminSubscrib()
-            Archive()
+                // AdminSubscrib()
+                SplashScreen()
             // SubscribeScreen()
             // IconProfile(),
             // CheckData(),
             //  TabsScreen()
             // AdminSplash()
             // SplashScreen()
-            
+
             // PersonalData()
-            
-             //TabsScreen()
+
+            //TabsScreen()
             // AdminLogin()
             //AdminLogin()
 
@@ -106,7 +106,3 @@ class _ScreenRouterState extends State<ScreenRouter> {
         : const WelcomeScreen();
   }
 }
-
-
-
-

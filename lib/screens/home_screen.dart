@@ -551,7 +551,7 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Icon(Icons.timelapse),
+                          Icon(Icons.calendar_month, color: Color(0xFF1883DB)),
                           const SizedBox(
                             width: 10,
                           ),
@@ -564,7 +564,7 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
                     ),
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 15,
                   ),
                   Container(
                     // width: 92,
@@ -577,7 +577,7 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Icon(Icons.timelapse),
+                          Icon(Icons.alarm, color: Color(0xFF1883DB)),
                           const SizedBox(
                             width: 20,
                           ),
@@ -596,12 +596,15 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
                   Text(
                     widget.data.title.toString(),
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(height: 5),
+                  Text(
+                    widget.data.type.toString(),
                   ),
+                  SizedBox(height: 5),
                   Text(
                     widget.data.dec.toString(),
-                  )
+                  ),
+                  SizedBox(height: 5),
                 ],
               ),
             ],

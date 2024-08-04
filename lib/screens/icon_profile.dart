@@ -72,9 +72,24 @@ class _IconProfileState extends State<IconProfile> {
                 return Center(child: Text('Error: ${snapshot.error}'));
               } else {
                 data = snapshot.data ?? [];
-//  if (data.isNotEmpty) {
-//                   namecontroller.text = data.first.name ?? "";
-//                 }
+                if (data.isNotEmpty) {
+                  bloodPressureController.text = data.first.bloodPressure ?? "";
+                  diabetesController.text = data.first.diabetes ?? "";
+                  bloodtypeController.text = data.first.bloodtype ?? "";
+                  weightController.text = data.first.weight ?? "";
+                  longController.text = data.first.long ?? "";
+                  currentdrugsController.text = data.first.currentdrugs ?? "";
+                  vaccinesController.text = data.first.vaccines ?? "";
+                  chronicdiseaseController.text =
+                      data.first.chronicdisease ?? "";
+                  seriousillnessesController.text =
+                      data.first.seriousillnesses ?? "";
+                  priorsurgeryController.text = data.first.priorsurgery ?? "";
+                  familyillnessController.text = data.first.familyillness ?? "";
+                  otherillnessesController.text =
+                      data.first.otherillnesses ?? "";
+                  allergictoController.text = data.first.allergicto ?? "";
+                }
                 return data.isEmpty
                     ? Center(child: Image.asset("assets/Untitled design.png"))
                     : SafeArea(
