@@ -35,8 +35,26 @@ class _SettingScreenState extends State<SettingScreen> {
         title: "ضبط كلمة المرور",
         icon: Icons.key,
         onTap: () {
-          Navigator.pushReplacement(context,
-              CupertinoPageRoute(builder: (context) => const EditPassword()));
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 50, right: 15),
+                        child: Text(
+                            '''هذه الخاصية سيتم توفيرها في التحديثات القادمة''',
+                            style: GoogleFonts.almarai(
+                              color: const Color(0xFF1883DB),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            )),
+                      )),
+                );
+              });
+          // Navigator.pushReplacement(context,
+          //     CupertinoPageRoute(builder: (context) => const EditPassword()));
         },
       ),
       ProfiListTitlModule(
