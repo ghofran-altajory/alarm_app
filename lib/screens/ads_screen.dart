@@ -44,7 +44,7 @@ class _AdsScreenState extends State<AdsScreen> {
                 data = snapshot.data ?? [];
 
                 return data.isEmpty
-                    ? Center(child: Image.asset("assets/Untitled design.png"))
+                    ? Center(child: Image.asset("assets/s_box.png"))
                     : Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 20),
