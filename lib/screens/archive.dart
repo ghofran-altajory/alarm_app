@@ -13,7 +13,6 @@ class Archive extends StatefulWidget {
 }
 
 class _ArchiveState extends State<Archive> {
-  
 // Pick an image.
 // final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 // // Capture a photo.
@@ -123,19 +122,24 @@ class _ArchiveState extends State<Archive> {
       backgroundColor: const Color(0xFFFCFCFf),
       body: SafeArea(
           child: Container(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.all(20),
               child: Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(
-                        ': الأرشيف',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.almarai(
-                          color: const Color(0xFF1883DB),
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            ': الأرشيف',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.almarai(
+                              color: const Color(0xFF1883DB),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
 //SizedBox(height: 30),
                       Text(
@@ -151,31 +155,28 @@ class _ArchiveState extends State<Archive> {
                         radius: 30,
                         backgroundColor: const Color(0xFFC5E4FE),
                         child: IconButton(
-                            onPressed: ()async {
+                            onPressed: () async {
                               try {
-await ImagePicker().pickImage(source: ImageSource.camera);
-
-   
-  } on PlatformException 
- catch (e) {
-    // Handle platform errors
-    print("Error picking image: $e");
-    
-  }
+                                await ImagePicker()
+                                    .pickImage(source: ImageSource.camera);
+                              } on PlatformException catch (e) {
+                                // Handle platform errors
+                                print("Error picking image: $e");
+                              }
                               // Future<void> getLostData() async {
-                                // final ImagePicker picker = ImagePicker();
-                                // await picker.pickImage(source: ImageSource.camera);
-                                // final LostDataResponse response =
-                                //     await picker.retrieveLostData();
-                                // if (response.isEmpty) {
-                                //   return;
-                                // }
-                                // final List<XFile>? files = response.files;
-                                // if (files != null) {
-                                //   // _handleLostFiles(files);
-                                // } else {
-                                //   // _handleError(response.exception);
-                                // }
+                              // final ImagePicker picker = ImagePicker();
+                              // await picker.pickImage(source: ImageSource.camera);
+                              // final LostDataResponse response =
+                              //     await picker.retrieveLostData();
+                              // if (response.isEmpty) {
+                              //   return;
+                              // }
+                              // final List<XFile>? files = response.files;
+                              // if (files != null) {
+                              //   // _handleLostFiles(files);
+                              // } else {
+                              //   // _handleError(response.exception);
+                              // }
                               // }
                               // _showChoiceDialog(context);
                             },

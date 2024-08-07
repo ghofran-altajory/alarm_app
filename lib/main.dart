@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
             ),
             home:
                 // AdminSubscrib()
-                SplashScreen()
+                TabsScreen()
             // SubscribeScreen()
             // IconProfile(),
             // CheckData(),

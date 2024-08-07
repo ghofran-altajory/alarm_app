@@ -1,3 +1,6 @@
+import 'package:alarm_app/screens/tabs_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -194,7 +197,19 @@ class _EditPasswordState extends State<EditPassword> {
                               )),
                             ))
                           : GestureDetector(
-                              onTap: () async {},
+                              onTap: () async {
+                                await FirebaseAuth.instance
+                                    .sendPasswordResetEmail(
+                                        email: 'ayafaraj20@gmail.com')
+                                    .then((_) {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    CupertinoPageRoute(
+                                        builder: (context) =>
+                                            const TabsScreen()),
+                                  );
+                                });
+                              },
                               child: Container(
                                 padding: const EdgeInsets.all(18),
                                 decoration: BoxDecoration(

@@ -40,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xFFFCFCFf),
         floatingActionButton: FloatingActionButton(
             backgroundColor: const Color(0xFF1883DB),
             child: const Icon(Icons.add),
@@ -217,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   //     ),
                                   //   ],
                                   // ),
-                                  const SizedBox(height: 13),
+                                  // const SizedBox(height: 13),
                                   Text(':الوقت ',
                                       textAlign: TextAlign.right,
                                       style: GoogleFonts.almarai(
@@ -225,6 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontWeight: FontWeight.bold,
                                         fontSize: 15,
                                       )),
+                                  const SizedBox(height: 13),
                                   SizedBox(
                                     // width: 60,
                                     child: TextFormField(
@@ -258,22 +260,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                   const SizedBox(
-                                    width: 3,
+                                    width: 5,
                                   ),
 
-                                  const SizedBox(
-                                    width: 7,
-                                  ),
-                                  // Row(
-                                  //   mainAxisAlignment: MainAxisAlignment.end,
-                                  //   children: [
-                                  //     Column(
-                                  //       crossAxisAlignment:
-                                  //           CrossAxisAlignment.end,
-                                  //       children: [],
-                                  //     ),
-                                  //   ],
-                                  // ),
                                   const SizedBox(height: 13),
                                   Text(': التاريخ ',
                                       textAlign: TextAlign.right,
@@ -282,6 +271,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontWeight: FontWeight.bold,
                                         fontSize: 15,
                                       )),
+                                  const SizedBox(height: 13),
                                   SizedBox(
                                     // width: 60,
                                     child: TextFormField(
@@ -491,7 +481,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 data = snapshot.data ?? [];
 
                 return data.isEmpty
-                    ? Center(child: Image.asset("assets/unfound.png"))
+                    ? Center(
+                        child: Image.asset(
+                        "assets/s_box.png",
+                      ))
                     : Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 20),
@@ -522,7 +515,7 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(0.0),
+      padding: const EdgeInsets.all(5),
       child: Container(
         // height: 90,
         //width: 150,
@@ -531,7 +524,7 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
           color: Color(0x70C5E4FE),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -540,6 +533,7 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
                   // ListTile(
 
                   // ),
+
                   Container(
                     // width: 92,
                     decoration: const BoxDecoration(
@@ -551,14 +545,16 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(Icons.calendar_month, color: Color(0xFF1883DB)),
+                          Icon(Icons.alarm, color: Color(0xFF1883DB)),
                           const SizedBox(
-                            width: 10,
+                            width: 20,
                           ),
-                          Text(
-                            widget.data.date.toString(),
-                            style: const TextStyle(fontSize: 12),
-                          ),
+                          Text(widget.data.time.toString(),
+                              style: GoogleFonts.almarai(
+                                color: const Color(0xFF000000),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                              )),
                         ],
                       ),
                     ),
@@ -577,14 +573,16 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(Icons.alarm, color: Color(0xFF1883DB)),
+                          Icon(Icons.calendar_month, color: Color(0xFF1883DB)),
                           const SizedBox(
-                            width: 20,
+                            width: 10,
                           ),
-                          Text(
-                            widget.data.time.toString(),
-                            style: const TextStyle(fontSize: 12),
-                          ),
+                          Text(widget.data.date.toString(),
+                              style: GoogleFonts.almarai(
+                                color: const Color(0xFF000000),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                              )),
                         ],
                       ),
                     ),
@@ -593,18 +591,27 @@ class _CardContinerWidgetState extends State<CardContinerWidget> {
               ),
               Column(
                 children: [
-                  Text(
-                    widget.data.title.toString(),
-                  ),
-                  SizedBox(height: 5),
-                  Text(
-                    widget.data.type.toString(),
-                  ),
-                  SizedBox(height: 5),
-                  Text(
-                    widget.data.dec.toString(),
-                  ),
-                  SizedBox(height: 5),
+                  Text(widget.data.title.toString(),
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      )),
+                  SizedBox(height: 10),
+                  Text(widget.data.type.toString(),
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      )),
+                  SizedBox(height: 10),
+                  Text(widget.data.dec.toString(),
+                      style: GoogleFonts.almarai(
+                        color: const Color(0xFF000000),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      )),
+                  SizedBox(height: 10),
                 ],
               ),
             ],

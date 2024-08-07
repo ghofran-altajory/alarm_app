@@ -139,7 +139,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                               BorderSide(color: Colors.blue)),
                                     ),
                                   ),
-                                  const SizedBox(height: 25),
+                                  const SizedBox(height: 13),
                                   // phone
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
@@ -185,46 +185,46 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                               BorderSide(color: Colors.blue)),
                                     ),
                                   ),
-                                  const SizedBox(height: 25),
-                                  // password
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          Text('أرقام أخرى :',
-                                              textAlign: TextAlign.right,
-                                              style: GoogleFonts.almarai(
-                                                color: const Color(0xFF000000),
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                              )),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 13),
-                                  TextFormField(
-                                    controller: familyphonecontroller,
-                                    decoration: InputDecoration(
-                                      hintText: '+21891xxxxxxx',
-                                      hintStyle: const TextStyle(fontSize: 16),
-                                      filled: true,
-                                      fillColor: const Color(0x70C5E4FE),
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              horizontal: 10),
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(18.0),
-                                          borderSide: BorderSide.none),
-                                      focusedBorder: const OutlineInputBorder(
-                                          borderSide:
-                                              BorderSide(color: Colors.blue)),
-                                    ),
-                                  ),
+                                  // const SizedBox(height: 25),
+                                  // // password
+                                  // Row(
+                                  //   mainAxisAlignment: MainAxisAlignment.end,
+                                  //   children: [
+                                  //     Column(
+                                  //       crossAxisAlignment:
+                                  //           CrossAxisAlignment.end,
+                                  //       children: [
+                                  //         Text('أرقام أخرى :',
+                                  //             textAlign: TextAlign.right,
+                                  //             style: GoogleFonts.almarai(
+                                  //               color: const Color(0xFF000000),
+                                  //               fontWeight: FontWeight.bold,
+                                  //               fontSize: 15,
+                                  //             )),
+                                  //       ],
+                                  //     ),
+                                  //   ],
+                                  // ),
+                                  // const SizedBox(height: 13),
+                                  // TextFormField(
+                                  //   controller: familyphonecontroller,
+                                  //   decoration: InputDecoration(
+                                  //     hintText: '+21891xxxxxxx',
+                                  //     hintStyle: const TextStyle(fontSize: 16),
+                                  //     filled: true,
+                                  //     fillColor: const Color(0x70C5E4FE),
+                                  //     contentPadding:
+                                  //         const EdgeInsets.symmetric(
+                                  //             horizontal: 10),
+                                  //     border: OutlineInputBorder(
+                                  //         borderRadius:
+                                  //             BorderRadius.circular(18.0),
+                                  //         borderSide: BorderSide.none),
+                                  //     focusedBorder: const OutlineInputBorder(
+                                  //         borderSide:
+                                  //             BorderSide(color: Colors.blue)),
+                                  //   ),
+                                  // ),
 
                                   const SizedBox(height: 25),
                                   //emile
