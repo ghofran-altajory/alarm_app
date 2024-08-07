@@ -491,7 +491,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 data = snapshot.data ?? [];
 
                 return data.isEmpty
-                    ? Center(child: Image.asset("assets/s_box.png"))
+                    ? Center(child: Image.asset("assets/unfound.png"))
                     : Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 20),
