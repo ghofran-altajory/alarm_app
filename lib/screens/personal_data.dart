@@ -4,11 +4,14 @@ import 'package:alarm_app/screens/check_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:url_launcher/url_launcher.dart';
 
 class PersonalData extends StatefulWidget {
   PersonalData({super.key});
@@ -409,8 +412,29 @@ class _PersonalDataState extends State<PersonalData> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       IconButton(
-                        onPressed: () {
-                          _showChoiceDialog(context);
+                        onPressed: () async {
+                          // final sms = Uri.parse("sms://1122334445555666");
+                          final Uri smsLaunchUri = Uri(
+                            scheme: 'sms',
+                            path: "92555452122",
+
+                            // queryParameters: <String, String>{
+                            //   'body': Uri.decodeFull(
+                            //       'Example Subject & Symbols are allowed!'),
+                            // },
+                          );
+
+                          try {
+                            if (await canLaunchUrl(smsLaunchUri)) {
+                              await launchUrl(smsLaunchUri);
+                            }
+                          } catch (e) {
+                            if (kDebugMode) {
+                              print("error is (e) ==> $e");
+                            }
+                          }
+
+                          // _showChoiceDialog(context);
                         },
                         icon: const Icon(Icons.add),
                       ),

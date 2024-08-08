@@ -17,8 +17,8 @@ class _AdminSplashState extends State<AdminSplash> {
   @override
   void initState() {
     Timer(const Duration(seconds: 4), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) =>  AdminLogin()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => AdminLogin()));
     });
     super.initState();
   }
@@ -35,13 +35,13 @@ class _AdminSplashState extends State<AdminSplash> {
               "assets/Frame 1000002037.png",
             ),
             const SizedBox(height: 20),
-            // Text(
-            //   'منبه لذوي كبار السن والاحتياجات الخاصة',
-            //   style: GoogleFonts.almarai(
-            //     fontSize: 16,
-            //     color: const Color(0xFFffffff),
-            //   ),
-            // ),
+            Text(
+              'منبه لذوي كبار السن والاحتياجات الخاصة',
+              style: GoogleFonts.almarai(
+                fontSize: 16,
+                color: const Color(0xFFffffff),
+              ),
+            ),
           ],
         )));
   }

@@ -17,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 // import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'screens/notifications.dart';
 import 'screens/welcome_screen.dart';
 
 Future<void> main() async {
@@ -60,13 +61,14 @@ class _MyAppState extends State<MyApp> {
             ),
             home:
                 // AdminSubscrib()
+                // TabsScreen()
+                // SubscribeScreen()
+                // IconProfile(),
+                // CheckData(),
                 TabsScreen()
-            // SubscribeScreen()
-            // IconProfile(),
-            // CheckData(),
-            //  TabsScreen()
             // AdminSplash()
-            // SplashScreen()
+            // PersonalData()
+            // Notifications()
 
             // PersonalData()
 

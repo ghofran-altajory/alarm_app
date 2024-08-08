@@ -16,11 +16,9 @@ class SubscribeScreen extends StatefulWidget {
   State<SubscribeScreen> createState() => _SubscribeScreenState();
 }
 
-
-
 class _SubscribeScreenState extends State<SubscribeScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-TextEditingController alarmumController = TextEditingController();
+  TextEditingController alarmumController = TextEditingController();
   TextEditingController singlepriceController = TextEditingController();
   TextEditingController weekpriceController = TextEditingController();
   TextEditingController monthpriceController = TextEditingController();
@@ -34,10 +32,7 @@ TextEditingController alarmumController = TextEditingController();
   List<EditAds> data = [];
 
   Future<List<EditAds>> getData() async {
-    var data = await firestore
-        .collection('editAds')
-        .where('user_id', isEqualTo: auth.currentUser!.uid)
-        .get();
+    var data = await firestore.collection('editAds').get();
     return data.docs.map((e) => EditAds.fromJson(e.data())).toList();
   }
 

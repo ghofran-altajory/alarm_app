@@ -118,6 +118,7 @@ class _ArchiveState extends State<Archive> {
 
   @override
   Widget build(BuildContext context) {
+    Future<XFile> image;
     return Scaffold(
       backgroundColor: const Color(0xFFFCFCFf),
       body: SafeArea(
@@ -142,6 +143,8 @@ class _ArchiveState extends State<Archive> {
                         ],
                       ),
 //SizedBox(height: 30),
+                      // Image.file(image.),
+
                       Text(
                         'هنا بإمكانك إضافة الصور الخاصة بك ',
                         textAlign: TextAlign.center,
@@ -151,6 +154,7 @@ class _ArchiveState extends State<Archive> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+
                       CircleAvatar(
                         radius: 30,
                         backgroundColor: const Color(0xFFC5E4FE),
@@ -158,7 +162,9 @@ class _ArchiveState extends State<Archive> {
                             onPressed: () async {
                               try {
                                 await ImagePicker()
-                                    .pickImage(source: ImageSource.camera);
+                                    .pickImage(source: ImageSource.gallery);
+
+                                // Image.file(imagee!.path as File);
                               } on PlatformException catch (e) {
                                 // Handle platform errors
                                 print("Error picking image: $e");

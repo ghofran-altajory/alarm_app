@@ -4,7 +4,9 @@ class CardContinerModule {
   String? dec;
   String? date;
   String? time;
-  CardContinerModule({this.title, this.dec, this.date, this.time});
+  bool? isFinsh;
+  CardContinerModule(
+      {this.title, this.dec, this.date, this.time, this.isFinsh});
 
   CardContinerModule.fromJson(Map<String, dynamic> json) {
     title = json['title'] ?? "";
@@ -12,5 +14,6 @@ class CardContinerModule {
     dec = json['dec'] ?? "";
     date = json['date'] ?? "";
     time = json['time'] ?? "";
+    isFinsh = json['isFinsh'] ?? false;
   }
 }
