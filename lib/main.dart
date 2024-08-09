@@ -1,16 +1,4 @@
-import 'package:alarm_app/screens/admin_ads.dart';
-import 'package:alarm_app/screens/admin_login.dart';
-import 'package:alarm_app/screens/admin_splash.dart';
-import 'package:alarm_app/screens/admin_subscrib.dart';
-import 'package:alarm_app/screens/archive.dart';
-import 'package:alarm_app/screens/check_data.dart';
-import 'package:alarm_app/screens/edit_profile_screen.dart';
-import 'package:alarm_app/screens/icon_profile.dart';
 import 'package:alarm_app/screens/personal_data.dart';
-import 'package:alarm_app/screens/reminder_data.dart';
-import 'package:alarm_app/screens/splash_screen.dart';
-import 'package:alarm_app/screens/subscribe_screen.dart';
-
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +53,7 @@ class _MyAppState extends State<MyApp> {
                 // SubscribeScreen()
                 // IconProfile(),
                 // CheckData(),
-                TabsScreen()
+                PersonalData()
             // AdminSplash()
             // PersonalData()
             // Notifications()

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:alarm_app/screens/check_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,13 +6,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 import 'package:url_launcher/url_launcher.dart';
 
 class PersonalData extends StatefulWidget {
-  PersonalData({super.key});
+  const PersonalData({super.key});
 
   @override
   State<PersonalData> createState() => _PersonalDataState();
@@ -24,10 +20,8 @@ class _PersonalDataState extends State<PersonalData> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController namecontroller = TextEditingController();
   TextEditingController phonecontroller = TextEditingController();
-  TextEditingController familynamecontroller = TextEditingController();
-  TextEditingController subcontroller = TextEditingController();
-  TextEditingController emilecontroller = TextEditingController();
   TextEditingController messagecontroller = TextEditingController();
+  TextEditingController familynumcontroller = TextEditingController();
   int _selectedValue = 0;
   bool isTrue = false;
   bool isClick = false;
@@ -35,273 +29,265 @@ class _PersonalDataState extends State<PersonalData> {
   bool isMale = false;
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  Future sendEmail() async {
-    final url = Uri.parse(" https://api.emailjs.com/api/v1.0/email/send");
-    const serviceId = "service_1m51dcj";
-    const templateId = "template_hcsujos";
-    //USERR ID
-    const userId = "";
+  // Future sendEmail() async {
+  //   final url = Uri.parse(" https://api.emailjs.com/api/v1.0/email/send");
+  //   const serviceId = "service_1m51dcj";
+  //   const templateId = "template_hcsujos";
+  //   //USERR ID
+  //   const userId = "";
 
-    final response = await http.post(url,
-        headers: {'content-Type': 'application/json'},
-        body: json.encode({
-          "service_id": serviceId,
-          "template_id": templateId,
-          "user_id": userId,
-          "template_params": {
-            "name": familynamecontroller.text,
-            " subject": subcontroller.text,
-            " message": messagecontroller.text,
-            "user_email": emilecontroller.text,
-          },
-        }));
-    return response.statusCode;
-  }
+  //   final response = await http.post(url,
+  //       headers: {'content-Type': 'application/json'},
+  //       body: json.encode({
+  //         "service_id": serviceId,
+  //         "template_id": templateId,
+  //         "user_id": userId,
+  //         "template_params": {
+  //           "name": familynamecontroller.text,
+  //           " subject": subcontroller.text,
+  //           " message": messagecontroller.text,
+  //           "user_email": emilecontroller.text,
+  //         },
+  //       }));
+  //   return response.statusCode;
+  // }
 
-  Future<void> _showChoiceDialog(BuildContext context) {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return SafeArea(
-            child: Dialog(
-                child: SizedBox(
-              height: 600,
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(" : اضافة ارقام اخرى",
-                        style: GoogleFonts.almarai(
-                          color: const Color(0xFF1883DB),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(':الاسم  ',
-                                textAlign: TextAlign.right,
-                                style: GoogleFonts.almarai(
-                                  color: const Color(0xFF000000),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                )),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "!ادخل الاسم  ";
-                        }
+//   Future<void> _showChoiceDialog(BuildContext context) {
+//     return showDialog(
+//         context: context,
+//         builder: (context) {
+//           return SafeArea(
+//             child: Dialog(
+//                 child: SizedBox(
+//               height: 250,
+//               width: double.infinity,
+//               child: Padding(
+//                 padding: const EdgeInsets.all(15),
+//                 child: Form(
+//                   key: formKey,
+//                   child: Column(
+//                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                     children: [
+//                       Text(" : لإضافة متابعين",
+//                           style: GoogleFonts.almarai(
+//                             color: const Color(0xFF1883DB),
+//                             fontWeight: FontWeight.bold,
+//                             fontSize: 18,
+//                           )),
+//                       // const Row(
+//                       //   mainAxisAlignment: MainAxisAlignment.end,
+//                       //   children: [
+//                       //     // Column(
+//                       //     //   crossAxisAlignment: CrossAxisAlignment.end,
+//                       //     //   children: [
+//                       //     //     // Text(':الاسم  ',
+//                       //     //     //     textAlign: TextAlign.right,
+//                       //     //     //     style: GoogleFonts.almarai(
+//                       //     //     //       color: const Color(0xFF000000),
+//                       //     //     //       fontWeight: FontWeight.bold,
+//                       //     //     //       fontSize: 15,
+//                       //     //     //     )),
+//                       //     //   ],
+//                       //     // ),
+//                       //   ],
+//                       // ),
+//                       // const SizedBox(height: 5),
+//                       // TextFormField(
+//                       //   validator: (value) {
+//                       //     if (value!.isEmpty) {
+//                       //       return "!ادخل الاسم  ";
+//                       //     }
 
-                        return null;
-                      },
-                      controller: familynamecontroller,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(':عنوان الرسالة ',
-                                textAlign: TextAlign.right,
-                                style: GoogleFonts.almarai(
-                                  color: const Color(0xFF000000),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                )),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "!ادخل العنوان";
-                        }
+//                       //     return null;
+//                       //   },
+//                       //   controller: familynamecontroller,
+//                       //   decoration: InputDecoration(
+//                       //     filled: true,
+//                       //     fillColor: const Color(0x70C5E4FE),
+//                       //     contentPadding: const EdgeInsets.symmetric(
+//                       //         horizontal: 12, vertical: 4),
+//                       //     border: OutlineInputBorder(
+//                       //       borderSide: BorderSide.none,
+//                       //       borderRadius: BorderRadius.circular(15.0),
+//                       //     ),
+//                       //     focusedBorder: const OutlineInputBorder(
+//                       //         borderSide: BorderSide(color: Colors.blue)),
+//                       //   ),
+//                       // ),
+//                       // const SizedBox(
+//                       //   height: 5,
+//                       // ),
+//                       const SizedBox(
+//                         height: 10,
+//                       ),
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.end,
+//                         children: [
+//                           // Column(
+//                           //   crossAxisAlignment: CrossAxisAlignment.end,
+//                           //   children: [
+//                           //     Text(': الرسالة ',
+//                           //         textAlign: TextAlign.right,
+//                           //         style: GoogleFonts.almarai(
+//                           //           color: const Color(0xFF000000),
+//                           //           fontWeight: FontWeight.bold,
+//                           //           fontSize: 15,
+//                           //         )),
+//                           //   ],
+//                           // ),
+//                         ],
+//                       ),
+//                       const SizedBox(height: 5),
+//                       // TextFormField(
+//                       //   validator: (value) {
+//                       //     if (value!.isEmpty) {
+//                       //       return "!ادخل الرسالة ";
+//                       //     }
 
-                        return null;
-                      },
-                      controller: subcontroller,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(':البريد الالكتروني ',
-                                textAlign: TextAlign.right,
-                                style: GoogleFonts.almarai(
-                                  color: const Color(0xFF000000),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                )),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "!ادخل البريد";
-                        }
+//                       //     return null;
+//                       //   },
+//                       //   controller: messagecontroller,
+//                       //   decoration: InputDecoration(
+//                       //     filled: true,
+//                       //     fillColor: const Color(0x70C5E4FE),
+//                       //     contentPadding: const EdgeInsets.symmetric(
+//                       //         horizontal: 12, vertical: 4),
+//                       //     border: OutlineInputBorder(
+//                       //       borderSide: BorderSide.none,
+//                       //       borderRadius: BorderRadius.circular(15.0),
+//                       //     ),
+//                       //     focusedBorder: const OutlineInputBorder(
+//                       //         borderSide: BorderSide(color: Colors.blue)),
+//                       //   ),
+//                       // ),
+//                       const SizedBox(
+//                         height: 5,
+//                       ),
 
-                        return null;
-                      },
-                      controller: emilecontroller,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(':الرسالة  ',
-                                textAlign: TextAlign.right,
-                                style: GoogleFonts.almarai(
-                                  color: const Color(0xFF000000),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                )),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return " !ادخل  الرسالة ";
-                        }
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.end,
+//                         children: [
+//                           Column(
+//                             crossAxisAlignment: CrossAxisAlignment.end,
+//                             children: [
+//                               Text(':رقم الهاتف  ',
+//                                   textAlign: TextAlign.right,
+//                                   style: GoogleFonts.almarai(
+//                                     color: const Color(0xFF000000),
+//                                     fontWeight: FontWeight.bold,
+//                                     fontSize: 15,
+//                                   )),
+//                             ],
+//                           ),
+//                         ],
+//                       ),
+//                       const SizedBox(height: 5),
+//                       TextFormField(
+//                         validator: (value) {
+//                           if (value!.isEmpty) {
+//                             return " !ادخل  الرقم ";
+//                           }
 
-                        return null;
-                      },
-                      controller: messagecontroller,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color(0x70C5E4FE),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue)),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      GestureDetector(
-                        onTap: () {
-                          familynamecontroller.clear();
-                          subcontroller.clear();
-                          messagecontroller.clear();
-                          emilecontroller.clear();
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                              color: const Color(0x70C5E4FE),
-                              borderRadius: BorderRadius.circular(22)),
-                          child: Text(
-                            'إلغاء',
-                            style: GoogleFonts.almarai(
-                              color: const Color(0xFF1883DB),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 15),
-                      GestureDetector(
-                        onTap: () {
-                          sendEmail();
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                              color: const Color(0xFF1883DB),
-                              borderRadius: BorderRadius.circular(22)),
-                          child: Text(
-                            'إرسال',
-                            style: GoogleFonts.almarai(
-                              color: const Color(0xFFECF1FF),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ]),
-                  ],
-                ),
-              ),
-            )),
-          );
-        });
-  }
+//                           return null;
+//                         },
+//                         controller: familynumcontroller,
+//                         decoration: InputDecoration(
+//                           filled: true,
+//                           fillColor: const Color(0x70C5E4FE),
+//                           contentPadding: const EdgeInsets.symmetric(
+//                               horizontal: 12, vertical: 4),
+//                           border: OutlineInputBorder(
+//                             borderSide: BorderSide.none,
+//                             borderRadius: BorderRadius.circular(15.0),
+//                           ),
+//                           focusedBorder: const OutlineInputBorder(
+//                               borderSide: BorderSide(color: Colors.blue)),
+//                         ),
+//                       ),
+//                       const SizedBox(
+//                         height: 10,
+//                       ),
+//                       Row(
+//                           mainAxisAlignment: MainAxisAlignment.center,
+//                           children: [
+//                             GestureDetector(
+//                               onTap: () {
+//                                 // messagecontroller.clear();
+//                                 familynumcontroller.clear();
+//                                 Navigator.push(
+//                                     context,
+//                                     CupertinoPageRoute(
+//                                         builder: (context) =>
+//                                             const PersonalData()));
+//                               },
+//                               child: Container(
+//                                 padding: const EdgeInsets.all(15),
+//                                 decoration: BoxDecoration(
+//                                     color: const Color(0x70C5E4FE),
+//                                     borderRadius: BorderRadius.circular(22)),
+//                                 child: Text(
+//                                   'إلغاء',
+//                                   style: GoogleFonts.almarai(
+//                                     color: const Color(0xFF1883DB),
+//                                     fontWeight: FontWeight.bold,
+//                                     fontSize: 16,
+//                                   ),
+//                                 ),
+//                               ),
+//                             ),
+//                             const SizedBox(width: 15),
+//                             GestureDetector(
+// //                               onTap: () async {
+// //                                 if (formKey.currentState!.validate()) {
+// //                                   final sms = Uri.parse("");
+// //                                   final Uri smsLaunchUri = Uri(
+// //                                     scheme: 'sms',
+// //                                     // path: "92555452122",
+// //                                     queryParameters: <String, String>{
+// //                                       'body': Uri.decodeFull(
+// //                                           '''Download"YourAlarm"now!
+// // Email:ayaya@gmail.com
+// // Password:123456& Symbols are allowed!'''),
+// //                                     },
+// //                                   );
+
+// //                                   try {
+// //                                     if (await canLaunchUrl(smsLaunchUri)) {
+// //                                       await launchUrl(smsLaunchUri);
+// //                                     }
+// //                                   } catch (e) {
+// //                                     if (kDebugMode) {
+// //                                       print("error is (e) ==> $e");
+// //                                     }
+// //                                   }
+
+// //                                   // _showChoiceDialog(context);
+// //                                 }
+// //                               },
+//                               child: Container(
+//                                 padding: const EdgeInsets.all(15),
+//                                 decoration: BoxDecoration(
+//                                     color: const Color(0xFF1883DB),
+//                                     borderRadius: BorderRadius.circular(22)),
+//                                 child: Text(
+//                                   'إرسال',
+//                                   style: GoogleFonts.almarai(
+//                                     color: const Color(0xFFECF1FF),
+//                                     fontWeight: FontWeight.bold,
+//                                     fontSize: 16,
+//                                   ),
+//                                 ),
+//                               ),
+//                             ),
+//                           ]),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             )),
+//           );
+//         });
+//   }
 
   ////
   // List<PersonaldataModule> data = [];
@@ -413,28 +399,31 @@ class _PersonalDataState extends State<PersonalData> {
                     children: [
                       IconButton(
                         onPressed: () async {
-                          // final sms = Uri.parse("sms://1122334445555666");
-                          final Uri smsLaunchUri = Uri(
-                            scheme: 'sms',
-                            path: "92555452122",
+                          if (formKey.currentState!.validate()) {
+                            final sms = Uri.parse("");
+                            final Uri smsLaunchUri = Uri(
+                              scheme: 'sms',
+                              // path: "92555452122",
+                              queryParameters: <String, String>{
+                                'body':
+                                    Uri.decodeFull('''Download"YourAlarm"now!
+Email:ayaya@gmail.com
+Password:123456& Symbols are allowed!'''),
+                              },
+                            );
 
-                            // queryParameters: <String, String>{
-                            //   'body': Uri.decodeFull(
-                            //       'Example Subject & Symbols are allowed!'),
-                            // },
-                          );
+                            try {
+                              if (await canLaunchUrl(smsLaunchUri)) {
+                                await launchUrl(smsLaunchUri);
+                              }
+                            } catch (e) {
+                              if (kDebugMode) {
+                                print("error is (e) ==> $e");
+                              }
+                            }
 
-                          try {
-                            if (await canLaunchUrl(smsLaunchUri)) {
-                              await launchUrl(smsLaunchUri);
-                            }
-                          } catch (e) {
-                            if (kDebugMode) {
-                              print("error is (e) ==> $e");
-                            }
+                            // _showChoiceDialog(context);
                           }
-
-                          // _showChoiceDialog(context);
                         },
                         icon: const Icon(Icons.add),
                       ),

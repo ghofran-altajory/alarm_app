@@ -1,11 +1,8 @@
-import 'package:alarm_app/module/notification_modul.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:another_flushbar/flushbar.dart';
-// import 'package:another_flushbar/flushbar_helper.dart';
-// import 'package:another_flushbar/flushbar_route.dart';
+import 'package:another_flushbar/flushbar.dart';
 import '../module/card_continer_module.dart';
 
 class Notifications extends StatefulWidget {
@@ -147,40 +144,79 @@ class _NotificationmodulWidgetState extends State<NotificationmodulWidget> {
         child: Directionality(
           textDirection: TextDirection.rtl,
           child: ListTile(
-            leading: Icon(Icons.cable),
+            leading: Icon(Icons.alarm),
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  widget.data.title ?? "",
-                  // textAlign: TextAlign.center,
-                  style: GoogleFonts.almarai(
-                    color: const Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Column(
+                  children: [
+                    Text(
+                      widget.data.title ?? "",
+                      // textAlign: TextAlign.center,
+                      style: GoogleFonts.almarai(
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                  ],
                 ),
+
                 // SizedBox(
                 //   width: 0,
                 // ),
-                Text(
-                  widget.data.time ?? "",
-                  // textAlign: TextAlign.center,
-                  style: GoogleFonts.almarai(
-                    color: const Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 12,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          widget.data.time ?? "",
+                          // textAlign: TextAlign.center,
+                          style: GoogleFonts.almarai(
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                            fontSize: 12,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          widget.data.date.toString(),
+                          style: GoogleFonts.almarai(
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
-            subtitle: Text(
-              widget.data.dec ?? "",
-              // textAlign: TextAlign.center,
-              style: GoogleFonts.almarai(
-                color: const Color.fromARGB(255, 0, 0, 0),
-                fontSize: 14,
-              ),
+            subtitle: Row(
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      widget.data.dec ?? "",
+                      // textAlign: TextAlign.center,
+                      style: GoogleFonts.almarai(
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 14,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      widget.data.type ?? "",
+                      style: GoogleFonts.almarai(
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
             trailing: Checkbox(
               value: _isChecked,
@@ -264,22 +300,20 @@ class _NotificationmodulWidgetState extends State<NotificationmodulWidget> {
   }
 }
 
-
-// Future mySnackBar(
-//     String message, bool isSuccess,BuildContext context ) async {
-//   Flushbar(
-//     message: message,
-//     icon: Icon(
-//       isSuccess ?Icons.check_sharp:Icons.warning_amber_rounded,
-//       size: 28.0,
-//       color: Colors.blue,
-//     ),
-//     margin: const EdgeInsets.all(6.0),
-//     flushbarStyle: FlushbarStyle.FLOATING,
-//     flushbarPosition: FlushbarPosition.TOP,
-//     textDirection: Directionality.of(context),
-//     borderRadius: BorderRadius.circular(12),
-//     duration:  const Duration(seconds: 3),
-//     leftBarIndicatorColor:  Colors.blue,
-//   ).show(context);
-// }
+Future mySnackBar(String message, bool isSuccess, BuildContext context) async {
+  Flushbar(
+    message: message,
+    icon: Icon(
+      isSuccess ? Icons.check_sharp : Icons.warning_amber_rounded,
+      size: 28.0,
+      color: Colors.blue,
+    ),
+    margin: const EdgeInsets.all(6.0),
+    flushbarStyle: FlushbarStyle.FLOATING,
+    flushbarPosition: FlushbarPosition.TOP,
+    textDirection: Directionality.of(context),
+    borderRadius: BorderRadius.circular(12),
+    duration: const Duration(seconds: 2),
+    leftBarIndicatorColor: Colors.blue,
+  ).show(context);
+}
