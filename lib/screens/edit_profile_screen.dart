@@ -187,57 +187,52 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                               BorderSide(color: Colors.blue)),
                                     ),
                                   ),
-                                Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      IconButton(
-                        onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            final sms = Uri.parse("");
-                            final Uri smsLaunchUri = Uri(
-                              scheme: 'sms',
-                              // path: "92555452122",
-                              queryParameters: <String, String>{
-                                'body':
-                                    Uri.decodeFull('''Download"YourAlarm"now!
+                                  const SizedBox(height: 30),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      IconButton(
+                                        onPressed: () async {
+                                          if (formKey.currentState!
+                                              .validate()) {
+                                            final sms = Uri.parse("");
+                                            final Uri smsLaunchUri = Uri(
+                                              scheme: 'sms',
+                                              // path: "92555452122",
+                                              queryParameters: <String, String>{
+                                                'body': Uri.decodeFull(
+                                                    '''Download"YourAlarm"now!
 Email:ayaya@gmail.com
 Password:123456& Symbols are allowed!'''),
-                              },
-                            );
+                                              },
+                                            );
 
-                            try {
-                              if (await canLaunchUrl(smsLaunchUri)) {
-                                await launchUrl(smsLaunchUri);
-                              }
-                            } catch (e) {
-                              if (kDebugMode) {
-                                print("error is (e) ==> $e");
-                              }
-                            }
+                                            try {
+                                              if (await canLaunchUrl(
+                                                  smsLaunchUri)) {
+                                                await launchUrl(smsLaunchUri);
+                                              }
+                                            } catch (e) {
+                                              if (kDebugMode) {
+                                                print("error is (e) ==> $e");
+                                              }
+                                            }
 
-                            // _showChoiceDialog(context);
-                          }
-                        },
-                        icon: const Icon(Icons.add),
-                      ),
-                      Text('لإضافة اشخاص متابعين',
-                          textAlign: TextAlign.right,
-                          style: GoogleFonts.almarai(
-                              color: const Color(0xFF000000),
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold)),
-                      const SizedBox(width: 45),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                                  const SizedBox(height: 80),
-                                  //ubdite
-
-                                  const SizedBox(
-                                    height: 10,
+                                            // _showChoiceDialog(context);
+                                          }
+                                        },
+                                        icon: const Icon(Icons.add),
+                                      ),
+                                      Text('لإضافة اشخاص متابعين',
+                                          textAlign: TextAlign.right,
+                                          style: GoogleFonts.almarai(
+                                              color: const Color(0xFF000000),
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold)),
+                                      const SizedBox(width: 45),
+                                    ],
                                   ),
+                                  const SizedBox(height: 30),
                                   GestureDetector(
                                     onTap: () async {
                                       try {
