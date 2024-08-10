@@ -3,8 +3,10 @@ import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../module/personal_data.dart';
 
@@ -185,96 +187,51 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                               BorderSide(color: Colors.blue)),
                                     ),
                                   ),
-                                  // const SizedBox(height: 25),
-                                  // // password
-                                  // Row(
-                                  //   mainAxisAlignment: MainAxisAlignment.end,
-                                  //   children: [
-                                  //     Column(
-                                  //       crossAxisAlignment:
-                                  //           CrossAxisAlignment.end,
-                                  //       children: [
-                                  //         Text('أرقام أخرى :',
-                                  //             textAlign: TextAlign.right,
-                                  //             style: GoogleFonts.almarai(
-                                  //               color: const Color(0xFF000000),
-                                  //               fontWeight: FontWeight.bold,
-                                  //               fontSize: 15,
-                                  //             )),
-                                  //       ],
-                                  //     ),
-                                  //   ],
-                                  // ),
-                                  // const SizedBox(height: 13),
-                                  // TextFormField(
-                                  //   controller: familyphonecontroller,
-                                  //   decoration: InputDecoration(
-                                  //     hintText: '+21891xxxxxxx',
-                                  //     hintStyle: const TextStyle(fontSize: 16),
-                                  //     filled: true,
-                                  //     fillColor: const Color(0x70C5E4FE),
-                                  //     contentPadding:
-                                  //         const EdgeInsets.symmetric(
-                                  //             horizontal: 10),
-                                  //     border: OutlineInputBorder(
-                                  //         borderRadius:
-                                  //             BorderRadius.circular(18.0),
-                                  //         borderSide: BorderSide.none),
-                                  //     focusedBorder: const OutlineInputBorder(
-                                  //         borderSide:
-                                  //             BorderSide(color: Colors.blue)),
-                                  //   ),
-                                  // ),
+                                Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: () async {
+                          if (formKey.currentState!.validate()) {
+                            final sms = Uri.parse("");
+                            final Uri smsLaunchUri = Uri(
+                              scheme: 'sms',
+                              // path: "92555452122",
+                              queryParameters: <String, String>{
+                                'body':
+                                    Uri.decodeFull('''Download"YourAlarm"now!
+Email:ayaya@gmail.com
+Password:123456& Symbols are allowed!'''),
+                              },
+                            );
 
-                                  const SizedBox(height: 25),
-                                  //emile
-                                  // Row(
-                                  //   mainAxisAlignment: MainAxisAlignment.end,
-                                  //   children: [
-                                  //     Column(
-                                  //       crossAxisAlignment:
-                                  //           CrossAxisAlignment.end,
-                                  //       children: [
-                                  //         Text(': البريد الالكتروني',
-                                  //             textAlign: TextAlign.right,
-                                  //             style: GoogleFonts.almarai(
-                                  //               color: const Color.fromARGB(
-                                  //                   255, 24, 1, 1),
-                                  //               fontWeight: FontWeight.bold,
-                                  //               fontSize: 15,
-                                  //             )),
-                                  //       ],
-                                  //     ),
-                                  //   ],
-                                  // ),
-                                  // const SizedBox(height: 13),
-                                  // TextFormField(
-                                  //   validator: (value) {
-                                  //     if (value!.isEmpty) {
-                                  //       return "!الرجاء إدخال بريدك الإلكتروني ";
-                                  //     }
+                            try {
+                              if (await canLaunchUrl(smsLaunchUri)) {
+                                await launchUrl(smsLaunchUri);
+                              }
+                            } catch (e) {
+                              if (kDebugMode) {
+                                print("error is (e) ==> $e");
+                              }
+                            }
 
-                                  //     return null;
-                                  //   },
-                                  //   controller: emilecontroller,
-                                  //   decoration: InputDecoration(
-                                  //     hintText: 'example@example.com',
-                                  //     hintStyle: const TextStyle(fontSize: 16),
-                                  //     filled: true,
-                                  //     fillColor: const Color(0x70C5E4FE),
-                                  //     contentPadding:
-                                  //         const EdgeInsets.symmetric(
-                                  //             horizontal: 10),
-                                  //     border: OutlineInputBorder(
-                                  //         borderRadius:
-                                  //             BorderRadius.circular(18.0),
-                                  //         borderSide: BorderSide.none),
-                                  //     focusedBorder: const OutlineInputBorder(
-                                  //         borderSide:
-                                  //             BorderSide(color: Colors.blue)),
-                                  //   ),
-                                  // ),
-
+                            // _showChoiceDialog(context);
+                          }
+                        },
+                        icon: const Icon(Icons.add),
+                      ),
+                      Text('لإضافة اشخاص متابعين',
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.almarai(
+                              color: const Color(0xFF000000),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold)),
+                      const SizedBox(width: 45),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
                                   const SizedBox(height: 80),
                                   //ubdite
 

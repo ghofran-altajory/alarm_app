@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
             ),
             home:
                 // AdminSubscrib()
-                // TabsScreen()
+                 TabsScreen()
                 // SubscribeScreen()
                 // IconProfile(),
                 // CheckData(),
@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
             // ReminderData()
             // CheckData()
 
-             WelcomeScreen()
+            // WelcomeScreen()
 
             //
             //SplashScreen()

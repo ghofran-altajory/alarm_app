@@ -204,6 +204,11 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
                                                             setState(() {
                                                               isTrue = true;
                                                             });
+                                                             Navigator.pushReplacement(
+                                          context,
+                                          CupertinoPageRoute(
+                                              builder: (context) =>
+                                                  const PaymentMethod()));
                                                           },
                                                           child: Container(
                                                             padding:

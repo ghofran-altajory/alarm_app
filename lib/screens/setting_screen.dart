@@ -26,7 +26,11 @@ class _SettingScreenState extends State<SettingScreen> {
   List<ProfiListTitlModule> data = [
     ProfiListTitlModule(
         title: "ضبط كلمة المرور", icon: Icons.key, onTap: () {}),
-    ProfiListTitlModule(title: "حذف الحساب", icon: Icons.person, onTap: () {})
+    ProfiListTitlModule(title: "حذف الحساب", icon: Icons.person, onTap: () {
+
+
+
+    })
   ];
 
   @override
@@ -36,8 +40,25 @@ class _SettingScreenState extends State<SettingScreen> {
         title: "ضبط كلمة المرور",
         icon: Icons.key,
         onTap: () {
-          Navigator.pushReplacement(context,
-              CupertinoPageRoute(builder: (context) => const EditPassword()));
+
+
+             showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Align(
+                      alignment: Alignment.center,
+                      child: Text("! هذه الخاصية غير متوفرة حاليا",
+                          style: GoogleFonts.almarai(
+                            color: const Color(0xFF1883DB),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ))),
+                  
+                );
+              });
+          // Navigator.pushReplacement(context,
+          //     CupertinoPageRoute(builder: (context) => const EditPassword()));
         },
       ),
       ProfiListTitlModule(

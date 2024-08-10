@@ -291,11 +291,11 @@ class _PersonalDataState extends State<PersonalData> {
 
   ////
   // List<PersonaldataModule> data = [];
-  void _handleRadioValueChanged(int value) {
-    setState(() {
-      _selectedValue = value;
-    });
-  }
+  // void _handleRadioValueChanged(int value) {
+  //   setState(() {
+  //     _selectedValue = value;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
