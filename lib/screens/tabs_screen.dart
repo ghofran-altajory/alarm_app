@@ -34,16 +34,16 @@ class _TabsScreenState extends State<TabsScreen> {
   }
 
   Future mySnackBar(
-      String message, bool isSuccess, BuildContext context) async {
-    var data = await firestore
-        .collection('add')
-        .where('user_id', isEqualTo: auth.currentUser!.uid)
-        .get();
-
-    data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
-
+      CardContinerModule message, bool isSuccess, BuildContext context) async {
+   
     Flushbar(
-      message: message,
+      // messageText:  var data = await firestore
+    //     .collection('add')
+    //     .where('user_id', isEqualTo: auth.currentUser!.uid)
+    //     .get();
+
+    // data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
+// ,
       icon: Icon(
         isSuccess ? Icons.check_sharp : Icons.warning_amber_rounded,
         size: 28.0,
