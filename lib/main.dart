@@ -53,21 +53,21 @@ class _MyAppState extends State<MyApp> {
                 // SubscribeScreen()
                 // IconProfile(),
                 // CheckData(),
-                PersonalData()
+               // PersonalData()
             // AdminSplash()
             // PersonalData()
             // Notifications()
 
             // PersonalData()
 
-            //TabsScreen()
+           // TabsScreen()
             // AdminLogin()
             //AdminLogin()
 
             // ReminderData()
             // CheckData()
 
-            // WelcomeScreen()
+             WelcomeScreen()
 
             //
             //SplashScreen()

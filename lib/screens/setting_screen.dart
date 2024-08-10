@@ -4,6 +4,7 @@ import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:alarm_app/main.dart';
 import 'package:alarm_app/module/profi_list_title.dart';
 import 'package:alarm_app/screens/edit_password.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -85,17 +86,70 @@ class _SettingScreenState extends State<SettingScreen> {
                               const SizedBox(width: 15),
                               GestureDetector(
                                 onTap: () async {
-                                  // await FirebaseAuth.instance
-                                  //     .()
-                                  //     .then((_) {
-                                  //   Navigator.pushReplacement(
-                                  //     context,
-                                  //     CupertinoPageRoute(
-                                  //         builder: (context) =>
-                                  //             const ScreenRouter()),
-                                  //   );
-                                  // });
+                                  //الكود الاول
+
+// final user = FirebaseAuth.instance.currentUser;
+//  if (user == null) {
+//  // Handle case where user is not signed in
+//  return;
+//  }
+//  // User confirmation dialog (implement as needed)
+//  try {
+//  // Re-authentication (if required)
+//  // ...
+//  // Delete user data from Firestore (adjust for your data structure)
+//  await FirebaseFirestore.instance.collection('users').doc(user.uid).delete();
+
+//  // Delete user data from Realtime Database (if used)
+//  // ...
+//  // Delete user data from Cloud Storage (if used)
+//  // ...
+//  // Delete the user account
+//  await user.delete();
+//  } catch (e) {
+//  // Handle errors
+//  print('Error deleting account: $e');
+//  }
+                                  ////// الكود الثاني
+                                  ///
+                                  User? user =
+                                      FirebaseAuth.instance.currentUser;
+                                  if (user != null) {
+                                    try {
+                                      await user.delete();
+                                      Navigator.pushReplacement(
+                                        context,
+                                        CupertinoPageRoute(
+                                            builder: (context) =>
+                                                const ScreenRouter()),
+                                      );
+
+                                      // Handle successful deletion, e.g., navigate to a login screen
+                                    } on FirebaseAuthException catch (e) {
+                                      // setState(() {
+                                      //   isClick = false;
+                                      // });
+
+                                      // ignore: use_build_context_synchronously
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              content:
+                                                  Text(e.message.toString())));
+                                    }
+                                  }
                                 },
+
+                                // await FirebaseAuth.instance
+                                //     .()
+                                //     .then((_) {
+                                //   Navigator.pushReplacement(
+                                //     context,
+                                //     CupertinoPageRoute(
+                                //         builder: (context) =>
+                                //             const ScreenRouter()),
+                                //   );
+                                // });
+
                                 child: Container(
                                   padding: const EdgeInsets.all(15),
                                   decoration: BoxDecoration(

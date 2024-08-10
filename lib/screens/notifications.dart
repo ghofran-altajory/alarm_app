@@ -313,7 +313,7 @@ Future mySnackBar(String message, bool isSuccess, BuildContext context) async {
     flushbarPosition: FlushbarPosition.TOP,
     textDirection: Directionality.of(context),
     borderRadius: BorderRadius.circular(12),
-    duration: const Duration(seconds: 2),
+    duration: const Duration(seconds: 4),
     leftBarIndicatorColor: Colors.blue,
   ).show(context);
 }

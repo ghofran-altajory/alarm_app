@@ -177,7 +177,7 @@ class _ArchiveState extends State<Archive> {
                               // if (response.isEmpty) {
                               //   return;
                               // }
-                              // final List<XFile>? files = response.files;
+                              //   final List<XFile>? files = response.files;
                               // if (files != null) {
                               //   // _handleLostFiles(files);
                               // } else {
