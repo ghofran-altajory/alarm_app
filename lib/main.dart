@@ -49,18 +49,18 @@ class _MyAppState extends State<MyApp> {
             ),
             home:
                 // AdminSubscrib()
-                 TabsScreen()
-                // SubscribeScreen()
-                // IconProfile(),
-                // CheckData(),
-               // PersonalData()
+                TabsScreen()
+            // SubscribeScreen()
+            // IconProfile(),
+            // CheckData(),
+            // PersonalData()
             // AdminSplash()
             // PersonalData()
             // Notifications()
 
             // PersonalData()
 
-           // TabsScreen()
+            // TabsScreen()
             // AdminLogin()
             //AdminLogin()
 

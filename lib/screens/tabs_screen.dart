@@ -12,6 +12,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../module/card_continer_module.dart';
 
@@ -29,50 +30,69 @@ class _TabsScreenState extends State<TabsScreen> {
   // /////
   @override
   void initState() {
-    // notification();
+    notification();
     super.initState();
   }
 
-  Future mySnackBar(
-      CardContinerModule message, bool isSuccess, BuildContext context) async {
-   
-    Flushbar(
-      // messageText:  var data = await firestore
-    //     .collection('add')
-    //     .where('user_id', isEqualTo: auth.currentUser!.uid)
-    //     .get();
+//   Future mySnackBar(
+//       String message, bool isSuccess, BuildContext context) async {
 
-    // data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
-// ,
-      icon: Icon(
-        isSuccess ? Icons.check_sharp : Icons.warning_amber_rounded,
-        size: 28.0,
-        color: Colors.blue,
-      ),
-      margin: const EdgeInsets.all(6.0),
-      flushbarStyle: FlushbarStyle.FLOATING,
-      flushbarPosition: FlushbarPosition.TOP,
-      textDirection: Directionality.of(context),
-      borderRadius: BorderRadius.circular(12),
-      duration: const Duration(seconds: 2),
-      leftBarIndicatorColor: Colors.blue,
-    ).show(context);
+//     Flushbar(
+//       message: message,
+//       // messageText:  var data = await firestore
+//     //     .collection('add')
+//     //     .where('user_id', isEqualTo: auth.currentUser!.uid)
+//     //     .get();
+
+//     // data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
+// // ,
+//       icon: Icon(
+//         isSuccess ? Icons.check_sharp : Icons.warning_amber_rounded,
+//         size: 28.0,
+//         color: Colors.blue,
+//       ),
+//       margin: const EdgeInsets.all(6.0),
+//       flushbarStyle: FlushbarStyle.FLOATING,
+//       flushbarPosition: FlushbarPosition.TOP,
+//       textDirection: Directionality.of(context),
+//       borderRadius: BorderRadius.circular(12),
+//       duration: const Duration(seconds: 2),
+//       leftBarIndicatorColor: Colors.blue,
+//     ).show(context);
+//   }
+  notification() async {
+    var data = await firestore
+        .collection('add')
+        .where('user_id', isEqualTo: auth.currentUser!.uid)
+        .get();
+    List<CardContinerModule> dataNotification =
+        data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
+    for (var element in dataNotification) {
+      Timer(const Duration(seconds: 2), () {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          // shape: TextStyle(fontSize: 20),
+          backgroundColor: Color(0xFFC5E4FE),
+          dismissDirection: DismissDirection.up,
+          behavior: SnackBarBehavior.floating,
+          margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.height - 210,
+              left: 30,
+              right: 30),
+          // margin: const EdgeInsets.all(6.0),
+          content: Text(
+            textAlign: TextAlign.right,
+            style: GoogleFonts.almarai(
+              color: const Color.fromARGB(255, 24, 1, 1),
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+            element.title ?? "",
+            selectionColor: Color.fromARGB(255, 0, 4, 7),
+          ),
+        ));
+      });
+    }
   }
-  // notification() async {
-  // var data = await firestore
-  //     .collection('add')
-  //     .where('user_id', isEqualTo: auth.currentUser!.uid)
-  //     .get();
-  // List<CardContinerModule> dataNotification =
-  //     data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
-  // for (var element in dataNotification) {
-  //   Timer(const Duration(seconds: 2), () {
-  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //           // margin: const EdgeInsets.all(6.0),
-  //           content: Text(element.title ?? "" ) ));
-  //     });
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {

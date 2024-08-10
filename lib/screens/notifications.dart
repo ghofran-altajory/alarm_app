@@ -226,8 +226,6 @@ class _NotificationmodulWidgetState extends State<NotificationmodulWidget> {
                   // _isCheckedWallet = false;
                 });
               },
-            
-     
             ),
           ),
         ),
