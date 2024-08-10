@@ -7,6 +7,7 @@ import 'package:alarm_app/screens/icon_profile.dart';
 import 'package:alarm_app/screens/notifications.dart';
 import 'package:alarm_app/screens/profile_screen.dart';
 import 'package:alarm_app/screens/setting_screen.dart';
+import 'package:another_flushbar/flushbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,25 +29,50 @@ class _TabsScreenState extends State<TabsScreen> {
   // /////
   @override
   void initState() {
-    notification();
+    // notification();
     super.initState();
   }
 
-  notification() async {
+  Future mySnackBar(
+      String message, bool isSuccess, BuildContext context) async {
     var data = await firestore
         .collection('add')
         .where('user_id', isEqualTo: auth.currentUser!.uid)
         .get();
-    List<CardContinerModule> dataNotification =
-        data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
-    for (var element in dataNotification) {
-      Timer(const Duration(seconds: 2), () {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            // margin: const EdgeInsets.all(6.0),
-            content: Text(element.title ?? "")));
-      });
-    }
+
+    data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
+
+    Flushbar(
+      message: message,
+      icon: Icon(
+        isSuccess ? Icons.check_sharp : Icons.warning_amber_rounded,
+        size: 28.0,
+        color: Colors.blue,
+      ),
+      margin: const EdgeInsets.all(6.0),
+      flushbarStyle: FlushbarStyle.FLOATING,
+      flushbarPosition: FlushbarPosition.TOP,
+      textDirection: Directionality.of(context),
+      borderRadius: BorderRadius.circular(12),
+      duration: const Duration(seconds: 2),
+      leftBarIndicatorColor: Colors.blue,
+    ).show(context);
   }
+  // notification() async {
+  // var data = await firestore
+  //     .collection('add')
+  //     .where('user_id', isEqualTo: auth.currentUser!.uid)
+  //     .get();
+  // List<CardContinerModule> dataNotification =
+  //     data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
+  // for (var element in dataNotification) {
+  //   Timer(const Duration(seconds: 2), () {
+  //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //           // margin: const EdgeInsets.all(6.0),
+  //           content: Text(element.title ?? "" ) ));
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
