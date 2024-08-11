@@ -130,13 +130,15 @@ class NotificationmodulWidget extends StatefulWidget {
 }
 
 class _NotificationmodulWidgetState extends State<NotificationmodulWidget> {
+  FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
   bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Container(
       // height: 300,
       decoration: BoxDecoration(
-        color: _isChecked ? Colors.white : Color(0x70C5E4FE),
+        color: widget.data.isFinsh == true  ? Colors.white : Color(0x70C5E4FE),
       ),
 
       child: Padding(
@@ -219,12 +221,29 @@ class _NotificationmodulWidgetState extends State<NotificationmodulWidget> {
               ],
             ),
             trailing: Checkbox(
-              value: _isChecked,
-              onChanged: (bool? value) {
-                setState(() {
-                  _isChecked = value!;
-                  // _isCheckedWallet = false;
+              value: widget.data.isFinsh,
+              // _isChecked,
+              onChanged: (bool? value) async {
+                var deletable = await firestore
+                    .collection('add')
+                    .where("user_id", isEqualTo: auth.currentUser!.uid)
+                    .get();
+
+                firestore
+                    .collection('add')
+                    .doc(deletable.docs.first.id.toString())
+                    .update({
+                  "isFinsh": widget.data.isFinsh == true ? false : true,
+                }).then((value) {
+                  setState(() {
+                    widget.data.isFinsh =
+                        widget.data.isFinsh == true ? false : true;
+                  });
                 });
+                // setState(() {
+                //   _isChecked = value!;
+                //   // _isCheckedWallet = false;
+                // });
               },
             ),
           ),

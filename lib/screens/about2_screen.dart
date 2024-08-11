@@ -50,7 +50,7 @@ class _About2ScreenState extends State<About2Screen> {
           child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Center(
@@ -59,6 +59,9 @@ class _About2ScreenState extends State<About2Screen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
+                SizedBox(
+                  height: 20,
+                ),
                 Text(':نبذه عن التطبيق',
                     textAlign: TextAlign.right,
                     style: GoogleFonts.almarai(
@@ -68,6 +71,7 @@ class _About2ScreenState extends State<About2Screen> {
                     )),
                 Text('''
                  “ Your Alarm “ تطبيق
+              
                 هو منبه لذوي كبار السن و الاحتياجات 
 الخاصة لمساعدتهم على تذكر مواعيد الادوية والمراجعات 
 الطبية,حيث يوفر الية تذكير بالمواعيد القريبة للحالة من خلال

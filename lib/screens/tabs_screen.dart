@@ -79,15 +79,37 @@ class _TabsScreenState extends State<TabsScreen> {
               left: 30,
               right: 30),
           // margin: const EdgeInsets.all(6.0),
-          content: Text(
-            textAlign: TextAlign.right,
-            style: GoogleFonts.almarai(
-              color: const Color.fromARGB(255, 24, 1, 1),
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-            element.title ?? "",
-            selectionColor: Color.fromARGB(255, 0, 4, 7),
+          content: Row(
+            children: [
+              Icon(Icons.abc),
+              Column(
+                children: [
+                  Text(
+                    textAlign: TextAlign.right,
+                    style: GoogleFonts.almarai(
+                      color: const Color.fromARGB(255, 24, 1, 1),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                    element.title ?? "",
+                    selectionColor: Color.fromARGB(255, 0, 4, 7),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    textAlign: TextAlign.right,
+                    style: GoogleFonts.almarai(
+                      color: const Color.fromARGB(255, 24, 1, 1),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                    element.dec ?? "",
+                    selectionColor: Color.fromARGB(255, 0, 4, 7),
+                  ),
+                ],
+              ),
+            ],
           ),
         ));
       });
