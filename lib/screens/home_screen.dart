@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
   }
 
+  bool isFinsh = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -384,6 +385,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           "type":
                                                               alarmTypeController
                                                                   .text,
+                                                          "isFinsh": isFinsh
+                                                              ? false
+                                                              : true,
                                                         }).then((value) {
                                                           // setState(() async {
                                                           // data = await getData();

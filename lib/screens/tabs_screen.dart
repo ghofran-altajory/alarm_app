@@ -68,50 +68,130 @@ class _TabsScreenState extends State<TabsScreen> {
     List<CardContinerModule> dataNotification =
         data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
     for (var element in dataNotification) {
-      Timer(const Duration(seconds: 2), () {
+      Timer(const Duration(seconds: 1), () {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          // shape: TextStyle(fontSize: 20),
-          backgroundColor: Color(0xFFC5E4FE),
-          dismissDirection: DismissDirection.up,
-          behavior: SnackBarBehavior.floating,
-          margin: EdgeInsets.only(
-              bottom: MediaQuery.of(context).size.height - 210,
-              left: 30,
-              right: 30),
-          // margin: const EdgeInsets.all(6.0),
-          content: Row(
-            children: [
-              Icon(Icons.abc),
-              Column(
+            // shape: TextStyle(fontSize: 20),
+            backgroundColor: const Color(0xFFC5E4FE),
+            dismissDirection: DismissDirection.up,
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.height - 210,
+                left: 30,
+                right: 30),
+            // margin: const EdgeInsets.all(6.0),
+            content: ListTile(
+              leading: Text(
+                element.time ?? "",
+                // textAlign: TextAlign.center,
+                style: GoogleFonts.almarai(
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    textAlign: TextAlign.right,
-                    style: GoogleFonts.almarai(
-                      color: const Color.fromARGB(255, 24, 1, 1),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                    element.title ?? "",
-                    selectionColor: Color.fromARGB(255, 0, 4, 7),
+                  const Column(
+                    children: [
+                      // Text(
+                      //   element.time ?? "",
+                      //   // textAlign: TextAlign.center,
+                      //   style: GoogleFonts.almarai(
+                      //     color: const Color.fromARGB(255, 0, 0, 0),
+                      //     fontSize: 20,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      // ),
+                      SizedBox(height: 4),
+                    ],
                   ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    textAlign: TextAlign.right,
-                    style: GoogleFonts.almarai(
-                      color: const Color.fromARGB(255, 24, 1, 1),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                    element.dec ?? "",
-                    selectionColor: Color.fromARGB(255, 0, 4, 7),
+
+                  // SizedBox(
+                  //   width: 0,
+                  // ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            element.title ?? "",
+                            // element.dec ?? "",
+                            // textAlign: TextAlign.center,
+                            style: GoogleFonts.almarai(
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            element.dec ?? "",
+                            style: GoogleFonts.almarai(
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
-        ));
+              // subtitle: Row(
+              //   children: [
+              //     Column(
+              //       children: [
+              //         // Text(
+              //         //   element.time ?? "",
+              //         //   // textAlign: TextAlign.center,
+              //         //   style: GoogleFonts.almarai(
+              //         //     color: const Color.fromARGB(255, 0, 0, 0),
+              //         //     fontSize: 14,
+              //         //   ),
+              //         // ),
+              //       ],
+              //     ),
+              //   ],
+              // ),
+              trailing: const Icon(Icons.alarm_rounded, size: 35),
+              //  Row(
+              //   children: [
+              //     Icon(Icons.abc),
+              //     Column(
+              //       children: [
+              //         Text(
+              //           textAlign: TextAlign.right,
+              //           style: GoogleFonts.almarai(
+              //             color: const Color.fromARGB(255, 24, 1, 1),
+              //             fontWeight: FontWeight.bold,
+              //             fontSize: 20,
+              //           ),
+              // element.title ?? "",
+              //           selectionColor: Color.fromARGB(255, 0, 4, 7),
+              //         ),
+              //         SizedBox(
+              //           height: 5,
+              //         ),
+              //         Text(
+              //           textAlign: TextAlign.right,
+              //           style: GoogleFonts.almarai(
+              //             color: const Color.fromARGB(255, 24, 1, 1),
+              //             fontWeight: FontWeight.bold,
+              //             fontSize: 20,
+              //           ),
+              //           element.dec ?? "",
+              //           selectionColor: Color.fromARGB(255, 0, 4, 7),
+              //         ),
+              //       ],
+              //     ),
+              //   ],
+              // )
+            )));
       });
     }
   }
@@ -154,7 +234,7 @@ class _TabsScreenState extends State<TabsScreen> {
                   child: IconButton(
                       onPressed: () {
                         Navigator.of(context).push(CupertinoPageRoute(
-                            builder: (context) => (Notifications())));
+                            builder: (context) => (const Notifications())));
                       },
                       icon: const Icon(
                         Icons.notifications_active,
