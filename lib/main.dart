@@ -71,7 +71,7 @@ class _MyAppState extends State<MyApp> {
                 // ReminderData()
                 // CheckData()
 
-                TabsScreen()
+                TabsScreen() 
 
             //
             //SplashScreen()

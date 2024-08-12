@@ -19,10 +19,7 @@ class _AdsScreenState extends State<AdsScreen> {
 
   List<AdsModule> data = [];
   Future<List<AdsModule>> getData() async {
-    var data = await firestore
-        .collection('ads')
-        .where('user_id', isEqualTo: auth.currentUser!.uid)
-        .get();
+    var data = await firestore.collection('ads').get();
     return data.docs.map((e) => AdsModule.fromJson(e.data())).toList();
   }
 
