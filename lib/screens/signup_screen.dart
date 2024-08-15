@@ -3,6 +3,7 @@
 import 'package:alarm_app/main.dart';
 import 'package:alarm_app/screens/login_screen.dart';
 import 'package:alarm_app/screens/personal_data.dart';
+import 'package:alarm_app/screens/subscribe_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -277,7 +278,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(height: 80),
                   //sign in button
                   Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 25),
+                    padding: EdgeInsets.symmetric(horizontal: 25),
                     child: isClick
                         ? GestureDetector(
                             child: Container(

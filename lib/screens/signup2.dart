@@ -1,46 +1,38 @@
-import 'package:alarm_app/main.dart';
-import 'package:alarm_app/screens/signup2.dart';
-import 'package:alarm_app/screens/signup_screen.dart';
+import 'package:alarm_app/screens/login_screen.dart';
+import 'package:alarm_app/screens/subscribe2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class Signup2 extends StatefulWidget {
+  const Signup2({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<Signup2> createState() => _Signup2State();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+class _Signup2State extends State<Signup2> {
+   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  TextEditingController usernamecontroller = TextEditingController();
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+  TextEditingController confirmpasswordcontroller = TextEditingController();
+  final _hasFocus = ValueNotifier<bool>(false);
   bool isClick = false;
   bool isShow = true;
+  bool isShow2 = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFCFCFf),
+  backgroundColor: const Color(0xFFFCFCFf),
       appBar: AppBar(
-        leading: IconTheme(
-          data: const IconThemeData(
-            color: Color(0xFF1883DB),
-          ),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
         toolbarHeight: kToolbarHeight,
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: const Color.fromARGB(255, 252, 252, 252),
         title: Text(
-          'تسجيل الدخول',
+          'حساب جديد',
           textAlign: TextAlign.center,
           style: GoogleFonts.almarai(
             color: const Color(0xFF1883DB),
@@ -59,55 +51,15 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //Image
-                  //Image.asset(
-                  // 'assets/pic.png',
-                  // height: 150,
-                  //   ),
                   const SizedBox(height: 20),
-                  //Title
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              textAlign: TextAlign.end,
-                              '! مرحبا',
-                              style: GoogleFonts.almarai(
-                                color: const Color(0xFF1883DB),
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              'هنا بإمكانك تسجيل دخولك إذا توفر لديك حساب ',
-                              style: GoogleFonts.almarai(
-                                fontSize: 12,
-                                color: Colors.black,
-                              ),
-                            ),
-                            const SizedBox(height: 15),
-                          ]), //
-                    ],
-                  ),
-                  //sub title
-
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  //user name or Email
+                  //user name
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text(': البريد الالكتروني',
+                          Text(':اسم المستخدم',
                               textAlign: TextAlign.right,
                               style: GoogleFonts.almarai(
                                 color: const Color(0xFF000000),
@@ -120,6 +72,64 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 13),
                   TextFormField(
+                    onChanged: (text) {
+                      if (_hasFocus.value) {
+                        _hasFocus.value = false;
+                      }
+                    },
+                    onTap: () {
+                      _hasFocus.value = true;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "!الرجاء إدخال اسم المستخدم ";
+                      }
+
+                      return null;
+                    },
+                    controller: usernamecontroller,
+                    decoration: InputDecoration(
+                      hintText: 'اسم المستخدم',
+                      filled: true,
+                      fillColor: const Color(0x70C5E4FE),
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 2, horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          borderSide: BorderSide.none),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue)),
+                    ),
+                  ),
+                  const SizedBox(height: 25),
+                  // Email
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(' :البريد الالكتروني',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.almarai(
+                                color: const Color(0xFF000000),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 13),
+                  TextFormField(
+                    onChanged: (text) {
+                      if (_hasFocus.value) {
+                        _hasFocus.value = false;
+                      }
+                    },
+                    onTap: () {
+                      _hasFocus.value = true;
+                    },
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "!الرجاء إدخال بريدك الإلكتروني ";
@@ -198,43 +208,73 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderSide: BorderSide(color: Colors.blue)),
                     ),
                   ),
-                  const SizedBox(height: 15),
 
+                  const SizedBox(height: 25),
+                  //confim password
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  title: Align(
-                                      alignment: Alignment.center,
-                                      child:
-                                          Text("! هذه الخاصية غير متوفرة حاليا",
-                                              style: GoogleFonts.almarai(
-                                                color: const Color(0xFF1883DB),
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18,
-                                              ))),
-                                );
-                              });
-                        },
-                        child: Text(
-                          'هل نسيت كلمة المرور؟',
-                          style: GoogleFonts.almarai(
-                              fontSize: 15,
-                              color: const Color(0xFF1883DB),
-                              fontWeight: FontWeight.bold),
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(':تأكيد كلمة المرور',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.almarai(
+                                color: const Color.fromARGB(255, 24, 1, 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              )),
+                        ],
                       ),
                     ],
                   ),
+                  const SizedBox(height: 13),
+                  TextFormField(
+                    obscureText: isShow2,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "!الرجاء تأكيد كلمة المرور";
+                      }
+
+                      if (value != passwordcontroller.text) {
+                        return "!كلمات المرور غير متطابقة";
+                      }
+
+                      return null;
+                    },
+                    controller: confirmpasswordcontroller,
+                    decoration: InputDecoration(
+                      hintText: '**********',
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                            !isShow2 ? Icons.visibility : Icons.visibility_off),
+                        onPressed: () {
+                          setState(() {
+                            isShow2 = !isShow2;
+                            // isShow?
+                            // isShow=false
+                            // :
+                            // isShow = true;
+                          });
+                        },
+                      ),
+                      hintStyle: const TextStyle(fontSize: 16),
+                      filled: true,
+                      fillColor: const Color(0x70C5E4FE),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          borderSide: BorderSide.none),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue)),
+                    ),
+                  ),
+
                   const SizedBox(height: 80),
                   //sign in button
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    padding:  EdgeInsets.symmetric(horizontal: 25),
                     child: isClick
                         ? GestureDetector(
                             child: Container(
@@ -254,9 +294,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   setState(() {
                                     isClick = true;
                                   });
-
                                   await FirebaseAuth.instance
-                                      .signInWithEmailAndPassword(
+                                      .createUserWithEmailAndPassword(
                                           email: emailcontroller.text,
                                           password: passwordcontroller.text)
                                       .then((userCredential) {
@@ -265,7 +304,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           context,
                                           CupertinoPageRoute(
                                               builder: (context) =>
-                                                  const ScreenRouter()),
+                                                  Subscribe2()),
                                           (route) => false);
                                     }
                                   });
@@ -273,7 +312,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                   setState(() {
                                     isClick = false;
                                   });
-
                                   // ignore: use_build_context_synchronously
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
@@ -282,13 +320,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               }
                             },
                             child: Container(
-                              padding: const EdgeInsets.all(18),
+                              padding: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
                                   color: const Color(0xFF1883DB),
                                   borderRadius: BorderRadius.circular(30)),
                               child: Center(
                                   child: Text(
-                                'تسجيل الدخول',
+                                'إنشاء حساب',
                                 style: GoogleFonts.almarai(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -299,7 +337,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                   ),
                   const SizedBox(
-                    height: 12,
+                    height: 25,
                   ),
                   //text: sign up
                   Row(
@@ -307,11 +345,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(CupertinoPageRoute(
-                              builder: (context) => const Signup2()));
+                          Navigator.push(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) => const LoginScreen()));
                         },
                         child: Text(
-                          'سجل الان',
+                          'سجل دخولك',
                           style: GoogleFonts.almarai(
                               fontSize: 12,
                               color: const Color(0xFF1883DB),
@@ -322,9 +362,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: 5,
                       ),
                       Text(
-                        'لا يوجد لديك حساب؟',
-                        style: GoogleFonts.almarai(
-                            fontSize: 12, fontWeight: FontWeight.bold),
+                        'هل لديك حساب؟',
+                        style: GoogleFonts.almarai(fontWeight: FontWeight.bold),
                       ),
                     ],
                   )
