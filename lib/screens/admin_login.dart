@@ -190,16 +190,31 @@ class _AdminLoginState extends State<AdminLogin> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text('هل نسيت كلمة المرور؟',
-                              textAlign: TextAlign.right,
-                              style: GoogleFonts.almarai(
-                                color: const Color(0xFF1883DB),
-                                fontSize: 15,
-                              )),
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Align(
+                                      alignment: Alignment.center,
+                                      child:
+                                          Text("! هذه الخاصية غير متوفرة حاليا",
+                                              style: GoogleFonts.almarai(
+                                                color: const Color(0xFF1883DB),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18,
+                                              ))),
+                                );
+                              });
+                        },
+                        child: Text(
+                          'هل نسيت كلمة المرور؟',
+                          style: GoogleFonts.almarai(
+                              fontSize: 15,
+                              color: const Color(0xFF1883DB),
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),

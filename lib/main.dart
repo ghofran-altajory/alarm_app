@@ -1,7 +1,9 @@
 import 'package:alarm_app/screens/about2_screen.dart';
 import 'package:alarm_app/screens/about_screen.dart';
+import 'package:alarm_app/screens/admin_splash.dart';
 import 'package:alarm_app/screens/archive.dart';
 import 'package:alarm_app/screens/personal_data.dart';
+import 'package:alarm_app/screens/splash_screen.dart';
 import 'package:alarm_app/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -52,11 +54,14 @@ class _MyAppState extends State<MyApp> {
             theme: ThemeData(
               useMaterial3: false,
             ),
-            home: AboutScreen()
-            //Archive()
-            // Modifyscreen(),
-            // AdminSubscrib()
-            // TabsScreen()
+            home:
+                //SplashScreen()
+                //AboutScreen()
+                //Archive()
+                // Modifyscreen(),
+                // AdminSubscrib()
+                
+                TabsScreen()
             // SubscribeScreen()
             // IconProfile(),
             // CheckData(),
@@ -82,7 +87,7 @@ class _MyAppState extends State<MyApp> {
             // PaymentMethod()
 // CheckData()
             // ignore: prefer_const_constructors
-            // home: const AdminSplash()
+
             );
   }
 }
