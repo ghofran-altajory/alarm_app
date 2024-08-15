@@ -1,3 +1,5 @@
+import 'package:alarm_app/screens/about2_screen.dart';
+import 'package:alarm_app/screens/about_screen.dart';
 import 'package:alarm_app/screens/archive.dart';
 import 'package:alarm_app/screens/personal_data.dart';
 import 'package:alarm_app/screens/tabs_screen.dart';
@@ -50,28 +52,29 @@ class _MyAppState extends State<MyApp> {
             theme: ThemeData(
               useMaterial3: false,
             ),
-            home: //Archive()
-                // Modifyscreen(),
-                // AdminSubscrib()
-                // TabsScreen()
-                // SubscribeScreen()
-                // IconProfile(),
-                // CheckData(),
-                // PersonalData()
-                // AdminSplash()
-                // PersonalData()
-                // Notifications()
+            home: AboutScreen()
+            //Archive()
+            // Modifyscreen(),
+            // AdminSubscrib()
+            // TabsScreen()
+            // SubscribeScreen()
+            // IconProfile(),
+            // CheckData(),
+            // PersonalData()
+            // AdminSplash()
+            // PersonalData()
+            // Notifications()
 
-                // PersonalData()
+            // PersonalData()
 
-                // TabsScreen()
-                // AdminLogin()
-                //AdminLogin()
+            // TabsScreen()
+            // AdminLogin()
+            //AdminLogin()
 
-                // ReminderData()
-                // CheckData()
+            // ReminderData()
+            // CheckData()
 
-                TabsScreen() 
+            // TabsScreen()
 
             //
             //SplashScreen()
