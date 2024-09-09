@@ -13,81 +13,90 @@ class Archive extends StatefulWidget {
 
 class _ArchiveState extends State<Archive> {
   List<File?> images = [];
+  int counter = 1; // Counter to keep track of the index
 
-  showOption(BuildContext context) {
+  Future<void> showOption(BuildContext context) async {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Align(
-            alignment: Alignment.center,
-            child: Text(":اختر الطريقة",
-                style: GoogleFonts.almarai(
-                  color: const Color(0xFF1883DB),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ))),
+          alignment: Alignment.center,
+          child: Text(
+            ":اختر الطريقة",
+            style: GoogleFonts.almarai(
+              color: const Color(0xFF1883DB),
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+        ),
         content: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(children: [
-              // Padding( padding: const EdgeInsets.symmetric(horizontal: 10)),
-              ListTile(
-                trailing: const Icon(
-                  Icons.camera_alt_outlined,
-                  color: Colors.blue,
-                ),
-                title: Text('الكاميرا',
+            child: Column(
+              children: [
+                ListTile(
+                  trailing: const Icon(
+                    Icons.camera_alt_outlined,
+                    color: Colors.blue,
+                  ),
+                  title: Text(
+                    'الكاميرا',
                     style: GoogleFonts.almarai(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold)),
-                leading: const Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  leading: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  onTap: () => imageFormCamera(context),
                 ),
-                onTap: () => imageFormCamera(context),
-              ),
-              ListTile(
-                title: Text('المعرض',
+                ListTile(
+                  title: Text(
+                    'المعرض',
                     style: GoogleFonts.almarai(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold)),
-                trailing: const Icon(
-                  Icons.image,
-                  color: Colors.blue,
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.image,
+                    color: Colors.blue,
+                  ),
+                  leading: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  onTap: () => imageFormGallery(context),
                 ),
-                leading: const Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                ),
-                onTap: () => imageFormGallery(context),
-              ),
-            ]),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Future imageFormGallery(BuildContext context) async {
+  Future<void> imageFormGallery(BuildContext context) async {
     var image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image == null) return; //كان مادرتش هذي حيطلع خط اصفر
+    if (image == null) return;
     setState(() {
-      // imageFile = File(image.path);
       images.add(File(image.path));
+      counter++; // Increment counter for next image
     });
-    // final ref = FirebaseStorage.instance.ref().child(path);
-    // ref.putFile(file);
     Navigator.pop(context);
   }
 
-  Future imageFormCamera(BuildContext context) async {
+  Future<void> imageFormCamera(BuildContext context) async {
     var image = await ImagePicker().pickImage(source: ImageSource.camera);
     if (image == null) return;
     setState(() {
-      // imageFile = image as File;
       images.add(File(image.path));
+      counter++; // Increment counter for next image
     });
     Navigator.pop(context);
   }
@@ -97,105 +106,134 @@ class _ArchiveState extends State<Archive> {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFCFf),
       body: SafeArea(
-          child: Container(
-              padding: const EdgeInsets.all(20),
-              child: Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Text(
-                        ':الأرشيف',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.almarai(
-                          color: const Color(0xFF1883DB),
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Expanded(
-                        child: ListView.builder(
-                          // scrollDirection: Axis.horizontal,
-                          itemCount: images.length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Stack(
-                                children: [
-                                  Image.file(File(images[index]!.path)),
-                                  // Image.file(File(imageFile!.path)),
-                                  Positioned(
-                                      right: 2,
-                                      top: 2,
-                                      child: IconButton(
-                                        icon: const Icon(
-                                          Icons.delete_outline,
-                                          color: Colors.red,
-                                        ),
-                                        onPressed: () {
-                                          setState(() {
-                                            images.removeAt(index);
-                                          });
-                                        },
-                                      ))
-                                ],
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      SizedBox(height: 15),
-                      Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Text(
+                  ':الأرشيف',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.almarai(
+                    color: const Color(0xFF1883DB),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: images.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Stack(
                           children: [
-                            SizedBox(
-                              width: 70,
-                              height: 55,
+                            Image.file(File(images[index]!.path)),
+                            Positioned(
+                              left: 5,
+                              top: 6,
                               child: Container(
-                                decoration: BoxDecoration(
-                                    color: Color(0xFF1883DB),
-                                    borderRadius: BorderRadius.circular(15)),
-                                child: IconButton(
-                                    onPressed: () => showOption(context),
-                                    icon: const Center(
-                                      child: Icon(Icons.camera_alt_outlined,
-                                          color: Colors.white, size: 45),
-                                    )),
+                                color: Colors.black.withOpacity(
+                                    0.5), // Semi-transparent black background
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 8, vertical: 2),
+                                child: Text(
+                                  (index + 1)
+                                      .toString(), // Display the index number
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
                             ),
+                            Positioned(
+                                right: 0,
+                                top: 2,
+                                child: Container(
+                                    // color: Color.fromARGB(255, 29, 28, 28)
+                                    //     .withOpacity(0.5),
+                                    child: IconButton(
+                                  icon: const Icon(
+                                    size: 30,
+                                    Icons.delete,
+                                    color: Colors.red,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      images.removeAt(index);
+                                    });
+                                  },
+                                )))
                           ],
                         ),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 15),
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 70,
+                        height: 55,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFF1883DB),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: IconButton(
+                            onPressed: () => showOption(context),
+                            icon: const Center(
+                              child: Icon(
+                                Icons.camera_alt_outlined,
+                                color: Colors.white,
+                                size: 45,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.end,
-                      //   children: [
-                      //     Text(
-                      //       ': الأرشيف',
-                      //       textAlign: TextAlign.center,
-                      //       style: GoogleFonts.almarai(
-                      //         color: const Color(0xFF1883DB),
-                      //         fontSize: 20,
-                      //         fontWeight: FontWeight.bold,
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
+                    ],
+                  ),
+                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.end,
+                //   children: [
+                //     Text(
+                //       ': الأرشيف',
+                //       textAlign: TextAlign.center,
+                //       style: GoogleFonts.almarai(
+                //         color: const Color(0xFF1883DB),
+                //         fontSize: 20,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+                //   ],
+                // ),
 
-                      // Text(
-                      //   'هنا بإمكانك إضافة الصور الخاصة بك ',
-                      //   textAlign: TextAlign.center,
-                      //   style: GoogleFonts.almarai(
-                      //     color: const Color(0xFF1883DB),
-                      //     fontSize: 15,
-                      //     fontWeight: FontWeight.bold,
-                      //   ),
-                      // ),
-                    ]),
-              ))),
+                // Text(
+                //   'هنا بإمكانك إضافة الصور الخاصة بك ',
+                //   textAlign: TextAlign.center,
+                //   style: GoogleFonts.almarai(
+                //     color: const Color(0xFF1883DB),
+                //     fontSize: 15,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
