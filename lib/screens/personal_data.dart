@@ -407,8 +407,8 @@ class _PersonalDataState extends State<PersonalData> {
                               queryParameters: <String, String>{
                                 'body':
                                     Uri.decodeFull('''Download"YourAlarm"now!
-Email:ayaya@gmail.com
-Password:123456& Symbols are allowed!'''),
+Email:test@gmail.com
+Password:123456 Symbols are allowed!'''),
                               },
                             );
 

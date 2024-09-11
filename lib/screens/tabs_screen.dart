@@ -68,7 +68,7 @@ class _TabsScreenState extends State<TabsScreen> {
     List<CardContinerModule> dataNotification =
         data.docs.map((e) => CardContinerModule.fromJson(e.data())).toList();
     for (var element in dataNotification) {
-      Timer(const Duration(seconds: 1), () {
+      Timer(const Duration(minutes: 2), () {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             // shape: TextStyle(fontSize: 20),
             backgroundColor: const Color(0xFFC5E4FE),
