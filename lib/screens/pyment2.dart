@@ -32,7 +32,7 @@ class _Pyment2State extends State<Pyment2> {
           elevation: 0.0,
           backgroundColor: const Color.fromARGB(255, 252, 252, 252),
           title: Text(
-            ' طرق الدفع',
+            ' طرق التواصل',
             textAlign: TextAlign.center,
             style: GoogleFonts.almarai(
               color: const Color(0xFF1883DB),
